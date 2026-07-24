@@ -47,3 +47,10 @@ pip install -r requirements.txt
 python skills/bim-coordination/clash-report-analysis/scripts/parse_clash.py \
        skills/bim-coordination/clash-report-analysis/assets/sample_clash.xml
 ```
+
+## License của phần đóng góp / contribution license
+Khi mở PR, bạn đồng ý phát hành phần đóng góp theo giấy phép **MIT** của project
+(xem [`LICENSE`](LICENSE)) — inbound = outbound. Chỉ đóng góp nội dung bạn có
+quyền cấp phép.
+By submitting a PR you agree to license your contribution under the project's
+MIT License.

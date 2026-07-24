@@ -75,3 +75,8 @@ viết skill, chạy validate + audit, mở PR (CI + review sẽ kiểm định)
 ## Yêu cầu / requirements
 Python 3.11+. Cài deps: `pip install -r requirements.txt`. Lớp kiểm định chỉ
 cần `pyyaml` + thư viện chuẩn.
+
+## License
+Phát hành theo giấy phép **MIT** — xem [`LICENSE`](LICENSE). Bạn được tự do
+dùng, sửa và chia sẻ; giữ lại dòng bản quyền & giấy phép.
+Released under the **MIT License** — see [`LICENSE`](LICENSE).
