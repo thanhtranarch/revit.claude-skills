@@ -1,0 +1,18 @@
+# Rules mẫu cho Door Schedule / sample rules for a door schedule
+delimiter: ","
+
+# Cột không được để trống
+required:
+  - Mark
+  - Fire Rating
+
+# Cột phải duy nhất
+unique:
+  - Mark
+
+# Giá trị hợp lệ theo cột
+allowed:
+  Fire Rating:
+    - "1 HR"
+    - "2 HR"
+    - "None"

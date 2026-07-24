@@ -22,7 +22,7 @@ tests/fixtures/    malicious-skill — mẫu độc để test auditor
 | Bộ | Nội dung | Skill chạy được |
 |----|----------|-----------------|
 | `bim-coordination` | Clash & coordination | `clash-report-analysis`, `shared-coordinates` |
-| `revit-authoring` | Revit / Dynamo / pyRevit | `dynamo-pyrevit-helper` |
+| `revit-authoring` | Revit / Dynamo / pyRevit | `family-parameter-management`, `schedule-qa`, `revit-warnings-audit`, `dynamo-pyrevit-helper`, `revit-batch-export` |
 | `documentation-review` | Markup & comment | `pdf-markup-compare`, `comment-aggregation` |
 | `project-management` | ACC/BIM360 & Excel | `acc-issue-register` |
 

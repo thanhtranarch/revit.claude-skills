@@ -1,0 +1,7 @@
+Mark,Family,Fire Rating,Comments
+D-01,Single-Flush,1 HR,
+D-02,Single-Flush,2 HR,Coordinate with structure
+D-03,Double-Flush,,
+D-01,Single-Flush,1 HR,Duplicate mark
+D-05,Double-Flush,3 HR,Invalid rating value
+,Single-Flush,None,Blank mark

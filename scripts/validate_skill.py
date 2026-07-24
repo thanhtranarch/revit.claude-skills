@@ -37,8 +37,9 @@ MAX_SKILL_BYTES = 50 * 1024 * 1024                     # 50 MB / skill
 # Phần mở rộng cho phép trong 1 skill / allowed file extensions in a skill.
 ALLOWED_EXT = {
     ".md", ".py", ".txt", ".json", ".yaml", ".yml", ".csv", ".tsv",
-    ".xml", ".pdf", ".png", ".jpg", ".jpeg", ".svg", ".xlsx", ".dyn",
-    ".rvt", ".nwd", ".nwc", ".ifc", ".dwg", ".cfg", ".ini", ".toml",
+    ".xml", ".html", ".htm", ".pdf", ".png", ".jpg", ".jpeg", ".svg",
+    ".xlsx", ".dyn", ".rvt", ".nwd", ".nwc", ".ifc", ".dwg", ".dwf",
+    ".cfg", ".ini", ".toml",
 }
 # File thực thi / nhị phân đáng ngờ — chặn ngay / suspicious executables.
 BLOCKED_EXT = {

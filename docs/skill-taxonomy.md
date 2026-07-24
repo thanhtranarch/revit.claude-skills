@@ -23,11 +23,17 @@ skill theo lĩnh vực công việc trong ngành ACE/AEC.
 | `coordination-issue-log` | 🚧 scaffold | Biến clash thành issue log giao việc |
 
 ### 2. `revit-authoring` — Revit / Dynamo / pyRevit
+Bộ đầy đủ — xem [`skills/revit-authoring/README.md`](../skills/revit-authoring/README.md)
+để biết cách cài đặt.
+
 | Skill | Trạng thái | Mô tả ngắn |
 |-------|-----------|------------|
 | `dynamo-pyrevit-helper` | ✅ mẫu+ref | Viết/rà soát script pyRevit & Dynamo |
-| `family-parameter-management` | 🚧 scaffold | Chuẩn hoá & audit parameter |
-| `schedule-qa` | 🚧 scaffold | QA schedule & dữ liệu model |
+| `family-parameter-management` | ✅ chạy được | Phân tích shared parameter file (GUID/tên trùng, thiếu mô tả) |
+| `schedule-qa` | ✅ chạy được | Validate schedule CSV theo rules (required/unique/allowed) |
+| `revit-warnings-audit` | ✅ chạy được | Gom nhóm & ưu tiên warning từ HTML export |
+| `revit-model-audit` | ✅ hướng dẫn | Checklist sức khoẻ model (file size, purge, CAD…) |
+| `revit-batch-export` | ✅ mẫu+ref | Export hàng loạt sheet ra PDF/DWG/NWC/IFC theo tên chuẩn |
 
 ### 3. `documentation-review` — Tài liệu / Markup / Comment
 | Skill | Trạng thái | Mô tả ngắn |
