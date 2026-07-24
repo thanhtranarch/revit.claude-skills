@@ -25,6 +25,7 @@ tests/fixtures/    malicious-skill — mẫu độc để test auditor
 | `revit-authoring` | Revit / Dynamo / pyRevit | `family-parameter-management`, `schedule-qa`, `revit-warnings-audit`, `dynamo-pyrevit-helper`, `revit-batch-export` |
 | `documentation-review` | Markup & comment | `pdf-markup-compare`, `comment-aggregation` |
 | `project-management` | ACC/BIM360 & Excel | `acc-issue-register` |
+| `standards-qa` | Chuẩn & QA tài liệu | `iso19650-naming-check`, `spellcheck-review` |
 
 Bản đồ đầy đủ + skill scaffold: [`docs/skill-taxonomy.md`](docs/skill-taxonomy.md).
 

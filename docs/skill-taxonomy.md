@@ -49,6 +49,15 @@ Bộ đầy đủ — xem [`skills/revit-authoring/README.md`](../skills/revit-a
 | `rfi-tracker` | 🚧 scaffold | Theo dõi RFI + aging |
 | `weekly-report` | 🚧 scaffold | Báo cáo trạng thái tuần đa nguồn |
 
+### 5. `standards-qa` — Chuẩn & QA tài liệu/dữ liệu
+Bộ đầy đủ — xem [`skills/standards-qa/README.md`](../skills/standards-qa/README.md).
+
+| Skill | Trạng thái | Mô tả ngắn |
+|-------|-----------|------------|
+| `iso19650-naming-check` | ✅ chạy được | Kiểm tên file theo ISO 19650 (trường, Type/Role, status/revision) |
+| `spellcheck-review` | ✅ chạy được | Soát chính tả text AEC (lỗi thường gặp + từ lặp; `--dict` tuỳ chọn) |
+| `sheet-naming-check` | 🚧 scaffold | Kiểm chuẩn số/tên sheet & view, bắt trùng số |
+
 ## Mở rộng / how to grow
 1. Thêm bộ mới = thư mục con của `skills/` (vd `mep-systems`, `cost-qs`, `gis-civil`).
 2. Thêm skill = tạo thư mục + `SKILL.md` (copy `templates/SKILL_TEMPLATE.md`).
@@ -61,3 +70,4 @@ Bộ đầy đủ — xem [`skills/revit-authoring/README.md`](../skills/revit-a
 - `mep-systems` — kiểm tra hệ thống MEP, size ống/ống gió, áp lực.
 - `cost-qs` — bóc tách khối lượng, dự toán từ schedule.
 - `gis-civil` — Civil 3D, surface, corridor, toạ độ khảo sát.
+- Mở rộng `standards-qa` — BS 1192, COBie validation, layer standards.

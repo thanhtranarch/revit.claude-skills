@@ -49,8 +49,11 @@ TEXT_RULES = [
      re.compile(r"(~|/root|/home/[^/\s]+)/\.(ssh|gnupg)(/|\b)")),
     ("read-cloud-creds", "HIGH", "Truy cập credential đám mây",
      re.compile(r"\.(aws|azure|config/gcloud)/|/\.docker/config\.json")),
-    ("env-secret", "MEDIUM", "Đọc biến môi trường bí mật",
-     re.compile(r"(SECRET|TOKEN|PASSWORD|PASSWD|API[_-]?KEY|PRIVATE[_-]?KEY|ACCESS[_-]?KEY)", re.I)),
+    # Chỉ khớp định danh ALL_CAPS chứa từ khoá bí mật (kiểu tên env var) để
+    # tránh báo nhầm biến thường như 'token', 'tokens'. Case-sensitive.
+    ("env-secret", "MEDIUM", "Tên biến môi trường bí mật",
+     re.compile(r"\b[A-Z0-9_]*(SECRET|TOKEN|PASSWORD|PASSWD|API_KEY|APIKEY|"
+                r"PRIVATE_KEY|ACCESS_KEY|AUTH_TOKEN)[A-Z0-9_]*\b")),
     ("crypto-wallet", "HIGH", "Truy cập ví tiền mã hoá",
      re.compile(r"wallet\.dat|\.electrum|keystore|metamask", re.I)),
     # Prompt-injection trong SKILL.md / instruction override
