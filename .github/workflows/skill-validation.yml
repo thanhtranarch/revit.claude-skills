@@ -1,0 +1,40 @@
+name: Skill Validation
+
+# Kiểm định mọi skill khi có thay đổi trong skills/ (hoặc chỉnh script kiểm định).
+# Validate + security-audit skills on every PR/push touching skills/.
+
+on:
+  pull_request:
+    paths:
+      - "skills/**"
+      - "scripts/**"
+      - ".github/workflows/skill-validation.yml"
+  push:
+    branches: [main]
+    paths:
+      - "skills/**"
+      - "scripts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PyYAML (chỉ cần cho validate)
+        run: pip install pyyaml
+
+      - name: Validate skill structure
+        run: python scripts/validate_skill.py skills
+
+      - name: Security audit (fail on HIGH)
+        run: python scripts/audit_skill.py --fail-on high skills

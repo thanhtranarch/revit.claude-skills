@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<exchange units="m">
+  <batchtest name="Coordination Round 03">
+    <clashtests>
+      <clashtest name="STR vs MEP" status="ok">
+        <clashresults>
+          <clashresult name="Clash1" status="new" distance="-0.045" gridlocation="B-3 : Level 2">
+            <clashobjects>
+              <clashobject name="Structural Framing: W12x26">
+                <smarttags><smarttag><name>Item Name</name><value>Structural Framing: W12x26</value></smarttag></smarttags>
+              </clashobject>
+              <clashobject name="Duct: Supply Air 400x300">
+                <smarttags><smarttag><name>Item Name</name><value>Duct: Supply Air 400x300</value></smarttag></smarttags>
+              </clashobject>
+            </clashobjects>
+          </clashresult>
+          <clashresult name="Clash2" status="active" distance="-0.120" gridlocation="C-4 : Level 2">
+            <clashobjects>
+              <clashobject name="Structural Column: HSS">
+                <smarttags><smarttag><name>Item Name</name><value>Structural Column: HSS8x8</value></smarttag></smarttags>
+              </clashobject>
+              <clashobject name="Pipe: CHW 150">
+                <smarttags><smarttag><name>Item Name</name><value>Pipe: Chilled Water 150mm</value></smarttag></smarttags>
+              </clashobject>
+            </clashobjects>
+          </clashresult>
+          <clashresult name="Clash3" status="resolved" distance="-0.010" gridlocation="A-2 : Level 1">
+            <clashobjects>
+              <clashobject name="Wall"><smarttags><smarttag><name>Item Name</name><value>Basic Wall: Interior</value></smarttag></smarttags></clashobject>
+              <clashobject name="Cable Tray"><smarttags><smarttag><name>Item Name</name><value>Cable Tray: 300mm</value></smarttag></smarttags></clashobject>
+            </clashobjects>
+          </clashresult>
+        </clashresults>
+      </clashtest>
+      <clashtest name="MEP vs MEP" status="ok">
+        <clashresults>
+          <clashresult name="Clash4" status="new" distance="-0.030" gridlocation="D-5 : Level 3">
+            <clashobjects>
+              <clashobject name="Duct"><smarttags><smarttag><name>Item Name</name><value>Duct: Return Air 600x400</value></smarttag></smarttags></clashobject>
+              <clashobject name="Pipe"><smarttags><smarttag><name>Item Name</name><value>Pipe: Domestic Water 50mm</value></smarttag></smarttags></clashobject>
+            </clashobjects>
+          </clashresult>
+          <clashresult name="Clash5" status="reviewed" distance="-0.005" gridlocation="D-6 : Level 3">
+            <clashobjects>
+              <clashobject name="Conduit"><smarttags><smarttag><name>Item Name</name><value>Conduit: EMT 25mm</value></smarttag></smarttags></clashobject>
+              <clashobject name="Sprinkler"><smarttags><smarttag><name>Item Name</name><value>Pipe: Sprinkler 40mm</value></smarttag></smarttags></clashobject>
+            </clashobjects>
+          </clashresult>
+        </clashresults>
+      </clashtest>
+    </clashtests>
+  </batchtest>
+</exchange>

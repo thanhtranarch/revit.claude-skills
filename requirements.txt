@@ -1,0 +1,15 @@
+# Dependencies cho script trong skills/ và scripts/
+# Lớp bảo mật (validate_skill.py, audit_skill.py) chỉ cần pyyaml + stdlib.
+
+pyyaml>=6.0        # đọc frontmatter SKILL.md (validate_skill.py)
+pypdf>=4.0         # pdf-markup-compare (đọc annotation/text)
+openpyxl>=3.1      # comment-aggregation (xuất Excel register)
+
+# --- Tuỳ chọn / optional -------------------------------------------------
+# spellcheck-review chạy được KHÔNG cần gói này (chế độ mặc định). Cài để bật
+# chế độ --dict (dò "từ lạ"):
+pyspellchecker>=0.8   # optional — chỉ cho spellcheck-review --dict
+
+# Ghi chú: nhiều script chỉ dùng thư viện chuẩn (parse_clash.py,
+# normalize_issues.py, parse_warnings.py, analyze_shared_params.py,
+# check_iso19650.py, spellcheck.py chế độ mặc định).
