@@ -1,0 +1,6 @@
+Element ID,Category,Family,Type,Level,Comments
+100,Doors,AR_Door_Single,800x2100,Level 1,
+101,Doors,AR_Door_Single,900x2100,Level 1,
+102,Walls,Basic Wall,Generic 200,Level 1,
+103,Windows,AR_Window,1200x1500,Level 2,
+104,Structural Columns,ST_Column_Rect,300x600,Level 1,

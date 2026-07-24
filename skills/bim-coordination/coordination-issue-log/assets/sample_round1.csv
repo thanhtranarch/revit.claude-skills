@@ -1,0 +1,5 @@
+Clash ID,Description,Disciplines,Owner,Status,Priority,Grid,Found Date,Target Date
+CL-001,Duct vs beam,MEP-Structural,M. Le,Active,High,C-4,2026-06-15,2026-06-29
+CL-002,Pipe vs wall,MEP-Architecture,M. Le,Active,Medium,B-2,2026-06-15,2026-06-29
+CL-003,Cable tray vs duct,MEP,K. Nguyen,Active,Low,Level 3,2026-06-15,2026-07-06
+CL-004,Column vs door,Structural-Architecture,J. Tran,Active,High,A-1,2026-06-15,2026-06-29

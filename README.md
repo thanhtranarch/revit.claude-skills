@@ -9,7 +9,7 @@ layer** to audit community-contributed skills.
 
 ## Có gì / What's inside
 ```
-skills/            4 bộ skill (xem docs/skill-taxonomy.md)
+skills/            5 bộ skill · 23 skill (xem docs/skill-taxonomy.md)
 scripts/           validate_skill.py + audit_skill.py — lớp kiểm định
 .claude/agents/    skill-auditor — agent review bảo mật skill
 .github/           CI (skill-validation), CODEOWNERS, PR template
@@ -18,14 +18,14 @@ templates/         SKILL_TEMPLATE.md
 tests/fixtures/    malicious-skill — mẫu độc để test auditor
 ```
 
-## Bốn bộ skill / four skill sets
-| Bộ | Nội dung | Skill chạy được |
-|----|----------|-----------------|
-| `bim-coordination` | Clash & coordination | `clash-report-analysis`, `shared-coordinates` |
-| `revit-authoring` | Revit / Dynamo / pyRevit | `family-parameter-management`, `schedule-qa`, `revit-warnings-audit`, `dynamo-pyrevit-helper`, `revit-batch-export` |
-| `documentation-review` | Markup & comment | `pdf-markup-compare`, `comment-aggregation` |
-| `project-management` | ACC/BIM360 & Excel | `acc-issue-register` |
-| `standards-qa` | Chuẩn & QA tài liệu | `iso19650-naming-check`, `spellcheck-review` |
+## Năm bộ skill / five skill sets
+| Bộ | Nội dung | Skill chạy được / runnable |
+|----|----------|---------------------------|
+| `bim-coordination` | Clash & coordination | `clash-report-analysis`, `coordination-issue-log`, `model-federation`, `shared-coordinates` |
+| `revit-authoring` | Revit / Dynamo / pyRevit | `family-parameter-management`, `schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `family-naming-audit`, `model-compare`, `dynamo-pyrevit-helper`, `revit-batch-export` |
+| `documentation-review` | Markup & comment | `pdf-markup-compare`, `comment-aggregation`, `submittal-log` |
+| `project-management` | ACC/BIM360 & Excel | `acc-issue-register`, `rfi-tracker`, `weekly-report`, `change-order-log`, `action-item-tracker` |
+| `standards-qa` | Chuẩn & QA tài liệu | `iso19650-naming-check`, `spellcheck-review`, `sheet-naming-check` |
 
 Bản đồ đầy đủ + skill scaffold: [`docs/skill-taxonomy.md`](docs/skill-taxonomy.md).
 
@@ -41,6 +41,15 @@ python skills/bim-coordination/clash-report-analysis/scripts/parse_clash.py \
 python skills/documentation-review/pdf-markup-compare/scripts/compare_markup.py \
        skills/documentation-review/pdf-markup-compare/assets/rev_a.pdf \
        skills/documentation-review/pdf-markup-compare/assets/rev_b.pdf
+
+# Theo dõi RFI: aging, quá hạn, ball-in-court
+python skills/project-management/rfi-tracker/scripts/track_rfis.py \
+       skills/project-management/rfi-tracker/assets/sample_rfis.csv --as-of 2026-07-24
+
+# So sánh 2 phiên bản model Revit (added/deleted/changed)
+python skills/revit-authoring/model-compare/scripts/compare_models.py \
+       skills/revit-authoring/model-compare/assets/sample_model_v1.csv \
+       skills/revit-authoring/model-compare/assets/sample_model_v2.csv
 ```
 
 ### Dùng như Claude Skills

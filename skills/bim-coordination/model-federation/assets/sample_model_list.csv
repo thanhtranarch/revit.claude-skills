@@ -1,0 +1,7 @@
+Model,Discipline,Coordinate System,Units,Last Updated,Status
+PRJ-AR-Building.rvt,Architecture,Shared-Site,mm,2026-07-22,Published
+PRJ-ST-Building.rvt,Structural,Shared-Site,mm,2026-07-23,Published
+PRJ-ME-Building.rvt,MEP,Shared-Site,mm,2026-07-10,Published
+PRJ-EL-Building.rvt,Electrical,Shared-Site,,2026-07-21,Published
+PRJ-PL-Building.rvt,Plumbing,Internal,mm,2026-07-23,WIP
+PRJ-CI-Site.rvt,Civil,Shared-Site,m,2026-07-20,Published

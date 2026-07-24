@@ -9,13 +9,14 @@ cần một file CSV/TXT (register, sheet list, comment log…).
 |-------|-----------|--------|
 | `iso19650-naming-check` | ✅ chạy được | Kiểm tên file theo ISO 19650 (trường, mã Type/Role, status/revision) |
 | `spellcheck-review` | ✅ chạy được | Soát chính tả text AEC (lỗi thường gặp + từ lặp; `--dict` tuỳ chọn) |
-| `sheet-naming-check` | 🚧 scaffold | Kiểm chuẩn số/tên sheet & view, bắt trùng số |
+| `sheet-naming-check` | ✅ chạy được | Kiểm chuẩn số/tên sheet, bắt trùng số & từ cấm (Copy/Draft…) |
 
 ## Cài đặt / install (Claude Skills)
 Đặt **thư mục skill** (chứa `SKILL.md`) trực tiếp vào `~/.claude/skills/`:
 ```bash
 cp -r skills/standards-qa/iso19650-naming-check ~/.claude/skills/
 cp -r skills/standards-qa/spellcheck-review     ~/.claude/skills/
+cp -r skills/standards-qa/sheet-naming-check    ~/.claude/skills/
 # hoặc cho riêng một dự án:
 cp -r skills/standards-qa/<skill> <project>/.claude/skills/
 ```
@@ -28,6 +29,9 @@ python iso19650-naming-check/scripts/check_iso19650.py \
 
 python spellcheck-review/scripts/spellcheck.py \
        spellcheck-review/assets/sample_text.csv --col Comment
+
+python sheet-naming-check/scripts/check_sheet_naming.py \
+       sheet-naming-check/assets/sample_sheets.csv
 ```
 
 ## Ghi chú / notes

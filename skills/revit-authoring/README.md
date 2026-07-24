@@ -12,8 +12,10 @@ chạy trong Revit hoặc là **checklist hướng dẫn**.
 | `family-parameter-management` | ✅ chạy được | Phân tích shared parameter file: GUID/tên trùng, thiếu mô tả |
 | `schedule-qa` | ✅ chạy được | Validate schedule CSV theo rules (required/unique/allowed) |
 | `revit-warnings-audit` | ✅ chạy được | Gom nhóm & ưu tiên warning từ HTML export |
-| `revit-model-audit` | hướng dẫn | Checklist sức khoẻ model (file size, purge, CAD, in-place…) |
+| `revit-model-audit` | hướng dẫn + ✅ scorer | Checklist + chấm điểm sức khoẻ model (🔴/🟡/🟢, health index) |
 | `revit-batch-export` | sinh script | Export hàng loạt sheet ra PDF/DWG/NWC/IFC theo tên chuẩn |
+| `family-naming-audit` | ✅ chạy được | Kiểm tên family/type theo chuẩn; bắt trùng & dùng lại category |
+| `model-compare` | ✅ chạy được | So 2 phiên bản model: added/deleted/changed theo Element ID/GUID |
 
 ## Cài đặt / install (đây là Claude Skills)
 Skill được Claude phát hiện qua file `SKILL.md`. Cài bằng một trong hai cách:
@@ -27,6 +29,8 @@ cp -r skills/revit-authoring/schedule-qa                 ~/.claude/skills/
 cp -r skills/revit-authoring/revit-warnings-audit        ~/.claude/skills/
 cp -r skills/revit-authoring/revit-model-audit           ~/.claude/skills/
 cp -r skills/revit-authoring/revit-batch-export          ~/.claude/skills/
+cp -r skills/revit-authoring/family-naming-audit         ~/.claude/skills/
+cp -r skills/revit-authoring/model-compare               ~/.claude/skills/
 
 # Hoặc cài cho riêng một dự án:
 cp -r skills/revit-authoring/<skill> <project>/.claude/skills/
@@ -53,6 +57,15 @@ python schedule-qa/scripts/check_schedule.py \
 
 python revit-warnings-audit/scripts/parse_warnings.py \
        revit-warnings-audit/assets/sample_warnings.html
+
+python revit-model-audit/scripts/score_model_health.py \
+       revit-model-audit/assets/sample_metrics.csv
+
+python family-naming-audit/scripts/audit_family_names.py \
+       family-naming-audit/assets/sample_families.csv --check-types
+
+python model-compare/scripts/compare_models.py \
+       model-compare/assets/sample_model_v1.csv model-compare/assets/sample_model_v2.csv
 ```
 
 ## Bảo mật / security
