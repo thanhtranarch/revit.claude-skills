@@ -1,0 +1,9 @@
+# Maintainer phải review mọi PR trước khi merge.
+# Bảo mật: mọi thay đổi skill và script kiểm định cần được duyệt bởi owner.
+# Thay @thanhtranarch bằng team/owner thực tế của bạn.
+
+*                       @thanhtranarch
+/skills/                @thanhtranarch
+/scripts/               @thanhtranarch
+/.github/               @thanhtranarch
+/.claude/               @thanhtranarch

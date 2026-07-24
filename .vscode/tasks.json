@@ -1,0 +1,28 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Validate skill (current folder)",
+      "type": "shell",
+      "command": "python",
+      "args": ["scripts/validate_skill.py", "${fileDirname}"],
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "Audit skill (current folder)",
+      "type": "shell",
+      "command": "python",
+      "args": ["scripts/audit_skill.py", "${fileDirname}"],
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "Validate + Audit ALL skills",
+      "type": "shell",
+      "command": "python scripts/validate_skill.py skills && python scripts/audit_skill.py skills",
+      "problemMatcher": [],
+      "group": { "kind": "test", "isDefault": true }
+    }
+  ]
+}

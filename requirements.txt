@@ -1,0 +1,8 @@
+# Dependencies cho script trong skills/ và scripts/
+# Lớp bảo mật (validate_skill.py, audit_skill.py) chỉ cần pyyaml + stdlib.
+
+pyyaml>=6.0        # đọc frontmatter SKILL.md (validate_skill.py)
+pypdf>=4.0         # pdf-markup-compare (đọc annotation/text)
+openpyxl>=3.1      # comment-aggregation (xuất Excel register)
+
+# Ghi chú: parse_clash.py và normalize_issues.py chỉ dùng thư viện chuẩn.

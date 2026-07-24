@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Output tạm của script / transient script output
+out/
+*.tmp
+
+# Không ignore assets mẫu (cần cho test): rev_a.pdf, rev_b.pdf, *.csv, *.xml
