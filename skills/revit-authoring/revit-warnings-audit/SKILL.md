@@ -1,6 +1,7 @@
 ---
 name: revit-warnings-audit
-description: Parse a Revit warnings export (the HTML file from Manage > Warnings > Export) and turn hundreds of raw warnings into a prioritized, grouped summary — counts by warning type, most frequent messages, and a severity bucket (high/medium/low) so the team knows what to fix first. Use when a model has many warnings and the user wants them triaged, counted, grouped, or prioritized. Triggers on "Revit warnings", "review warnings", "warnings export", "too many warnings", "triage warnings", "kiểm tra warning Revit", "tổng hợp warning".
+description: Parses a Revit warnings export (the HTML file from Manage > Warnings > Export) and turns hundreds of raw warnings into a prioritized, grouped summary — counts by warning type, most frequent messages, and a severity bucket (high/medium/low) so the team knows what to fix first. Use when a model has many warnings and the user wants them triaged, counted, grouped, or prioritized. Triggers on "Revit warnings", "review warnings", "warnings export", "too many warnings", "triage warnings", "kiểm tra warning Revit", "tổng hợp warning".
+license: MIT
 ---
 
 # Revit Warnings Audit — Tổng hợp & ưu tiên warning

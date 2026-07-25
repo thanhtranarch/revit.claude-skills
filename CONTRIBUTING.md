@@ -18,12 +18,16 @@ khi merge. Đọc `docs/security-model.md` để hiểu vì sao.
 5. Mở PR, điền checklist trong PR template.
 
 ## Quy tắc viết skill / skill rules
-- Thư mục kebab-case, duy nhất; `name` trong frontmatter khớp thư mục.
-- `description` nêu rõ *làm gì + khi nào dùng + từ khoá kích hoạt*.
+- Thư mục kebab-case, duy nhất; `name` trong frontmatter khớp thư mục (≤64 ký tự).
+- `description` (≤1024 ký tự) viết **ngôi thứ ba**, nêu rõ *làm gì* + *khi nào
+  dùng* (`Use when …`) + *từ khoá kích hoạt*. VD: `Analyzes …. Use when …. Triggers on …`.
+- Trường tuỳ chọn theo spec: `license`, `compatibility` (≤500 ký tự),
+  `metadata` (map chuỗi→chuỗi), `allowed-tools`. **Không** thêm key top-level
+  ngoài spec (validator sẽ cảnh báo).
 - Script **chỉ dùng thư viện đã khai báo** trong `requirements.txt`. Ưu tiên
   thư viện chuẩn.
 - Kèm dữ liệu mẫu nhỏ trong `assets/` để test được ngay.
-- Skill chưa hoàn thiện: đặt `status: scaffold`.
+- Skill chưa hoàn thiện: đặt `status: scaffold` **trong `metadata`**.
 
 ## Điều TUYỆT ĐỐI KHÔNG / hard NO
 - Lệnh tải & chạy từ mạng (`curl … | bash`), thực thi động (`eval`/`exec`).

@@ -1,6 +1,7 @@
 ---
 name: revit-model-audit
-description: Run a structured Revit model health audit — a checklist for file size, warnings count, purgeable elements, CAD imports, in-place families, unused view templates/filters, groups, and worksharing hygiene, with the specific Revit commands to check each and the thresholds that signal a problem. Use when a model is slow or bloated, before a milestone issue, or when setting up a model-health routine. Triggers on "model audit", "model health", "Revit slow", "file too big", "purge unused", "model cleanup", "kiểm tra sức khoẻ model", "model chậm".
+description: Runs a structured Revit model health audit — a checklist for file size, warnings count, purgeable elements, CAD imports, in-place families, unused view templates/filters, groups, and worksharing hygiene, with the specific Revit commands to check each and the thresholds that signal a problem. Use when a model is slow or bloated, before a milestone issue, or when setting up a model-health routine. Triggers on "model audit", "model health", "Revit slow", "file too big", "purge unused", "model cleanup", "kiểm tra sức khoẻ model", "model chậm".
+license: MIT
 ---
 
 # Revit Model Audit — Kiểm tra sức khoẻ model

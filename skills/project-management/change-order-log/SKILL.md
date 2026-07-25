@@ -1,6 +1,7 @@
 ---
 name: change-order-log
-description: Track construction change orders / variations from a register — status (pending/approved/rejected), cost and schedule impact, running totals by status and discipline, aging, and overdue-decision flags. Use when managing change orders, variations, or PCOs and needing a cost-impact rollup or an overdue-approval list. Triggers on "change order log", "variation register", "CO tracker", "cost impact", "PCO", "nhật ký change order", "theo dõi biến động chi phí".
+description: Tracks construction change orders / variations from a register — status (pending/approved/rejected), cost and schedule impact, running totals by status and discipline, aging, and overdue-decision flags. Use when managing change orders, variations, or PCOs and needing a cost-impact rollup or an overdue-approval list. Triggers on "change order log", "variation register", "CO tracker", "cost impact", "PCO", "nhật ký change order", "theo dõi biến động chi phí".
+license: MIT
 ---
 
 # Change Order Log — Theo dõi change order / variation

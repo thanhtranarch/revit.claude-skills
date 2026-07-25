@@ -1,6 +1,7 @@
 ---
 name: acc-issue-register
-description: Normalize an Autodesk Construction Cloud (ACC) or BIM360 issues CSV export into a clean register and summary — counts by status, assignee, discipline, and overdue flags against due dates. Use when the user has an ACC/BIM360 issues export and wants a tidy register, a status breakdown, an overdue list, or a weekly coordination summary. Triggers on "ACC issues", "BIM360 issues", "issue register", "overdue issues", "tổng hợp issue", "báo cáo issue ACC".
+description: Normalizes an Autodesk Construction Cloud (ACC) or BIM360 issues CSV export into a clean register and summary — counts by status, assignee, discipline, and overdue flags against due dates. Use when the user has an ACC/BIM360 issues export and wants a tidy register, a status breakdown, an overdue list, or a weekly coordination summary. Triggers on "ACC issues", "BIM360 issues", "issue register", "overdue issues", "tổng hợp issue", "báo cáo issue ACC".
+license: MIT
 ---
 
 # ACC / BIM360 Issue Register — Chuẩn hoá & tóm tắt issue

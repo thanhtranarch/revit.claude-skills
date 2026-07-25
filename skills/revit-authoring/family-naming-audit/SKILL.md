@@ -1,6 +1,7 @@
 ---
 name: family-naming-audit
-description: Audit Revit family and type names from an exported family list against a company naming standard — discipline prefix, allowed pattern, no spaces or double underscores — and flag names reused across categories and duplicate (family, type) pairs. Use when enforcing a family naming convention or cleaning up a library before issue. Triggers on "family naming", "family name standard", "family library audit", "type naming", "chuẩn tên family", "kiểm tra tên family".
+description: Audits Revit family and type names from an exported family list against a company naming standard — discipline prefix, allowed pattern, no spaces or double underscores — and flags names reused across categories and duplicate (family, type) pairs. Use when enforcing a family naming convention or cleaning up a library before issue. Triggers on "family naming", "family name standard", "family library audit", "type naming", "chuẩn tên family", "kiểm tra tên family".
+license: MIT
 ---
 
 # Family Naming Audit — Kiểm tra tên family/type Revit

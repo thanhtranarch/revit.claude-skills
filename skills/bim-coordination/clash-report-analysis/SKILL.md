@@ -1,6 +1,7 @@
 ---
 name: clash-report-analysis
-description: Analyze and summarize Navisworks clash detection reports (XML export from Clash Detective). Use when the user has a Navisworks clash report (.xml) and wants it grouped by clash test / status / discipline, prioritized, deduplicated, or summarized into an issue list for coordination meetings. Triggers on "clash report", "Navisworks clash", "check clash", "clash matrix", "báo cáo clash", "kiểm tra va chạm".
+description: Analyzes and summarizes Navisworks clash detection reports (XML export from Clash Detective). Use when the user has a Navisworks clash report (.xml) and wants it grouped by clash test / status / discipline, prioritized, deduplicated, or summarized into an issue list for coordination meetings. Triggers on "clash report", "Navisworks clash", "check clash", "clash matrix", "báo cáo clash", "kiểm tra va chạm".
+license: MIT
 ---
 
 # Clash Report Analysis — Phân tích báo cáo clash (Navisworks)

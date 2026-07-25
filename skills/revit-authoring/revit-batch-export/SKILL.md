@@ -1,6 +1,7 @@
 ---
 name: revit-batch-export
-description: Generate and adapt pyRevit/Dynamo scripts to batch-export Revit sheets and views to PDF, DWG, DWF, NWC, or IFC with a consistent file-naming convention (e.g. SheetNumber-SheetName-Rev). Use when the user needs to export many sheets at once, standardize export file names, or automate a recurring issue/export. Triggers on "batch export", "export sheets", "export PDF Revit", "export DWG", "naming convention export", "xuất bản vẽ hàng loạt", "export NWC/IFC".
+description: Generates and adapts pyRevit/Dynamo scripts to batch-export Revit sheets and views to PDF, DWG, DWF, NWC, or IFC with a consistent file-naming convention (e.g. SheetNumber-SheetName-Rev). Use when the user needs to export many sheets at once, standardize export file names, or automate a recurring issue/export. Triggers on "batch export", "export sheets", "export PDF Revit", "export DWG", "naming convention export", "xuất bản vẽ hàng loạt", "export NWC/IFC".
+license: MIT
 ---
 
 # Revit Batch Export — Xuất bản vẽ hàng loạt

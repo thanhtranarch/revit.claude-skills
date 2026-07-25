@@ -28,11 +28,19 @@ except ImportError:  # pragma: no cover
     sys.exit(2)
 
 # --- Quy ước / Conventions --------------------------------------------------
-NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")   # kebab-case
+# Theo Agent Skills spec (agentskills.io/specification).
+NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")   # kebab-case, không '--'
 DESC_MIN, DESC_MAX = 20, 1024
 NAME_MAX = 64
+COMPAT_MAX = 500
 MAX_FILE_BYTES = 5 * 1024 * 1024                       # 5 MB / file
 MAX_SKILL_BYTES = 50 * 1024 * 1024                     # 50 MB / skill
+
+# Các key frontmatter được spec định nghĩa / spec-defined frontmatter keys.
+KNOWN_KEYS = {
+    "name", "description", "license", "compatibility",
+    "metadata", "allowed-tools",
+}
 
 # Phần mở rộng cho phép trong 1 skill / allowed file extensions in a skill.
 ALLOWED_EXT = {
@@ -131,10 +139,42 @@ def validate_skill(skill_dir: Path) -> list[Finding]:
         if len(desc) > DESC_MAX:
             err(f"'description' quá dài (>{DESC_MAX} ký tự)", str(skill_md))
 
+    # --- license (tuỳ chọn / optional) -------------------------------------
+    lic = meta.get("license")
+    if lic is not None and not isinstance(lic, str):
+        err("'license' phải là chuỗi (tên giấy phép hoặc file)", str(skill_md))
+
+    # --- compatibility (tuỳ chọn / optional) -------------------------------
+    compat = meta.get("compatibility")
+    if compat is not None:
+        if not isinstance(compat, str):
+            err("'compatibility' phải là chuỗi", str(skill_md))
+        elif len(compat) > COMPAT_MAX:
+            err(f"'compatibility' quá dài (>{COMPAT_MAX} ký tự)", str(skill_md))
+
+    # --- metadata (tuỳ chọn / optional) ------------------------------------
+    md = meta.get("metadata")
+    if md is not None:
+        if not isinstance(md, dict):
+            err("'metadata' phải là mapping key: value", str(skill_md))
+        else:
+            for k, v in md.items():
+                if not isinstance(k, str) or not isinstance(v, str):
+                    err(f"'metadata' phải toàn chuỗi→chuỗi (lỗi ở {k!r})", str(skill_md))
+                    break
+
     # --- allowed-tools (tuỳ chọn / optional) -------------------------------
+    # Spec: chuỗi tách bằng dấu cách (thử nghiệm). Chấp nhận list cho tương thích.
     tools = meta.get("allowed-tools")
     if tools is not None and not isinstance(tools, (list, str)):
-        err("'allowed-tools' phải là list hoặc chuỗi", str(skill_md))
+        err("'allowed-tools' phải là chuỗi (tách bằng dấu cách) hoặc list", str(skill_md))
+
+    # --- key lạ / unknown frontmatter keys ---------------------------------
+    if isinstance(meta, dict):
+        for key in meta:
+            if key not in KNOWN_KEYS:
+                warn(f"Key frontmatter không thuộc spec: {key!r} "
+                     f"(cân nhắc đưa vào 'metadata')", str(skill_md))
 
     # --- Quét file trong skill / scan files -------------------------------
     total_bytes = 0

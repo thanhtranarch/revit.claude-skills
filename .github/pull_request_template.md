@@ -12,7 +12,7 @@
 ## Checklist kiểm định / vetting checklist
 - [ ] `python scripts/validate_skill.py <skill_dir>` → PASS
 - [ ] `python scripts/audit_skill.py <skill_dir>` → PASS (không có HIGH)
-- [ ] `SKILL.md` có `name` (khớp thư mục) + `description` rõ ràng
+- [ ] `SKILL.md` có `name` (khớp thư mục) + `description` ngôi thứ ba (what + `Use when …` + từ khoá)
 - [ ] Script chỉ dùng thư viện đã khai báo trong `requirements.txt`
 - [ ] **Không** có lệnh nguy hiểm, gọi mạng ngoài, hay đọc secret/khoá
 - [ ] Đã kèm dữ liệu mẫu trong `assets/` để test (nếu có script)

@@ -1,6 +1,7 @@
 ---
 name: quantity-takeoff
-description: Aggregate a quantity takeoff (QTO) from a Revit or Excel schedule export — group by category/family/type and sum count, area, volume, length, and weight columns, stripping units and thousands separators. Use when producing a takeoff, a BoQ starting point, or quantity totals by group from a schedule CSV. Triggers on "quantity takeoff", "QTO", "bill of quantities", "sum by category", "bóc tách khối lượng", "tổng khối lượng theo nhóm".
+description: Aggregates a quantity takeoff (QTO) from a Revit or Excel schedule export — grouping by category/family/type and summing count, area, volume, length, and weight columns, stripping units and thousands separators. Use when producing a takeoff, a BoQ starting point, or quantity totals by group from a schedule CSV. Triggers on "quantity takeoff", "QTO", "bill of quantities", "sum by category", "bóc tách khối lượng", "tổng khối lượng theo nhóm".
+license: MIT
 ---
 
 # Quantity Takeoff — Bóc tách khối lượng

@@ -1,6 +1,7 @@
 ---
 name: iso19650-naming-check
-description: Validate information-container (file) names against the ISO 19650 / UK BIM Framework naming convention — the field-based code Project-Originator-Volume-Location-Type-Role-Number, plus optional suitability/status (S0, S2, A1…) and revision (P01, C01…) codes. Checks field count, field patterns, and known Type/Role code sets, reporting each bad name with the exact field that failed. Use when auditing a file register, a CDE export, or a drawing list for ISO 19650 naming compliance. Triggers on "ISO 19650", "19650 naming", "file naming standard", "BS 1192", "container naming", "CDE naming check", "kiểm tra đặt tên file", "chuẩn đặt tên ISO 19650".
+description: Validates information-container (file) names against the ISO 19650 / UK BIM Framework naming convention — the field-based code Project-Originator-Volume-Location-Type-Role-Number, plus optional suitability/status (S0, S2, A1…) and revision (P01, C01…) codes. Checks field count, field patterns, and known Type/Role code sets, reporting each bad name with the exact field that failed. Use when auditing a file register, a CDE export, or a drawing list for ISO 19650 naming compliance. Triggers on "ISO 19650", "19650 naming", "file naming standard", "BS 1192", "container naming", "CDE naming check", "kiểm tra đặt tên file", "chuẩn đặt tên ISO 19650".
+license: MIT
 ---
 
 # ISO 19650 Naming Check — Kiểm tra đặt tên file theo ISO 19650

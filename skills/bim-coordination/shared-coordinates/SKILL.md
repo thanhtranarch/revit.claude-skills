@@ -1,6 +1,7 @@
 ---
 name: shared-coordinates
-description: Guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models. Use when the user is setting up coordinates, links do not line up, models appear offset or rotated, or they ask how to acquire/publish coordinates. Triggers on "shared coordinates", "survey point", "project base point", "acquire coordinates", "models not aligned", "toạ độ chung", "coordinate setup".
+description: Provides guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models. Use when the user is setting up coordinates, links do not line up, models appear offset or rotated, or they ask how to acquire/publish coordinates. Triggers on "shared coordinates", "survey point", "project base point", "acquire coordinates", "models not aligned", "toạ độ chung", "coordinate setup".
+license: MIT
 ---
 
 # Shared Coordinates — Thiết lập & kiểm tra toạ độ chung

@@ -1,6 +1,7 @@
 ---
 name: pdf-markup-compare
-description: Compare two revisions of a PDF drawing/document and report what changed — added, removed, and moved annotations/markups (text notes, clouds, comments), plus per-page text differences. Use when the user has two PDF versions (e.g. Rev A vs Rev B, or a marked-up set vs a clean set) and asks what changed, to diff markups, compare comments, or track revisions. Triggers on "compare PDF", "so sánh PDF", "markup diff", "so sánh markup", "what changed between revisions", "Bluebeam markup".
+description: Compares two revisions of a PDF drawing/document and reports what changed — added, removed, and moved annotations/markups (text notes, clouds, comments), plus per-page text differences. Use when the user has two PDF versions (e.g. Rev A vs Rev B, or a marked-up set vs a clean set) and asks what changed, to diff markups, compare comments, or track revisions. Triggers on "compare PDF", "so sánh PDF", "markup diff", "so sánh markup", "what changed between revisions", "Bluebeam markup".
+license: MIT
 ---
 
 # PDF Markup Compare — So sánh markup giữa 2 bản PDF

@@ -1,6 +1,7 @@
 ---
 name: coordination-issue-log
-description: Turn clash results and coordination-meeting findings into a tracked issue log with owner, discipline, status, and target date — merging multiple meeting rounds by ID and exporting a CSV mapped to ACC/BIM360 Issues import. Use when running coordination meetings and needing to assign and track clash/coordination items over time. Triggers on "coordination log", "clash issue log", "assign clashes", "coordination meeting", "nhật ký coordination", "giao clash".
+description: Turns clash results and coordination-meeting findings into a tracked issue log with owner, discipline, status, and target date — merging multiple meeting rounds by ID and exporting a CSV mapped to ACC/BIM360 Issues import. Use when running coordination meetings and needing to assign and track clash/coordination items over time. Triggers on "coordination log", "clash issue log", "assign clashes", "coordination meeting", "nhật ký coordination", "giao clash".
+license: MIT
 ---
 
 # Coordination Issue Log — Nhật ký issue coordination

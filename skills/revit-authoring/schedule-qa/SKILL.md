@@ -1,6 +1,7 @@
 ---
 name: schedule-qa
-description: QA the data behind Revit schedules by validating a schedule exported to CSV/TSV against a rules file — required fields that must not be blank, allowed-value lists, and columns that must be unique (e.g. Mark). Reports each violation with its row so the model can be fixed before issue. Use when validating model-data completeness, checking a schedule export against a company standard, or finding blank/duplicate Marks. Triggers on "schedule QA", "model data check", "missing parameters", "duplicate mark", "validate schedule", "kiểm tra schedule", "QA dữ liệu model".
+description: Validates the data behind Revit schedules by checking a schedule exported to CSV/TSV against a rules file — required fields that must not be blank, allowed-value lists, and columns that must be unique (e.g. Mark). Reports each violation with its row so the model can be fixed before issue. Use when validating model-data completeness, checking a schedule export against a company standard, or finding blank/duplicate Marks. Triggers on "schedule QA", "model data check", "missing parameters", "duplicate mark", "validate schedule", "kiểm tra schedule", "QA dữ liệu model".
+license: MIT
 ---
 
 # Schedule QA — Kiểm tra schedule & dữ liệu model

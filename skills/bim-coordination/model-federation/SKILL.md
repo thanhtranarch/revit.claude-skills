@@ -1,6 +1,7 @@
 ---
 name: model-federation
-description: Federate multiple discipline models into a single coordination model (Navisworks NWF/NWD or ACC Model Coordination) — append order, file naming, refresh workflow, and a clash-readiness check of units, coordinates, and model freshness before running clash. Use when combining discipline models for coordination or preparing a federated model. Triggers on "federate models", "NWF", "append models", "coordination model", "model federation", "gộp model".
+description: Federates multiple discipline models into a single coordination model (Navisworks NWF/NWD or ACC Model Coordination) — append order, file naming, refresh workflow, and a clash-readiness check of units, coordinates, and model freshness before running clash. Use when combining discipline models for coordination or preparing a federated model. Triggers on "federate models", "NWF", "append models", "coordination model", "model federation", "gộp model".
+license: MIT
 ---
 
 # Model Federation — Gộp model coordination
