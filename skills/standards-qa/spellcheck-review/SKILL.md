@@ -1,6 +1,7 @@
 ---
 name: spellcheck-review
-description: Spell-check English text pulled from AEC documents and registers — sheet names, drawing notes, RFI/comment logs, specifications, schedule text — flagging common misspellings and repeated words, with an optional dictionary mode that also finds unknown words while ignoring AEC jargon via a glossary allowlist. Use when reviewing document text for typos before issue, checking a comment/RFI register, or QA-ing sheet names. Triggers on "spellcheck", "spell check", "typos", "proofread", "check spelling", "soát chính tả", "kiểm tra lỗi chính tả", "review typo".
+description: Spell-checks English text pulled from AEC documents and registers — sheet names, drawing notes, RFI/comment logs, specifications, schedule text — flagging common misspellings and repeated words, with an optional dictionary mode that also finds unknown words while ignoring AEC jargon via a glossary allowlist. Use when reviewing document text for typos before issue, checking a comment/RFI register, or QA-ing sheet names. Triggers on "spellcheck", "spell check", "typos", "proofread", "check spelling", "soát chính tả", "kiểm tra lỗi chính tả", "review typo".
+license: MIT
 ---
 
 # Spellcheck Review — Soát lỗi chính tả tài liệu AEC

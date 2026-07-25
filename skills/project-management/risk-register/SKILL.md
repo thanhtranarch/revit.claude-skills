@@ -1,6 +1,7 @@
 ---
 name: risk-register
-description: Score and rate a project risk register from a CSV — convert probability and impact (1-5 or Low/Medium/High) into a P×I score, assign RAG (red/amber/green), roll up by RAG, owner, and category, flag overdue reviews, and list the top open risks. Use when maintaining a risk register or producing a risk summary for a report or review meeting. Triggers on "risk register", "risk matrix", "probability impact", "RAG rating", "top risks", "đăng ký rủi ro", "ma trận rủi ro".
+description: Scores and rates a project risk register from a CSV — converting probability and impact (1-5 or Low/Medium/High) into a P×I score, assigning RAG (red/amber/green), rolling up by RAG, owner, and category, flagging overdue reviews, and listing the top open risks. Use when maintaining a risk register or producing a risk summary for a report or review meeting. Triggers on "risk register", "risk matrix", "probability impact", "RAG rating", "top risks", "đăng ký rủi ro", "ma trận rủi ro".
+license: MIT
 ---
 
 # Risk Register — Chấm điểm & phân loại rủi ro

@@ -1,6 +1,7 @@
 ---
 name: submittal-log
-description: Build and track a submittal log from a submittal register — lifecycle status (pending/under review/approved/revise and resubmit/rejected), ball-in-court, overdue flags, spec-section grouping, and review-cycle stats. Use when managing construction submittals or producing a submittal status report. Triggers on "submittal log", "submittal register", "ball in court", "submittal status", "shop drawings", "nhật ký submittal", "theo dõi submittal".
+description: Builds and tracks a submittal log from a submittal register — lifecycle status (pending/under review/approved/revise and resubmit/rejected), ball-in-court, overdue flags, spec-section grouping, and review-cycle stats. Use when managing construction submittals or producing a submittal status report. Triggers on "submittal log", "submittal register", "ball in court", "submittal status", "shop drawings", "nhật ký submittal", "theo dõi submittal".
+license: MIT
 ---
 
 # Submittal Log — Nhật ký & theo dõi submittal

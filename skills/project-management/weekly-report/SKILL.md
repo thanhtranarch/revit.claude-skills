@@ -1,6 +1,7 @@
 ---
 name: weekly-report
-description: Assemble a weekly BIM/coordination status report from multiple register CSVs (issue logs, RFI trackers, clash registers, change orders) — open vs closed counts, overdue items, and week-over-week deltas from a saved snapshot. Use when preparing a recurring weekly coordination or project status report. Triggers on "weekly report", "status report", "week over week", "coordination summary", "báo cáo tuần", "tổng hợp trạng thái tuần".
+description: Assembles a weekly BIM/coordination status report from multiple register CSVs (issue logs, RFI trackers, clash registers, change orders) — open vs closed counts, overdue items, and week-over-week deltas from a saved snapshot. Use when preparing a recurring weekly coordination or project status report. Triggers on "weekly report", "status report", "week over week", "coordination summary", "báo cáo tuần", "tổng hợp trạng thái tuần".
+license: MIT
 ---
 
 # Weekly Report — Báo cáo trạng thái tuần

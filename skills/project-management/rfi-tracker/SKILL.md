@@ -1,6 +1,7 @@
 ---
 name: rfi-tracker
-description: Track Requests for Information (RFIs) from a register — status, days open, ball-in-court, response due dates, aging buckets, and cost/schedule impact flags. Use when managing RFIs or producing an RFI status/aging report. Triggers on "RFI log", "RFI tracker", "RFI aging", "days open", "response due", "theo dõi RFI", "báo cáo RFI".
+description: Tracks Requests for Information (RFIs) from a register — status, days open, ball-in-court, response due dates, aging buckets, and cost/schedule impact flags. Use when managing RFIs or producing an RFI status/aging report. Triggers on "RFI log", "RFI tracker", "RFI aging", "days open", "response due", "theo dõi RFI", "báo cáo RFI".
+license: MIT
 ---
 
 # RFI Tracker — Theo dõi & phân tích RFI

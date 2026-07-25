@@ -1,6 +1,7 @@
 ---
 name: cobie-validation
-description: Validate a COBie sheet export (CSV) for completeness — required columns present, required cells non-empty, unique Name, CreatedBy is an email, and CreatedOn is a valid ISO 8601 date — for Facility, Floor, Space, Zone, Type, Component, and System sheets. Use when checking a COBie deliverable before handover or issuing an asset-information dataset. Triggers on "COBie", "COBie validation", "asset information", "handover data", "COBie completeness", "kiểm tra COBie", "dữ liệu bàn giao".
+description: Validates a COBie sheet export (CSV) for completeness — required columns present, required cells non-empty, unique Name, CreatedBy is an email, and CreatedOn is a valid ISO 8601 date — for Facility, Floor, Space, Zone, Type, Component, and System sheets. Use when checking a COBie deliverable before handover or issuing an asset-information dataset. Triggers on "COBie", "COBie validation", "asset information", "handover data", "COBie completeness", "kiểm tra COBie", "dữ liệu bàn giao".
+license: MIT
 ---
 
 # COBie Validation — Kiểm tính đầy đủ COBie

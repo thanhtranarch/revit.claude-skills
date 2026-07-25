@@ -1,6 +1,7 @@
 ---
 name: boq-compare
-description: Compare two bills of quantities or quantity takeoffs (old vs new) keyed by item code or description, reporting added and removed items and quantity/value increases or decreases with delta and percent, plus total-amount movement. Use when reviewing what changed between two BoQ revisions or two takeoff runs. Triggers on "BoQ compare", "quantity change", "compare takeoff", "variance", "cost movement", "so sánh khối lượng", "biến động BoQ".
+description: Compares two bills of quantities or quantity takeoffs (old vs new) keyed by item code or description, reporting added and removed items and quantity/value increases or decreases with delta and percent, plus total-amount movement. Use when reviewing what changed between two BoQ revisions or two takeoff runs. Triggers on "BoQ compare", "quantity change", "compare takeoff", "variance", "cost movement", "so sánh khối lượng", "biến động BoQ".
+license: MIT
 ---
 
 # BoQ Compare — So sánh khối lượng / bảng giá

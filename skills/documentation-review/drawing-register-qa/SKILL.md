@@ -1,6 +1,7 @@
 ---
 name: drawing-register-qa
-description: QA a drawing issue register / transmittal before issue — flag missing or badly-formatted revisions, invalid ISO 19650 suitability codes, missing issue dates, and duplicate sheet numbers from a CSV export. Use when checking a drawing register or transmittal for issue-readiness. Triggers on "drawing register", "issue sheet", "transmittal check", "revision check", "suitability code", "kiểm tra sổ phát hành", "revision bản vẽ".
+description: Runs QA on a drawing issue register / transmittal before issue — flagging missing or badly-formatted revisions, invalid ISO 19650 suitability codes, missing issue dates, and duplicate sheet numbers from a CSV export. Use when checking a drawing register or transmittal for issue-readiness. Triggers on "drawing register", "issue sheet", "transmittal check", "revision check", "suitability code", "kiểm tra sổ phát hành", "revision bản vẽ".
+license: MIT
 ---
 
 # Drawing Register QA — Kiểm sổ phát hành bản vẽ

@@ -5,12 +5,15 @@ skill theo lĩnh vực công việc trong ngành ACE/AEC.
 
 ## Quy ước đặt tên / naming conventions
 - Thư mục skill = **kebab-case**, duy nhất trong repo (vd `clash-report-analysis`).
-- `name` trong frontmatter **phải khớp** tên thư mục.
-- `description` nêu rõ *skill làm gì* + *khi nào dùng* + *từ khoá kích hoạt*
-  (song ngữ nếu có thể) để Claude chọn đúng skill.
+- `name` trong frontmatter **phải khớp** tên thư mục (≤64 ký tự).
+- `description` (≤1024 ký tự) viết **ngôi thứ ba**, nêu rõ *skill làm gì* +
+  *khi nào dùng* (`Use when …`) + *từ khoá kích hoạt* (song ngữ nếu có thể)
+  để Claude chọn đúng skill.
+- Trường frontmatter tuỳ chọn theo spec: `license`, `compatibility`,
+  `metadata`, `allowed-tools` (xem `templates/SKILL_TEMPLATE.md`).
 - Cấu trúc bên trong (tuỳ nhu cầu): `scripts/`, `references/`, `assets/`,
   `templates/`.
-- Skill chưa hoàn thiện đặt `status: scaffold` trong frontmatter.
+- Skill chưa hoàn thiện đặt `status: scaffold` trong `metadata` của frontmatter.
 
 ## Bảy bộ hiện có / seven sets
 

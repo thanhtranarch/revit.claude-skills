@@ -1,6 +1,7 @@
 ---
 name: comment-aggregation
-description: Aggregate review comments / RFIs / markups from multiple CSV exports (Bluebeam markup summary, ACC/BIM360 issues, reviewer spreadsheets) into one consolidated, de-duplicated Excel register with status and discipline breakdowns. Use when the user has comments scattered across several files and wants a single tracked register, a comment log, or an RFI summary. Triggers on "aggregate comments", "tổng hợp comment", "consolidate RFI", "comment register", "gộp markup", "tổng hợp ý kiến review".
+description: Aggregates review comments / RFIs / markups from multiple CSV exports (Bluebeam markup summary, ACC/BIM360 issues, reviewer spreadsheets) into one consolidated, de-duplicated Excel register with status and discipline breakdowns. Use when the user has comments scattered across several files and wants a single tracked register, a comment log, or an RFI summary. Triggers on "aggregate comments", "tổng hợp comment", "consolidate RFI", "comment register", "gộp markup", "tổng hợp ý kiến review".
+license: MIT
 ---
 
 # Comment Aggregation — Tổng hợp comment / RFI

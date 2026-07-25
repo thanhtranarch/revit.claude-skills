@@ -1,6 +1,7 @@
 ---
 name: action-item-tracker
-description: Track meeting and coordination action items from a register — owner, status, due date, aging buckets, overdue flags, and rollups by owner, meeting, and priority. Use when managing open actions from coordination or project meetings and needing an open-action list, an owner workload view, or an overdue report. Triggers on "action items", "action tracker", "open actions", "meeting actions", "who owns", "theo dõi action", "việc cần làm sau họp".
+description: Tracks meeting and coordination action items from a register — owner, status, due date, aging buckets, overdue flags, and rollups by owner, meeting, and priority. Use when managing open actions from coordination or project meetings and needing an open-action list, an owner workload view, or an overdue report. Triggers on "action items", "action tracker", "open actions", "meeting actions", "who owns", "theo dõi action", "việc cần làm sau họp".
+license: MIT
 ---
 
 # Action Item Tracker — Theo dõi action item sau họp
