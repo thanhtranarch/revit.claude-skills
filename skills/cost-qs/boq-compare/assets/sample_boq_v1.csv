@@ -1,0 +1,6 @@
+Item,Description,Unit,Quantity,Rate,Amount
+1.01,Excavation to reduce levels,m3,1200,5.00,6000
+1.02,Concrete C30 to foundations,m3,450,120.00,54000
+1.03,High-tensile reinforcement,t,68,900.00,61200
+2.01,Blockwork 200mm,m2,3400,25.00,85000
+2.02,Internal plaster,m2,5600,8.00,44800

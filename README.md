@@ -9,7 +9,7 @@ layer** to audit community-contributed skills.
 
 ## Có gì / What's inside
 ```
-skills/            5 bộ skill · 23 skill (xem docs/skill-taxonomy.md)
+skills/            7 bộ skill · 29 skill (xem docs/skill-taxonomy.md)
 scripts/           validate_skill.py + audit_skill.py — lớp kiểm định
 .claude/agents/    skill-auditor — agent review bảo mật skill
 .github/           CI (skill-validation), CODEOWNERS, PR template
@@ -18,14 +18,16 @@ templates/         SKILL_TEMPLATE.md
 tests/fixtures/    malicious-skill — mẫu độc để test auditor
 ```
 
-## Năm bộ skill / five skill sets
+## Bảy bộ skill / seven skill sets
 | Bộ | Nội dung | Skill chạy được / runnable |
 |----|----------|---------------------------|
 | `bim-coordination` | Clash & coordination | `clash-report-analysis`, `coordination-issue-log`, `model-federation`, `shared-coordinates` |
 | `revit-authoring` | Revit / Dynamo / pyRevit | `family-parameter-management`, `schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `family-naming-audit`, `model-compare`, `dynamo-pyrevit-helper`, `revit-batch-export` |
-| `documentation-review` | Markup & comment | `pdf-markup-compare`, `comment-aggregation`, `submittal-log` |
-| `project-management` | ACC/BIM360 & Excel | `acc-issue-register`, `rfi-tracker`, `weekly-report`, `change-order-log`, `action-item-tracker` |
-| `standards-qa` | Chuẩn & QA tài liệu | `iso19650-naming-check`, `spellcheck-review`, `sheet-naming-check` |
+| `documentation-review` | Markup & comment | `pdf-markup-compare`, `comment-aggregation`, `submittal-log`, `drawing-register-qa` |
+| `project-management` | ACC/BIM360 & Excel | `acc-issue-register`, `rfi-tracker`, `weekly-report`, `change-order-log`, `action-item-tracker`, `risk-register` |
+| `standards-qa` | Chuẩn & QA tài liệu | `iso19650-naming-check`, `spellcheck-review`, `sheet-naming-check`, `cobie-validation` |
+| `cost-qs` | Bóc tách khối lượng & chi phí | `quantity-takeoff`, `boq-compare` |
+| `mep-systems` | Kiểm tra hệ thống MEP | `duct-velocity-check` |
 
 Bản đồ đầy đủ + skill scaffold: [`docs/skill-taxonomy.md`](docs/skill-taxonomy.md).
 

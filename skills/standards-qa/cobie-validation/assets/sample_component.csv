@@ -1,0 +1,7 @@
+Name,CreatedBy,CreatedOn,TypeName,Space,Description
+AHU-01,designer@firm.com,2026-06-01T09:00:00,AHU-Type-A,Plant Room L5,Air handling unit
+AHU-02,designer@firm.com,2026-06-01T09:00:00,AHU-Type-A,Plant Room L5,Air handling unit
+FCU-01,designer@firm.com,2026-06-01T09:00:00,FCU-Type-B,Office L3,Fan coil unit
+FCU-01,designer@firm.com,2026-06-01T09:00:00,FCU-Type-B,Office L3,Fan coil unit
+PUMP-01,,2026-06-01,PUMP-Type-C,,Chilled water pump
+VAV-01,not-an-email,15/06/2026,VAV-Type-D,Office L4,VAV terminal box

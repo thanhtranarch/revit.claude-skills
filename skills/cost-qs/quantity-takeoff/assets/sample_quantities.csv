@@ -1,0 +1,9 @@
+Category,Family,Type,Count,Area,Volume
+Walls,Basic Wall,Generic 200,42,"1,250.50","250.10"
+Walls,Basic Wall,Generic 150,18,"620.00","93.00"
+Floors,Floor,Slab 250,12,"3,400.75","850.19"
+Doors,Single Door,800x2100,64,"107.52",
+Doors,Double Door,1600x2100,8,"26.88",
+Windows,Fixed,1200x1500,36,"64.80",
+Structural Columns,Rect,400x400,24,"9.60","38.40"
+Structural Framing,Beam,300x600,56,"100.80","201.60"

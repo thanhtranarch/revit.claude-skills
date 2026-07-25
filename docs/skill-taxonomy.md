@@ -12,7 +12,7 @@ skill theo lĩnh vực công việc trong ngành ACE/AEC.
   `templates/`.
 - Skill chưa hoàn thiện đặt `status: scaffold` trong frontmatter.
 
-## Năm bộ hiện có / five sets
+## Bảy bộ hiện có / seven sets
 
 ### 1. `bim-coordination` — Coordination & Clash
 | Skill | Trạng thái | Mô tả ngắn |
@@ -43,6 +43,7 @@ Bộ đầy đủ — xem [`skills/revit-authoring/README.md`](../skills/revit-a
 | `pdf-markup-compare` | ✅ chạy được | So sánh markup giữa 2 revision PDF |
 | `comment-aggregation` | ✅ chạy được | Gộp comment/RFI nhiều nguồn → Excel register |
 | `submittal-log` | ✅ chạy được | Nhật ký & trạng thái submittal, ball-in-court, review cycle |
+| `drawing-register-qa` | ✅ chạy được | QA sổ phát hành: revision/suitability/ngày, trùng số |
 
 ### 4. `project-management` — ACC/BIM360 + Excel
 | Skill | Trạng thái | Mô tả ngắn |
@@ -52,6 +53,7 @@ Bộ đầy đủ — xem [`skills/revit-authoring/README.md`](../skills/revit-a
 | `weekly-report` | ✅ chạy được | Báo cáo trạng thái tuần đa nguồn + Δ tuần |
 | `change-order-log` | ✅ chạy được | Theo dõi change order: giá trị approved/pending/rejected, quá hạn |
 | `action-item-tracker` | ✅ chạy được | Theo dõi action item họp: owner, aging, overdue |
+| `risk-register` | ✅ chạy được | Chấm điểm P×I, RAG, review quá hạn, top rủi ro |
 
 ### 5. `standards-qa` — Chuẩn & QA tài liệu/dữ liệu
 Bộ đầy đủ — xem [`skills/standards-qa/README.md`](../skills/standards-qa/README.md).
@@ -61,6 +63,22 @@ Bộ đầy đủ — xem [`skills/standards-qa/README.md`](../skills/standards-
 | `iso19650-naming-check` | ✅ chạy được | Kiểm tên file theo ISO 19650 (trường, Type/Role, status/revision) |
 | `spellcheck-review` | ✅ chạy được | Soát chính tả text AEC (lỗi thường gặp + từ lặp; `--dict` tuỳ chọn) |
 | `sheet-naming-check` | ✅ chạy được | Kiểm chuẩn số/tên sheet, bắt trùng số & từ cấm trong tên |
+| `cobie-validation` | ✅ chạy được | Kiểm tính đầy đủ sheet COBie (cột bắt buộc, ô rỗng, Name trùng) |
+
+### 6. `cost-qs` — Bóc tách khối lượng & chi phí
+Bộ đầy đủ — xem [`skills/cost-qs/README.md`](../skills/cost-qs/README.md).
+
+| Skill | Trạng thái | Mô tả ngắn |
+|-------|-----------|------------|
+| `quantity-takeoff` | ✅ chạy được | Gom & cộng khối lượng theo nhóm (count/area/volume/length/weight) |
+| `boq-compare` | ✅ chạy được | So 2 bản BoQ/takeoff: item thêm/bớt, Δ khối lượng & tổng giá trị |
+
+### 7. `mep-systems` — Kiểm tra hệ thống MEP
+Bộ đầy đủ — xem [`skills/mep-systems/README.md`](../skills/mep-systems/README.md).
+
+| Skill | Trạng thái | Mô tả ngắn |
+|-------|-----------|------------|
+| `duct-velocity-check` | ✅ chạy được | Vận tốc & tỷ lệ cạnh ống gió; cờ vượt vận tốc / aspect |
 
 ## Mở rộng / how to grow
 1. Thêm bộ mới = thư mục con của `skills/` (vd `mep-systems`, `cost-qs`, `gis-civil`).
@@ -71,7 +89,7 @@ Bộ đầy đủ — xem [`skills/standards-qa/README.md`](../skills/standards-
    `docs/security-model.md`).
 
 ## Ý tưởng bộ tương lai / future sets (chưa tạo)
-- `mep-systems` — kiểm tra hệ thống MEP, size ống/ống gió, áp lực.
-- `cost-qs` — bóc tách khối lượng, dự toán từ schedule.
 - `gis-civil` — Civil 3D, surface, corridor, toạ độ khảo sát.
-- Mở rộng `standards-qa` — BS 1192, COBie validation, layer standards.
+- Mở rộng `mep-systems` — pipe sizing, equipment schedule QA, connected load.
+- Mở rộng `cost-qs` — dự toán (rate build-up), cash flow / S-curve.
+- Mở rộng `standards-qa` — BS 1192, layer standards, tham chiếu chéo COBie giữa sheet.

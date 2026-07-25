@@ -1,0 +1,7 @@
+Duct ID,System,Width,Height,Airflow
+D-01,Supply,600,400,1400
+D-02,Supply,400,400,1200
+D-03,Return,800,300,1600
+D-04,Extract,1000,200,1800
+D-05,Supply,500,250,900
+D-06,Supply,,,1100
