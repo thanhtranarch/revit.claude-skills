@@ -1,0 +1,11 @@
+metric,value
+file_size_mb,412
+warnings_total,1350
+warnings_high,64
+purgeable_count,1820
+cad_imports,3
+in_place_families,12
+unused_views,240
+unused_view_templates,6
+groups,18
+editable_worksets_max,4

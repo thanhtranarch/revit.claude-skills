@@ -1,0 +1,8 @@
+Risk ID,Description,Category,Owner,Probability,Impact,Status,Review Date,Mitigation
+R-01,Late statutory permit approval,Schedule,PM,High,High,Open,2026-07-10,Escalate to authority; parallel submissions
+R-02,Structural steel price increase,Cost,QS,Medium,Very High,Open,2026-08-01,Lock supplier price early
+R-03,Ground water ingress at basement,Technical,Engineer,Low,High,Open,2026-06-30,Dewatering and tanking plan
+R-04,Design change scope creep,Scope,PM,High,Medium,Open,2026-07-20,Strict change control process
+R-05,Key subcontractor default,Commercial,PM,Low,Medium,Closed,2026-05-15,Pre-qualified backup contractor
+R-06,Adverse weather delays,Schedule,Site,Medium,Medium,Open,2026-06-15,Program float; weather monitoring
+R-07,BIM model coordination errors,Technical,BIM,Medium,High,Open,2026-08-10,Weekly clash coordination

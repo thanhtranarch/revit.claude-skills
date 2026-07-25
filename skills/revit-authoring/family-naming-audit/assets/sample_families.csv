@@ -1,0 +1,12 @@
+Family,Type,Category
+AR_Door_Single,800x2100,Doors
+AR_Door_Single,900x2100,Doors
+AR_Door_Single,800x2100,Doors
+ST_Column_Rect,300x600,Structural Columns
+ST_Column_Rect,400x400,Structural Columns
+ME_Duct Fitting,Elbow,Duct Fittings
+window_double,1200x1500,Windows
+XX_Test__Family,A,Generic Models
+AR_Generic,T1,Doors
+AR_Generic,T1,Furniture
+EL_Light_Recessed,600x600,Lighting Fixtures

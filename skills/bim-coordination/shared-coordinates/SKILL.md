@@ -36,6 +36,20 @@ acquire/publish coordinates.
 - Lệch cao độ → kiểm tra Elevation của SP và Project Elevation vs Survey.
 - Mô hình quá xa internal origin → cảnh báo độ chính xác, kéo gần lại.
 
+## Kiểm tự động / auto-check
+Export toạ độ Survey Point + góc true north của từng model ra CSV (model, sp_e,
+sp_n, sp_elev, angle, reference) rồi so với model chủ theo dung sai:
+```bash
+python scripts/check_coordinates.py <coords.csv> --reference AR --tol 1.0 --angle-tol 0.01
+```
+Thử nhanh với dữ liệu mẫu / quick test:
+```bash
+python scripts/check_coordinates.py assets/sample_coordinates.csv
+```
+Báo `OK / OFFSET (ΔE/ΔN/ΔElev) / ROTATED (Δangle)` cho từng model; exit 1 nếu có
+lệch (dùng làm gate trước federate/clash).
+
 ## Ghi chú / Notes
-- Đây là skill hướng dẫn (không kèm script). Kết hợp với `clash-report-analysis`
-  sau khi coordinate đã khớp để check clash có nghĩa.
+- Script chỉ dùng thư viện chuẩn (`csv`); dung sai theo đơn vị dữ liệu (thường mm).
+- Kết hợp: `shared-coordinates` (toạ độ khớp) → `model-federation` (gộp) →
+  `clash-report-analysis` (check clash có nghĩa).
