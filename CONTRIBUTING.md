@@ -7,15 +7,22 @@ khi merge. Đọc `docs/security-model.md` để hiểu vì sao.
 
 ## Quy trình nhanh / quick flow
 1. Tạo branch từ `main`.
-2. Copy `templates/SKILL_TEMPLATE.md` vào `skills/<bộ>/<tên-skill>/SKILL.md`.
+2. Copy `templates/SKILL_TEMPLATE.md` vào `skills/<software>/<tên-skill>/SKILL.md`
+   (nhóm theo **phần mềm**: `revit`, `navisworks`, `acc-bim360`, `bluebeam-pdf`,
+   `office-data`).
 3. Viết skill (song ngữ Việt–Anh nếu được). Kèm `scripts/`, `references/`,
    `assets/` khi cần. Ưu tiên skill **có script chạy được**.
-4. Chạy kiểm định cục bộ:
+4. Gắn `metadata` (`software`, `discipline`, `category`) — xem giá trị hợp lệ ở
+   đầu `scripts/build_taxonomy.py` — rồi sinh lại bảng tra cứu:
    ```bash
-   python scripts/validate_skill.py skills/<bộ>/<tên-skill>
-   python scripts/audit_skill.py    skills/<bộ>/<tên-skill>
+   python scripts/build_taxonomy.py            # cập nhật docs/skill-taxonomy.md
    ```
-5. Mở PR, điền checklist trong PR template.
+5. Chạy kiểm định cục bộ:
+   ```bash
+   python scripts/validate_skill.py skills/<software>/<tên-skill>
+   python scripts/audit_skill.py    skills/<software>/<tên-skill>
+   ```
+6. Mở PR, điền checklist trong PR template.
 
 ## Quy tắc viết skill / skill rules
 - Thư mục kebab-case, duy nhất; `name` trong frontmatter khớp thư mục (≤64 ký tự).
@@ -48,8 +55,8 @@ PR  →  CI (validate + audit)  →  @skill-auditor (tác giả ngoài team)  �
 ## Chạy thử skill mẫu / try the sample skills
 ```bash
 pip install -r requirements.txt
-python skills/bim-coordination/clash-report-analysis/scripts/parse_clash.py \
-       skills/bim-coordination/clash-report-analysis/assets/sample_clash.xml
+python skills/navisworks/clash-report-analysis/scripts/parse_clash.py \
+       skills/navisworks/clash-report-analysis/assets/sample_clash.xml
 ```
 
 ## License của phần đóng góp / contribution license

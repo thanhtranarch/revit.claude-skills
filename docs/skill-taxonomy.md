@@ -1,98 +1,178 @@
-# Skill Taxonomy — Bản đồ các bộ skill / Skill set map
+# Skill Taxonomy — Bản đồ skill / Skill map
 
-Tất cả skill nằm trong `skills/<bộ>/<tên-skill>/SKILL.md`. Mỗi **bộ (set)** gom
-skill theo lĩnh vực công việc trong ngành ACE/AEC.
+> ⚙️ **Auto-generated** bởi `scripts/build_taxonomy.py` từ metadata của từng skill. Đừng sửa tay — chạy lại script sau khi thêm/sửa skill.
+> Auto-generated from each skill's `metadata`. Do not edit by hand.
 
-## Quy ước đặt tên / naming conventions
-- Thư mục skill = **kebab-case**, duy nhất trong repo (vd `clash-report-analysis`).
-- `name` trong frontmatter **phải khớp** tên thư mục (≤64 ký tự).
-- `description` (≤1024 ký tự) viết **ngôi thứ ba**, nêu rõ *skill làm gì* +
-  *khi nào dùng* (`Use when …`) + *từ khoá kích hoạt* (song ngữ nếu có thể)
-  để Claude chọn đúng skill.
-- Trường frontmatter tuỳ chọn theo spec: `license`, `compatibility`,
-  `metadata`, `allowed-tools` (xem `templates/SKILL_TEMPLATE.md`).
-- Cấu trúc bên trong (tuỳ nhu cầu): `scripts/`, `references/`, `assets/`,
-  `templates/`.
-- Skill chưa hoàn thiện đặt `status: scaffold` trong `metadata` của frontmatter.
+Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/`) và gắn **metadata** (`software`, `discipline`, `category`) để tra cứu chéo. **29 skill · 5 nhóm phần mềm.**
 
-## Bảy bộ hiện có / seven sets
+- 🧭 [Theo phần mềm / By software](#-theo-phần-mềm--by-software)
+- 🏗️ [Theo bộ môn / By discipline](#-theo-bộ-môn--by-discipline)
+- 🧩 [Theo tính chất / By category](#-theo-tính-chất-công-việc--by-category)
 
-### 1. `bim-coordination` — Coordination & Clash
-| Skill | Trạng thái | Mô tả ngắn |
-|-------|-----------|------------|
-| `clash-report-analysis` | ✅ chạy được | Phân tích/tóm tắt report clash Navisworks (XML) |
-| `shared-coordinates` | ✅ hướng dẫn+script | Thiết lập & QA toạ độ chung; so SP/PBP/north giữa model |
-| `model-federation` | ✅ hướng dẫn+script | Gộp model coordination (NWF/NWD, ACC) + check readiness |
-| `coordination-issue-log` | ✅ chạy được | Gộp clash nhiều vòng → issue log + export import ACC |
+## 🧭 Theo phần mềm / By software
 
-### 2. `revit-authoring` — Revit / Dynamo / pyRevit
-Bộ đầy đủ — xem [`skills/revit-authoring/README.md`](../skills/revit-authoring/README.md)
-để biết cách cài đặt.
+*Đây cũng là cấu trúc thư mục / this is also the folder layout.*
 
-| Skill | Trạng thái | Mô tả ngắn |
-|-------|-----------|------------|
-| `dynamo-pyrevit-helper` | ✅ mẫu+ref | Viết/rà soát script pyRevit & Dynamo |
-| `family-parameter-management` | ✅ chạy được | Phân tích shared parameter file (GUID/tên trùng, thiếu mô tả) |
-| `schedule-qa` | ✅ chạy được | Validate schedule CSV theo rules (required/unique/allowed) |
-| `revit-warnings-audit` | ✅ chạy được | Gom nhóm & ưu tiên warning từ HTML export |
-| `revit-model-audit` | ✅ hướng dẫn+script | Checklist + scorer sức khoẻ model (🔴/🟡/🟢 + health index) |
-| `revit-batch-export` | ✅ mẫu+ref | Export hàng loạt sheet ra PDF/DWG/NWC/IFC theo tên chuẩn |
-| `family-naming-audit` | ✅ chạy được | Kiểm tên family/type theo chuẩn; bắt trùng & dùng lại category |
-| `model-compare` | ✅ chạy được | So 2 phiên bản model: added/deleted/changed theo Element ID |
+### Revit — `skills/revit/` (11)
 
-### 3. `documentation-review` — Tài liệu / Markup / Comment
-| Skill | Trạng thái | Mô tả ngắn |
-|-------|-----------|------------|
-| `pdf-markup-compare` | ✅ chạy được | So sánh markup giữa 2 revision PDF |
-| `comment-aggregation` | ✅ chạy được | Gộp comment/RFI nhiều nguồn → Excel register |
-| `submittal-log` | ✅ chạy được | Nhật ký & trạng thái submittal, ball-in-court, review cycle |
-| `drawing-register-qa` | ✅ chạy được | QA sổ phát hành: revision/suitability/ngày, trùng số |
+| Skill | Bộ môn | Tính chất | Tóm tắt / What it does |
+|-------|--------|-----------|------------------------|
+| [`shared-coordinates`](../skills/revit/shared-coordinates/SKILL.md) | Đa bộ môn / Multi | Coordination — Điều phối | Provides guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models |
+| [`duct-velocity-check`](../skills/revit/duct-velocity-check/SKILL.md) | MEP | QA / QC — Kiểm tra | Checks HVAC duct air velocity and aspect ratio from a duct schedule export — computing velocity from airflow and cross-section (rectangular W×H or round Ø), flagging over-velocity (noise/pressure) and high aspect ratios, with configurable limits and airflow units (l/s, CFM, m3/h) |
+| [`model-compare`](../skills/revit/model-compare/SKILL.md) | Đa bộ môn / Multi | QA / QC — Kiểm tra | Compares two Revit element exports (old vs new snapshot) keyed by Element ID or GUID and reports what was added, deleted, or changed — including which fields changed from what to what — with an optional diff CSV |
+| [`revit-model-audit`](../skills/revit/revit-model-audit/SKILL.md) | Đa bộ môn / Multi | QA / QC — Kiểm tra | Runs a structured Revit model health audit — a checklist for file size, warnings count, purgeable elements, CAD imports, in-place families, unused view templates/filters, groups, and worksharing hygiene, with the specific Revit commands to check each and the thresholds that signal a problem |
+| [`revit-warnings-audit`](../skills/revit/revit-warnings-audit/SKILL.md) | Đa bộ môn / Multi | QA / QC — Kiểm tra | Parses a Revit warnings export (the HTML file from Manage > Warnings > Export) and turns hundreds of raw warnings into a prioritized, grouped summary — counts by warning type, most frequent messages, and a severity bucket (high/medium/low) so the team knows what to fix first |
+| [`schedule-qa`](../skills/revit/schedule-qa/SKILL.md) | Đa bộ môn / Multi | QA / QC — Kiểm tra | Validates the data behind Revit schedules by checking a schedule exported to CSV/TSV against a rules file — required fields that must not be blank, allowed-value lists, and columns that must be unique (e.g. Mark). Reports each violation with its row so the model can be fixed before issue |
+| [`family-naming-audit`](../skills/revit/family-naming-audit/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Audits Revit family and type names from an exported family list against a company naming standard — discipline prefix, allowed pattern, no spaces or double underscores — and flags names reused across categories and duplicate (family, type) pairs |
+| [`family-parameter-management`](../skills/revit/family-parameter-management/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Audits and standardizes Revit shared parameters and family/project parameters. Analyzes a Revit shared parameter file (the tab-delimited .txt exported from Manage > Shared Parameters) to find duplicate GUIDs, duplicate names, missing descriptions, and group/data-type breakdowns; also gives guidance on type-vs-instance and naming standards |
+| [`sheet-naming-check`](../skills/revit/sheet-naming-check/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Validates Revit/CAD sheet numbers and sheet names against a company standard (discipline-prefix number pattern, allowed disciplines, forbidden placeholder terms) and reports non-conforming and duplicate sheet numbers from an exported sheet list |
+| [`dynamo-pyrevit-helper`](../skills/revit/dynamo-pyrevit-helper/SKILL.md) | Đa bộ môn / Multi | Automation — Tự động hoá | Helps write, review, and troubleshoot Revit automation scripts using pyRevit (IronPython/CPython) or Dynamo Python nodes — common tasks like setting parameters in bulk, renaming views/sheets, exporting, and collecting elements by category |
+| [`revit-batch-export`](../skills/revit/revit-batch-export/SKILL.md) | Đa bộ môn / Multi | Automation — Tự động hoá | Generates and adapts pyRevit/Dynamo scripts to batch-export Revit sheets and views to PDF, DWG, DWF, NWC, or IFC with a consistent file-naming convention (e.g. SheetNumber-SheetName-Rev) |
 
-### 4. `project-management` — ACC/BIM360 + Excel
-| Skill | Trạng thái | Mô tả ngắn |
-|-------|-----------|------------|
-| `acc-issue-register` | ✅ chạy được | Chuẩn hoá issue ACC/BIM360 + overdue |
-| `rfi-tracker` | ✅ chạy được | Theo dõi RFI + aging, ball-in-court, KPI phản hồi |
-| `weekly-report` | ✅ chạy được | Báo cáo trạng thái tuần đa nguồn + Δ tuần |
-| `change-order-log` | ✅ chạy được | Theo dõi change order: giá trị approved/pending/rejected, quá hạn |
-| `action-item-tracker` | ✅ chạy được | Theo dõi action item họp: owner, aging, overdue |
-| `risk-register` | ✅ chạy được | Chấm điểm P×I, RAG, review quá hạn, top rủi ro |
+### Navisworks — `skills/navisworks/` (2)
 
-### 5. `standards-qa` — Chuẩn & QA tài liệu/dữ liệu
-Bộ đầy đủ — xem [`skills/standards-qa/README.md`](../skills/standards-qa/README.md).
+| Skill | Bộ môn | Tính chất | Tóm tắt / What it does |
+|-------|--------|-----------|------------------------|
+| [`clash-report-analysis`](../skills/navisworks/clash-report-analysis/SKILL.md) | Đa bộ môn / Multi | Coordination — Điều phối | Analyzes and summarizes Navisworks clash detection reports (XML export from Clash Detective) |
+| [`model-federation`](../skills/navisworks/model-federation/SKILL.md) | Đa bộ môn / Multi | Coordination — Điều phối | Federates multiple discipline models into a single coordination model (Navisworks NWF/NWD or ACC Model Coordination) — append order, file naming, refresh workflow, and a clash-readiness check of units, coordinates, and model freshness before running clash |
 
-| Skill | Trạng thái | Mô tả ngắn |
-|-------|-----------|------------|
-| `iso19650-naming-check` | ✅ chạy được | Kiểm tên file theo ISO 19650 (trường, Type/Role, status/revision) |
-| `spellcheck-review` | ✅ chạy được | Soát chính tả text AEC (lỗi thường gặp + từ lặp; `--dict` tuỳ chọn) |
-| `sheet-naming-check` | ✅ chạy được | Kiểm chuẩn số/tên sheet, bắt trùng số & từ cấm trong tên |
-| `cobie-validation` | ✅ chạy được | Kiểm tính đầy đủ sheet COBie (cột bắt buộc, ô rỗng, Name trùng) |
+### ACC / BIM 360 — `skills/acc-bim360/` (2)
 
-### 6. `cost-qs` — Bóc tách khối lượng & chi phí
-Bộ đầy đủ — xem [`skills/cost-qs/README.md`](../skills/cost-qs/README.md).
+| Skill | Bộ môn | Tính chất | Tóm tắt / What it does |
+|-------|--------|-----------|------------------------|
+| [`acc-issue-register`](../skills/acc-bim360/acc-issue-register/SKILL.md) | Đa bộ môn / Multi | Coordination — Điều phối | Normalizes an Autodesk Construction Cloud (ACC) or BIM360 issues CSV export into a clean register and summary — counts by status, assignee, discipline, and overdue flags against due dates |
+| [`coordination-issue-log`](../skills/acc-bim360/coordination-issue-log/SKILL.md) | Đa bộ môn / Multi | Coordination — Điều phối | Turns clash results and coordination-meeting findings into a tracked issue log with owner, discipline, status, and target date — merging multiple meeting rounds by ID and exporting a CSV mapped to ACC/BIM360 Issues import |
 
-| Skill | Trạng thái | Mô tả ngắn |
-|-------|-----------|------------|
-| `quantity-takeoff` | ✅ chạy được | Gom & cộng khối lượng theo nhóm (count/area/volume/length/weight) |
-| `boq-compare` | ✅ chạy được | So 2 bản BoQ/takeoff: item thêm/bớt, Δ khối lượng & tổng giá trị |
+### Bluebeam / PDF — `skills/bluebeam-pdf/` (2)
 
-### 7. `mep-systems` — Kiểm tra hệ thống MEP
-Bộ đầy đủ — xem [`skills/mep-systems/README.md`](../skills/mep-systems/README.md).
+| Skill | Bộ môn | Tính chất | Tóm tắt / What it does |
+|-------|--------|-----------|------------------------|
+| [`comment-aggregation`](../skills/bluebeam-pdf/comment-aggregation/SKILL.md) | Đa bộ môn / Multi | Documentation — Tài liệu | Aggregates review comments / RFIs / markups from multiple CSV exports (Bluebeam markup summary, ACC/BIM360 issues, reviewer spreadsheets) into one consolidated, de-duplicated Excel register with status and discipline breakdowns |
+| [`pdf-markup-compare`](../skills/bluebeam-pdf/pdf-markup-compare/SKILL.md) | Đa bộ môn / Multi | Documentation — Tài liệu | Compares two revisions of a PDF drawing/document and reports what changed — added, removed, and moved annotations/markups (text notes, clouds, comments), plus per-page text differences |
 
-| Skill | Trạng thái | Mô tả ngắn |
-|-------|-----------|------------|
-| `duct-velocity-check` | ✅ chạy được | Vận tốc & tỷ lệ cạnh ống gió; cờ vượt vận tốc / aspect |
+### Office / CSV (agnostic) — `skills/office-data/` (12)
 
-## Mở rộng / how to grow
-1. Thêm bộ mới = thư mục con của `skills/` (vd `mep-systems`, `cost-qs`, `gis-civil`).
-2. Thêm skill = tạo thư mục + `SKILL.md` (copy `templates/SKILL_TEMPLATE.md`).
-3. Ưu tiên skill **có script chạy được** khi có thể; nếu không, làm skill hướng
-   dẫn/checklist rõ ràng.
-4. Chạy `validate_skill.py` + `audit_skill.py` trước khi mở PR (xem
-   `docs/security-model.md`).
+| Skill | Bộ môn | Tính chất | Tóm tắt / What it does |
+|-------|--------|-----------|------------------------|
+| [`cobie-validation`](../skills/office-data/cobie-validation/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Validates a COBie sheet export (CSV) for completeness — required columns present, required cells non-empty, unique Name, CreatedBy is an email, and CreatedOn is a valid ISO 8601 date — for Facility, Floor, Space, Zone, Type, Component, and System sheets |
+| [`iso19650-naming-check`](../skills/office-data/iso19650-naming-check/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Validates information-container (file) names against the ISO 19650 / UK BIM Framework naming convention — the field-based code Project-Originator-Volume-Location-Type-Role-Number, plus optional suitability/status (S0, S2, A1…) and revision (P01, C01…) codes. Checks field count, field patterns, and known Type/Role code sets, reporting each bad name with the exact field that failed |
+| [`spellcheck-review`](../skills/office-data/spellcheck-review/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Spell-checks English text pulled from AEC documents and registers — sheet names, drawing notes, RFI/comment logs, specifications, schedule text — flagging common misspellings and repeated words, with an optional dictionary mode that also finds unknown words while ignoring AEC jargon via a glossary allowlist |
+| [`drawing-register-qa`](../skills/office-data/drawing-register-qa/SKILL.md) | Đa bộ môn / Multi | Documentation — Tài liệu | Runs QA on a drawing issue register / transmittal before issue — flagging missing or badly-formatted revisions, invalid ISO 19650 suitability codes, missing issue dates, and duplicate sheet numbers from a CSV export |
+| [`submittal-log`](../skills/office-data/submittal-log/SKILL.md) | Đa bộ môn / Multi | Documentation — Tài liệu | Builds and tracks a submittal log from a submittal register — lifecycle status (pending/under review/approved/revise and resubmit/rejected), ball-in-court, overdue flags, spec-section grouping, and review-cycle stats |
+| [`action-item-tracker`](../skills/office-data/action-item-tracker/SKILL.md) | Đa bộ môn / Multi | Project Management — Quản lý dự án | Tracks meeting and coordination action items from a register — owner, status, due date, aging buckets, overdue flags, and rollups by owner, meeting, and priority |
+| [`change-order-log`](../skills/office-data/change-order-log/SKILL.md) | Đa bộ môn / Multi | Project Management — Quản lý dự án | Tracks construction change orders / variations from a register — status (pending/approved/rejected), cost and schedule impact, running totals by status and discipline, aging, and overdue-decision flags |
+| [`rfi-tracker`](../skills/office-data/rfi-tracker/SKILL.md) | Đa bộ môn / Multi | Project Management — Quản lý dự án | Tracks Requests for Information (RFIs) from a register — status, days open, ball-in-court, response due dates, aging buckets, and cost/schedule impact flags |
+| [`risk-register`](../skills/office-data/risk-register/SKILL.md) | Đa bộ môn / Multi | Project Management — Quản lý dự án | Scores and rates a project risk register from a CSV — converting probability and impact (1-5 or Low/Medium/High) into a P×I score, assigning RAG (red/amber/green), rolling up by RAG, owner, and category, flagging overdue reviews, and listing the top open risks |
+| [`weekly-report`](../skills/office-data/weekly-report/SKILL.md) | Đa bộ môn / Multi | Project Management — Quản lý dự án | Assembles a weekly BIM/coordination status report from multiple register CSVs (issue logs, RFI trackers, clash registers, change orders) — open vs closed counts, overdue items, and week-over-week deltas from a saved snapshot |
+| [`boq-compare`](../skills/office-data/boq-compare/SKILL.md) | Đa bộ môn / Multi | Cost / QS — Khối lượng & chi phí | Compares two bills of quantities or quantity takeoffs (old vs new) keyed by item code or description, reporting added and removed items and quantity/value increases or decreases with delta and percent, plus total-amount movement |
+| [`quantity-takeoff`](../skills/office-data/quantity-takeoff/SKILL.md) | Đa bộ môn / Multi | Cost / QS — Khối lượng & chi phí | Aggregates a quantity takeoff (QTO) from a Revit or Excel schedule export — grouping by category/family/type and summing count, area, volume, length, and weight columns, stripping units and thousands separators |
 
-## Ý tưởng bộ tương lai / future sets (chưa tạo)
-- `gis-civil` — Civil 3D, surface, corridor, toạ độ khảo sát.
-- Mở rộng `mep-systems` — pipe sizing, equipment schedule QA, connected load.
-- Mở rộng `cost-qs` — dự toán (rate build-up), cash flow / S-curve.
-- Mở rộng `standards-qa` — BS 1192, layer standards, tham chiếu chéo COBie giữa sheet.
+## 🏗️ Theo bộ môn / By discipline
+
+### Đa bộ môn / Multi (28)
+
+| Skill | Phần mềm | Tính chất | Tóm tắt / What it does |
+|-------|----------|-----------|------------------------|
+| [`dynamo-pyrevit-helper`](../skills/revit/dynamo-pyrevit-helper/SKILL.md) | Revit | Automation — Tự động hoá | Helps write, review, and troubleshoot Revit automation scripts using pyRevit (IronPython/CPython) or Dynamo Python nodes — common tasks like setting parameters in bulk, renaming views/sheets, exporting, and collecting elements by category |
+| [`family-naming-audit`](../skills/revit/family-naming-audit/SKILL.md) | Revit | Standards — Tiêu chuẩn | Audits Revit family and type names from an exported family list against a company naming standard — discipline prefix, allowed pattern, no spaces or double underscores — and flags names reused across categories and duplicate (family, type) pairs |
+| [`family-parameter-management`](../skills/revit/family-parameter-management/SKILL.md) | Revit | Standards — Tiêu chuẩn | Audits and standardizes Revit shared parameters and family/project parameters. Analyzes a Revit shared parameter file (the tab-delimited .txt exported from Manage > Shared Parameters) to find duplicate GUIDs, duplicate names, missing descriptions, and group/data-type breakdowns; also gives guidance on type-vs-instance and naming standards |
+| [`model-compare`](../skills/revit/model-compare/SKILL.md) | Revit | QA / QC — Kiểm tra | Compares two Revit element exports (old vs new snapshot) keyed by Element ID or GUID and reports what was added, deleted, or changed — including which fields changed from what to what — with an optional diff CSV |
+| [`revit-batch-export`](../skills/revit/revit-batch-export/SKILL.md) | Revit | Automation — Tự động hoá | Generates and adapts pyRevit/Dynamo scripts to batch-export Revit sheets and views to PDF, DWG, DWF, NWC, or IFC with a consistent file-naming convention (e.g. SheetNumber-SheetName-Rev) |
+| [`revit-model-audit`](../skills/revit/revit-model-audit/SKILL.md) | Revit | QA / QC — Kiểm tra | Runs a structured Revit model health audit — a checklist for file size, warnings count, purgeable elements, CAD imports, in-place families, unused view templates/filters, groups, and worksharing hygiene, with the specific Revit commands to check each and the thresholds that signal a problem |
+| [`revit-warnings-audit`](../skills/revit/revit-warnings-audit/SKILL.md) | Revit | QA / QC — Kiểm tra | Parses a Revit warnings export (the HTML file from Manage > Warnings > Export) and turns hundreds of raw warnings into a prioritized, grouped summary — counts by warning type, most frequent messages, and a severity bucket (high/medium/low) so the team knows what to fix first |
+| [`schedule-qa`](../skills/revit/schedule-qa/SKILL.md) | Revit | QA / QC — Kiểm tra | Validates the data behind Revit schedules by checking a schedule exported to CSV/TSV against a rules file — required fields that must not be blank, allowed-value lists, and columns that must be unique (e.g. Mark). Reports each violation with its row so the model can be fixed before issue |
+| [`shared-coordinates`](../skills/revit/shared-coordinates/SKILL.md) | Revit | Coordination — Điều phối | Provides guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models |
+| [`sheet-naming-check`](../skills/revit/sheet-naming-check/SKILL.md) | Revit | Standards — Tiêu chuẩn | Validates Revit/CAD sheet numbers and sheet names against a company standard (discipline-prefix number pattern, allowed disciplines, forbidden placeholder terms) and reports non-conforming and duplicate sheet numbers from an exported sheet list |
+| [`clash-report-analysis`](../skills/navisworks/clash-report-analysis/SKILL.md) | Navisworks | Coordination — Điều phối | Analyzes and summarizes Navisworks clash detection reports (XML export from Clash Detective) |
+| [`model-federation`](../skills/navisworks/model-federation/SKILL.md) | Navisworks | Coordination — Điều phối | Federates multiple discipline models into a single coordination model (Navisworks NWF/NWD or ACC Model Coordination) — append order, file naming, refresh workflow, and a clash-readiness check of units, coordinates, and model freshness before running clash |
+| [`acc-issue-register`](../skills/acc-bim360/acc-issue-register/SKILL.md) | ACC / BIM 360 | Coordination — Điều phối | Normalizes an Autodesk Construction Cloud (ACC) or BIM360 issues CSV export into a clean register and summary — counts by status, assignee, discipline, and overdue flags against due dates |
+| [`coordination-issue-log`](../skills/acc-bim360/coordination-issue-log/SKILL.md) | ACC / BIM 360 | Coordination — Điều phối | Turns clash results and coordination-meeting findings into a tracked issue log with owner, discipline, status, and target date — merging multiple meeting rounds by ID and exporting a CSV mapped to ACC/BIM360 Issues import |
+| [`comment-aggregation`](../skills/bluebeam-pdf/comment-aggregation/SKILL.md) | Bluebeam / PDF | Documentation — Tài liệu | Aggregates review comments / RFIs / markups from multiple CSV exports (Bluebeam markup summary, ACC/BIM360 issues, reviewer spreadsheets) into one consolidated, de-duplicated Excel register with status and discipline breakdowns |
+| [`pdf-markup-compare`](../skills/bluebeam-pdf/pdf-markup-compare/SKILL.md) | Bluebeam / PDF | Documentation — Tài liệu | Compares two revisions of a PDF drawing/document and reports what changed — added, removed, and moved annotations/markups (text notes, clouds, comments), plus per-page text differences |
+| [`action-item-tracker`](../skills/office-data/action-item-tracker/SKILL.md) | Office / CSV (agnostic) | Project Management — Quản lý dự án | Tracks meeting and coordination action items from a register — owner, status, due date, aging buckets, overdue flags, and rollups by owner, meeting, and priority |
+| [`boq-compare`](../skills/office-data/boq-compare/SKILL.md) | Office / CSV (agnostic) | Cost / QS — Khối lượng & chi phí | Compares two bills of quantities or quantity takeoffs (old vs new) keyed by item code or description, reporting added and removed items and quantity/value increases or decreases with delta and percent, plus total-amount movement |
+| [`change-order-log`](../skills/office-data/change-order-log/SKILL.md) | Office / CSV (agnostic) | Project Management — Quản lý dự án | Tracks construction change orders / variations from a register — status (pending/approved/rejected), cost and schedule impact, running totals by status and discipline, aging, and overdue-decision flags |
+| [`cobie-validation`](../skills/office-data/cobie-validation/SKILL.md) | Office / CSV (agnostic) | Standards — Tiêu chuẩn | Validates a COBie sheet export (CSV) for completeness — required columns present, required cells non-empty, unique Name, CreatedBy is an email, and CreatedOn is a valid ISO 8601 date — for Facility, Floor, Space, Zone, Type, Component, and System sheets |
+| [`drawing-register-qa`](../skills/office-data/drawing-register-qa/SKILL.md) | Office / CSV (agnostic) | Documentation — Tài liệu | Runs QA on a drawing issue register / transmittal before issue — flagging missing or badly-formatted revisions, invalid ISO 19650 suitability codes, missing issue dates, and duplicate sheet numbers from a CSV export |
+| [`iso19650-naming-check`](../skills/office-data/iso19650-naming-check/SKILL.md) | Office / CSV (agnostic) | Standards — Tiêu chuẩn | Validates information-container (file) names against the ISO 19650 / UK BIM Framework naming convention — the field-based code Project-Originator-Volume-Location-Type-Role-Number, plus optional suitability/status (S0, S2, A1…) and revision (P01, C01…) codes. Checks field count, field patterns, and known Type/Role code sets, reporting each bad name with the exact field that failed |
+| [`quantity-takeoff`](../skills/office-data/quantity-takeoff/SKILL.md) | Office / CSV (agnostic) | Cost / QS — Khối lượng & chi phí | Aggregates a quantity takeoff (QTO) from a Revit or Excel schedule export — grouping by category/family/type and summing count, area, volume, length, and weight columns, stripping units and thousands separators |
+| [`rfi-tracker`](../skills/office-data/rfi-tracker/SKILL.md) | Office / CSV (agnostic) | Project Management — Quản lý dự án | Tracks Requests for Information (RFIs) from a register — status, days open, ball-in-court, response due dates, aging buckets, and cost/schedule impact flags |
+| [`risk-register`](../skills/office-data/risk-register/SKILL.md) | Office / CSV (agnostic) | Project Management — Quản lý dự án | Scores and rates a project risk register from a CSV — converting probability and impact (1-5 or Low/Medium/High) into a P×I score, assigning RAG (red/amber/green), rolling up by RAG, owner, and category, flagging overdue reviews, and listing the top open risks |
+| [`spellcheck-review`](../skills/office-data/spellcheck-review/SKILL.md) | Office / CSV (agnostic) | Standards — Tiêu chuẩn | Spell-checks English text pulled from AEC documents and registers — sheet names, drawing notes, RFI/comment logs, specifications, schedule text — flagging common misspellings and repeated words, with an optional dictionary mode that also finds unknown words while ignoring AEC jargon via a glossary allowlist |
+| [`submittal-log`](../skills/office-data/submittal-log/SKILL.md) | Office / CSV (agnostic) | Documentation — Tài liệu | Builds and tracks a submittal log from a submittal register — lifecycle status (pending/under review/approved/revise and resubmit/rejected), ball-in-court, overdue flags, spec-section grouping, and review-cycle stats |
+| [`weekly-report`](../skills/office-data/weekly-report/SKILL.md) | Office / CSV (agnostic) | Project Management — Quản lý dự án | Assembles a weekly BIM/coordination status report from multiple register CSVs (issue logs, RFI trackers, clash registers, change orders) — open vs closed counts, overdue items, and week-over-week deltas from a saved snapshot |
+
+### MEP (1)
+
+| Skill | Phần mềm | Tính chất | Tóm tắt / What it does |
+|-------|----------|-----------|------------------------|
+| [`duct-velocity-check`](../skills/revit/duct-velocity-check/SKILL.md) | Revit | QA / QC — Kiểm tra | Checks HVAC duct air velocity and aspect ratio from a duct schedule export — computing velocity from airflow and cross-section (rectangular W×H or round Ø), flagging over-velocity (noise/pressure) and high aspect ratios, with configurable limits and airflow units (l/s, CFM, m3/h) |
+
+## 🧩 Theo tính chất công việc / By category
+
+### Coordination — Điều phối (5)
+
+| Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
+|-------|----------|--------|------------------------|
+| [`shared-coordinates`](../skills/revit/shared-coordinates/SKILL.md) | Revit | Đa bộ môn / Multi | Provides guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models |
+| [`clash-report-analysis`](../skills/navisworks/clash-report-analysis/SKILL.md) | Navisworks | Đa bộ môn / Multi | Analyzes and summarizes Navisworks clash detection reports (XML export from Clash Detective) |
+| [`model-federation`](../skills/navisworks/model-federation/SKILL.md) | Navisworks | Đa bộ môn / Multi | Federates multiple discipline models into a single coordination model (Navisworks NWF/NWD or ACC Model Coordination) — append order, file naming, refresh workflow, and a clash-readiness check of units, coordinates, and model freshness before running clash |
+| [`acc-issue-register`](../skills/acc-bim360/acc-issue-register/SKILL.md) | ACC / BIM 360 | Đa bộ môn / Multi | Normalizes an Autodesk Construction Cloud (ACC) or BIM360 issues CSV export into a clean register and summary — counts by status, assignee, discipline, and overdue flags against due dates |
+| [`coordination-issue-log`](../skills/acc-bim360/coordination-issue-log/SKILL.md) | ACC / BIM 360 | Đa bộ môn / Multi | Turns clash results and coordination-meeting findings into a tracked issue log with owner, discipline, status, and target date — merging multiple meeting rounds by ID and exporting a CSV mapped to ACC/BIM360 Issues import |
+
+### QA / QC — Kiểm tra (5)
+
+| Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
+|-------|----------|--------|------------------------|
+| [`duct-velocity-check`](../skills/revit/duct-velocity-check/SKILL.md) | Revit | MEP | Checks HVAC duct air velocity and aspect ratio from a duct schedule export — computing velocity from airflow and cross-section (rectangular W×H or round Ø), flagging over-velocity (noise/pressure) and high aspect ratios, with configurable limits and airflow units (l/s, CFM, m3/h) |
+| [`model-compare`](../skills/revit/model-compare/SKILL.md) | Revit | Đa bộ môn / Multi | Compares two Revit element exports (old vs new snapshot) keyed by Element ID or GUID and reports what was added, deleted, or changed — including which fields changed from what to what — with an optional diff CSV |
+| [`revit-model-audit`](../skills/revit/revit-model-audit/SKILL.md) | Revit | Đa bộ môn / Multi | Runs a structured Revit model health audit — a checklist for file size, warnings count, purgeable elements, CAD imports, in-place families, unused view templates/filters, groups, and worksharing hygiene, with the specific Revit commands to check each and the thresholds that signal a problem |
+| [`revit-warnings-audit`](../skills/revit/revit-warnings-audit/SKILL.md) | Revit | Đa bộ môn / Multi | Parses a Revit warnings export (the HTML file from Manage > Warnings > Export) and turns hundreds of raw warnings into a prioritized, grouped summary — counts by warning type, most frequent messages, and a severity bucket (high/medium/low) so the team knows what to fix first |
+| [`schedule-qa`](../skills/revit/schedule-qa/SKILL.md) | Revit | Đa bộ môn / Multi | Validates the data behind Revit schedules by checking a schedule exported to CSV/TSV against a rules file — required fields that must not be blank, allowed-value lists, and columns that must be unique (e.g. Mark). Reports each violation with its row so the model can be fixed before issue |
+
+### Standards — Tiêu chuẩn (6)
+
+| Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
+|-------|----------|--------|------------------------|
+| [`family-naming-audit`](../skills/revit/family-naming-audit/SKILL.md) | Revit | Đa bộ môn / Multi | Audits Revit family and type names from an exported family list against a company naming standard — discipline prefix, allowed pattern, no spaces or double underscores — and flags names reused across categories and duplicate (family, type) pairs |
+| [`family-parameter-management`](../skills/revit/family-parameter-management/SKILL.md) | Revit | Đa bộ môn / Multi | Audits and standardizes Revit shared parameters and family/project parameters. Analyzes a Revit shared parameter file (the tab-delimited .txt exported from Manage > Shared Parameters) to find duplicate GUIDs, duplicate names, missing descriptions, and group/data-type breakdowns; also gives guidance on type-vs-instance and naming standards |
+| [`sheet-naming-check`](../skills/revit/sheet-naming-check/SKILL.md) | Revit | Đa bộ môn / Multi | Validates Revit/CAD sheet numbers and sheet names against a company standard (discipline-prefix number pattern, allowed disciplines, forbidden placeholder terms) and reports non-conforming and duplicate sheet numbers from an exported sheet list |
+| [`cobie-validation`](../skills/office-data/cobie-validation/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Validates a COBie sheet export (CSV) for completeness — required columns present, required cells non-empty, unique Name, CreatedBy is an email, and CreatedOn is a valid ISO 8601 date — for Facility, Floor, Space, Zone, Type, Component, and System sheets |
+| [`iso19650-naming-check`](../skills/office-data/iso19650-naming-check/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Validates information-container (file) names against the ISO 19650 / UK BIM Framework naming convention — the field-based code Project-Originator-Volume-Location-Type-Role-Number, plus optional suitability/status (S0, S2, A1…) and revision (P01, C01…) codes. Checks field count, field patterns, and known Type/Role code sets, reporting each bad name with the exact field that failed |
+| [`spellcheck-review`](../skills/office-data/spellcheck-review/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Spell-checks English text pulled from AEC documents and registers — sheet names, drawing notes, RFI/comment logs, specifications, schedule text — flagging common misspellings and repeated words, with an optional dictionary mode that also finds unknown words while ignoring AEC jargon via a glossary allowlist |
+
+### Documentation — Tài liệu (4)
+
+| Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
+|-------|----------|--------|------------------------|
+| [`comment-aggregation`](../skills/bluebeam-pdf/comment-aggregation/SKILL.md) | Bluebeam / PDF | Đa bộ môn / Multi | Aggregates review comments / RFIs / markups from multiple CSV exports (Bluebeam markup summary, ACC/BIM360 issues, reviewer spreadsheets) into one consolidated, de-duplicated Excel register with status and discipline breakdowns |
+| [`pdf-markup-compare`](../skills/bluebeam-pdf/pdf-markup-compare/SKILL.md) | Bluebeam / PDF | Đa bộ môn / Multi | Compares two revisions of a PDF drawing/document and reports what changed — added, removed, and moved annotations/markups (text notes, clouds, comments), plus per-page text differences |
+| [`drawing-register-qa`](../skills/office-data/drawing-register-qa/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Runs QA on a drawing issue register / transmittal before issue — flagging missing or badly-formatted revisions, invalid ISO 19650 suitability codes, missing issue dates, and duplicate sheet numbers from a CSV export |
+| [`submittal-log`](../skills/office-data/submittal-log/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Builds and tracks a submittal log from a submittal register — lifecycle status (pending/under review/approved/revise and resubmit/rejected), ball-in-court, overdue flags, spec-section grouping, and review-cycle stats |
+
+### Project Management — Quản lý dự án (5)
+
+| Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
+|-------|----------|--------|------------------------|
+| [`action-item-tracker`](../skills/office-data/action-item-tracker/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Tracks meeting and coordination action items from a register — owner, status, due date, aging buckets, overdue flags, and rollups by owner, meeting, and priority |
+| [`change-order-log`](../skills/office-data/change-order-log/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Tracks construction change orders / variations from a register — status (pending/approved/rejected), cost and schedule impact, running totals by status and discipline, aging, and overdue-decision flags |
+| [`rfi-tracker`](../skills/office-data/rfi-tracker/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Tracks Requests for Information (RFIs) from a register — status, days open, ball-in-court, response due dates, aging buckets, and cost/schedule impact flags |
+| [`risk-register`](../skills/office-data/risk-register/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Scores and rates a project risk register from a CSV — converting probability and impact (1-5 or Low/Medium/High) into a P×I score, assigning RAG (red/amber/green), rolling up by RAG, owner, and category, flagging overdue reviews, and listing the top open risks |
+| [`weekly-report`](../skills/office-data/weekly-report/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Assembles a weekly BIM/coordination status report from multiple register CSVs (issue logs, RFI trackers, clash registers, change orders) — open vs closed counts, overdue items, and week-over-week deltas from a saved snapshot |
+
+### Cost / QS — Khối lượng & chi phí (2)
+
+| Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
+|-------|----------|--------|------------------------|
+| [`boq-compare`](../skills/office-data/boq-compare/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Compares two bills of quantities or quantity takeoffs (old vs new) keyed by item code or description, reporting added and removed items and quantity/value increases or decreases with delta and percent, plus total-amount movement |
+| [`quantity-takeoff`](../skills/office-data/quantity-takeoff/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Aggregates a quantity takeoff (QTO) from a Revit or Excel schedule export — grouping by category/family/type and summing count, area, volume, length, and weight columns, stripping units and thousands separators |
+
+### Automation — Tự động hoá (2)
+
+| Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
+|-------|----------|--------|------------------------|
+| [`dynamo-pyrevit-helper`](../skills/revit/dynamo-pyrevit-helper/SKILL.md) | Revit | Đa bộ môn / Multi | Helps write, review, and troubleshoot Revit automation scripts using pyRevit (IronPython/CPython) or Dynamo Python nodes — common tasks like setting parameters in bulk, renaming views/sheets, exporting, and collecting elements by category |
+| [`revit-batch-export`](../skills/revit/revit-batch-export/SKILL.md) | Revit | Đa bộ môn / Multi | Generates and adapts pyRevit/Dynamo scripts to batch-export Revit sheets and views to PDF, DWG, DWF, NWC, or IFC with a consistent file-naming convention (e.g. SheetNumber-SheetName-Rev) |
+
+---
+*Xem lộ trình phát triển skill Revit: [`roadmap.md`](roadmap.md).*

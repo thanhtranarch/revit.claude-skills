@@ -8,7 +8,7 @@ và prompt-injection TRƯỚC KHI merge. Chỉ dùng thư viện chuẩn (regex 
 để không phụ thuộc gói bên ngoài.
 
 Cách dùng / Usage:
-    python scripts/audit_skill.py skills/bim-coordination/clash-report-analysis
+    python scripts/audit_skill.py skills/navisworks/clash-report-analysis
     python scripts/audit_skill.py skills               # quét đệ quy / recurse
     python scripts/audit_skill.py --json skills
     python scripts/audit_skill.py --fail-on medium skills

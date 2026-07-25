@@ -38,3 +38,6 @@ jobs:
 
       - name: Security audit (fail on HIGH)
         run: python scripts/audit_skill.py --fail-on high skills
+
+      - name: Taxonomy in sync (docs/skill-taxonomy.md)
+        run: python scripts/build_taxonomy.py --check
