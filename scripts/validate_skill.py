@@ -7,7 +7,7 @@ Chỉ dùng thư viện chuẩn + PyYAML (không phụ thuộc gói lạ) để 
 luôn chạy được. / Uses only stdlib + PyYAML so the gate always runs.
 
 Cách dùng / Usage:
-    python scripts/validate_skill.py skills/bim-coordination/clash-report-analysis
+    python scripts/validate_skill.py skills/navisworks/clash-report-analysis
     python scripts/validate_skill.py skills            # quét đệ quy / recurse
     python scripts/validate_skill.py --json skills
 
