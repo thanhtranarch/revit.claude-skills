@@ -1,0 +1,9 @@
+ID,Subject,Comment,Sheet,Author,Priority,Status
+1,Clash,Move duct above ceiling at grid B-4 on Level 2 to avoid the beam,M-201,NamT,High,Open
+2,Wrong type,Door in Room 101 should be type D2 not D1,A-110,LanP,Medium,Open
+3,Missing dim,Add dimension near grid A/3,A-105,NamT,Low,Open
+4,Clash,Element ID 348122 clashes with structural beam - relocate,S-210,HaiL,High,Open
+5,Note,General note - update the revision block,A-001,LanP,Low,Closed
+6,Cao độ,Slab edge at tầng 3 trục C-5 sai cao độ cần chỉnh,S-120,NamT,High,Open
+7,RFI,Please confirm the finish schedule,A-701,HaiL,Medium,Open
+8,Coordination,Relocate sprinkler head Room 205 clashes with light,M-330,LanP,Medium,Open

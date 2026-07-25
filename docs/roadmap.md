@@ -16,18 +16,19 @@ Trạng thái: 🟡 *planned* · 🟠 *scaffold* · 🟢 *runnable*
 
 ---
 
-## 1. 🟡 `comment-to-update-locations` — Comment → vị trí cần update
-**Nhóm:** `revit` · **category:** documentation · **cần Revit MCP:** một phần
-(đọc model để map).
+## 1. 🟢 `comment-to-update-locations` — Comment → vị trí cần update ✅ *đã build*
+**Nhóm:** `revit` · **category:** coordination ·
+**skill:** [`skills/revit/comment-to-update-locations`](../skills/revit/comment-to-update-locations/SKILL.md).
 
-Từ comment/markup review (Bluebeam CSV, ACC issues, RFI) → trích **vị trí/phần tử
-cần cập nhật** trong model: map comment về Element ID / grid / toạ độ / sheet,
-sinh **punch list** "ở đâu, sửa gì, ai làm".
+Từ comment/markup review (Bluebeam CSV, ACC issues, RFI) → trích **vị trí cần cập
+nhật** trong model (sheet / level / grid / room / Element ID) từ cột chuyên dụng
+hoặc **parse text song ngữ EN/VI**, sinh **punch list** "ở đâu, sửa gì, ai làm".
 
-- **In:** comment/markup export (dựa trên `bluebeam-pdf/comment-aggregation`,
-  `acc-bim360/acc-issue-register`) + tuỳ chọn export phần tử từ Revit.
-- **Out:** bảng `element_id | grid | level | sheet | comment | action | owner`.
-- **Kế thừa:** `comment-aggregation` (gộp) → thêm lớp *định vị trong model*.
+- **Đã có (offline):** trích vị trí 2 lớp (cột + text), punch list theo ưu tiên,
+  `--open-only`, CSV/JSON, cảnh báo comment chưa xác định được vị trí.
+- **Còn để mở rộng (cần Revit MCP):** chọn/zoom đúng element theo ID, đổi
+  grid/level → toạ độ thực trong model (nối với pyRevit `SelectElementsByIds`).
+- **Kế thừa:** `bluebeam-pdf/comment-aggregation` (gộp nguồn) → thêm lớp *định vị*.
 
 ## 2. 🟡 `image-to-family` — Dựng Revit Family từ hình ảnh
 **Nhóm:** `revit` · **category:** automation · **cần Revit MCP:** ✅ (JSONtoFamily).

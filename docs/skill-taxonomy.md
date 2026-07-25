@@ -3,7 +3,7 @@
 > ⚙️ **Auto-generated** bởi `scripts/build_taxonomy.py` từ metadata của từng skill. Đừng sửa tay — chạy lại script sau khi thêm/sửa skill.
 > Auto-generated from each skill's `metadata`. Do not edit by hand.
 
-Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/`) và gắn **metadata** (`software`, `discipline`, `category`) để tra cứu chéo. **30 skill · 5 nhóm phần mềm.**
+Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/`) và gắn **metadata** (`software`, `discipline`, `category`) để tra cứu chéo. **31 skill · 5 nhóm phần mềm.**
 
 - 🧭 [Theo phần mềm / By software](#-theo-phần-mềm--by-software)
 - 🏗️ [Theo bộ môn / By discipline](#-theo-bộ-môn--by-discipline)
@@ -13,10 +13,11 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 
 *Đây cũng là cấu trúc thư mục / this is also the folder layout.*
 
-### Revit — `skills/revit/` (11)
+### Revit — `skills/revit/` (12)
 
 | Skill | Bộ môn | Tính chất | Tóm tắt / What it does |
 |-------|--------|-----------|------------------------|
+| [`comment-to-update-locations`](../skills/revit/comment-to-update-locations/SKILL.md) | Đa bộ môn / Multi | Coordination — Điều phối | Turns review comments, markups, and RFIs (Bluebeam / ACC / BIM360 / RFI CSV exports) into a prioritized model-update punch list — pulling the location to fix (sheet, level, grid, room, Revit element ID) from dedicated columns or by parsing the comment text in English or Vietnamese, and flagging comments whose location cannot be resolved |
 | [`shared-coordinates`](../skills/revit/shared-coordinates/SKILL.md) | Đa bộ môn / Multi | Coordination — Điều phối | Provides guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models |
 | [`duct-velocity-check`](../skills/revit/duct-velocity-check/SKILL.md) | MEP | QA / QC — Kiểm tra | Checks HVAC duct air velocity and aspect ratio from a duct schedule export — computing velocity from airflow and cross-section (rectangular W×H or round Ø), flagging over-velocity (noise/pressure) and high aspect ratios, with configurable limits and airflow units (l/s, CFM, m3/h) |
 | [`model-compare`](../skills/revit/model-compare/SKILL.md) | Đa bộ môn / Multi | QA / QC — Kiểm tra | Compares two Revit element exports (old vs new snapshot) keyed by Element ID or GUID and reports what was added, deleted, or changed — including which fields changed from what to what — with an optional diff CSV |
@@ -70,10 +71,11 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 
 ## 🏗️ Theo bộ môn / By discipline
 
-### Đa bộ môn / Multi (29)
+### Đa bộ môn / Multi (30)
 
 | Skill | Phần mềm | Tính chất | Tóm tắt / What it does |
 |-------|----------|-----------|------------------------|
+| [`comment-to-update-locations`](../skills/revit/comment-to-update-locations/SKILL.md) | Revit | Coordination — Điều phối | Turns review comments, markups, and RFIs (Bluebeam / ACC / BIM360 / RFI CSV exports) into a prioritized model-update punch list — pulling the location to fix (sheet, level, grid, room, Revit element ID) from dedicated columns or by parsing the comment text in English or Vietnamese, and flagging comments whose location cannot be resolved |
 | [`dynamo-pyrevit-helper`](../skills/revit/dynamo-pyrevit-helper/SKILL.md) | Revit | Automation — Tự động hoá | Helps write, review, and troubleshoot Revit automation scripts using pyRevit (IronPython/CPython) or Dynamo Python nodes — common tasks like setting parameters in bulk, renaming views/sheets, exporting, and collecting elements by category |
 | [`family-naming-audit`](../skills/revit/family-naming-audit/SKILL.md) | Revit | Standards — Tiêu chuẩn | Audits Revit family and type names from an exported family list against a company naming standard — discipline prefix, allowed pattern, no spaces or double underscores — and flags names reused across categories and duplicate (family, type) pairs |
 | [`family-parameter-management`](../skills/revit/family-parameter-management/SKILL.md) | Revit | Standards — Tiêu chuẩn | Audits and standardizes Revit shared parameters and family/project parameters. Analyzes a Revit shared parameter file (the tab-delimited .txt exported from Manage > Shared Parameters) to find duplicate GUIDs, duplicate names, missing descriptions, and group/data-type breakdowns; also gives guidance on type-vs-instance and naming standards |
@@ -112,10 +114,11 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 
 ## 🧩 Theo tính chất công việc / By category
 
-### Coordination — Điều phối (5)
+### Coordination — Điều phối (6)
 
 | Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
 |-------|----------|--------|------------------------|
+| [`comment-to-update-locations`](../skills/revit/comment-to-update-locations/SKILL.md) | Revit | Đa bộ môn / Multi | Turns review comments, markups, and RFIs (Bluebeam / ACC / BIM360 / RFI CSV exports) into a prioritized model-update punch list — pulling the location to fix (sheet, level, grid, room, Revit element ID) from dedicated columns or by parsing the comment text in English or Vietnamese, and flagging comments whose location cannot be resolved |
 | [`shared-coordinates`](../skills/revit/shared-coordinates/SKILL.md) | Revit | Đa bộ môn / Multi | Provides guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models |
 | [`clash-report-analysis`](../skills/navisworks/clash-report-analysis/SKILL.md) | Navisworks | Đa bộ môn / Multi | Analyzes and summarizes Navisworks clash detection reports (XML export from Clash Detective) |
 | [`model-federation`](../skills/navisworks/model-federation/SKILL.md) | Navisworks | Đa bộ môn / Multi | Federates multiple discipline models into a single coordination model (Navisworks NWF/NWD or ACC Model Coordination) — append order, file naming, refresh workflow, and a clash-readiness check of units, coordinates, and model freshness before running clash |
