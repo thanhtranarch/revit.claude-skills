@@ -53,18 +53,19 @@ grid) theo layer/nét: đọc CAD → nhận diện đối tượng → đặt p
 - **Kế thừa:** tooling sẵn có `revit-beam-from-cad`, `revit-column-tools` (T3Lab)
   → repo-hoá thành skill có quy trình + kiểm tra (pairing nét, z-offset, rotation…).
 
-## 4. 🟡 `iso19650-project-audit` — Kiểm tra ISO 19650 toàn dự án
-**Nhóm:** `office-data` (mở rộng sang `revit` nếu đọc model) · **category:** standards.
+## 4. 🟢 `iso19650-project-audit` — Kiểm tra ISO 19650 toàn dự án ✅ *đã build*
+**Nhóm:** `office-data` · **category:** standards ·
+**skill:** [`skills/office-data/iso19650-project-audit`](../skills/office-data/iso19650-project-audit/SKILL.md).
 
 Vượt khỏi *đặt tên file* (`iso19650-naming-check`): kiểm tra **mức độ tuân thủ
-ISO 19650 của cả dự án** so với chuẩn BIM đã cam kết (BEP/EIR): cấu trúc CDE,
-mã suitability/status theo giai đoạn, metadata container, LOIN/LOD, ma trận trách
-nhiệm (TIDP/MIDP), tính đầy đủ thông tin bàn giao.
+ISO 19650 của cả dự án** từ CDE register — metadata đầy đủ, mã suitability/revision
+hợp lệ, ngày ISO 8601, **nhất quán trạng thái CDE ↔ suitability ↔ revision**, và
+đối chiếu độ phủ **MIDP** — kèm scorecard %.
 
-- **In:** file register/CDE export + checklist chuẩn dự án (BEP/EIR).
-- **Out:** báo cáo *đạt/chưa đạt* theo từng yêu cầu ISO 19650, %, danh sách thiếu.
-- **Kế thừa:** `iso19650-naming-check` (naming) + `cobie-validation` (handover data)
-  → nâng thành **audit toàn diện** cấp dự án.
+- **Đã có (offline):** 6 hạng mục kiểm + scorecard + `--expected` (MIDP) + `--rules`.
+- **Còn để mở rộng:** LOIN/LOD, TIDP/MIDP đầy đủ, cấu trúc CDE thực tế vẫn cần
+  người/BEP review (xem `references/iso19650-checklist.md`).
+- **Kế thừa:** `iso19650-naming-check` (naming) + `cobie-validation` (handover data).
 
 ---
 
