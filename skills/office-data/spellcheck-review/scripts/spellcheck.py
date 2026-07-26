@@ -63,6 +63,18 @@ COMMON_MISSPELLINGS = {
 # bỏ các giá trị None (từ đúng lỡ đưa vào)
 COMMON_MISSPELLINGS = {k: v for k, v in COMMON_MISSPELLINGS.items() if v}
 
+# Chữ giữ chỗ / nội dung nháp cần thay trước khi phát hành.
+# Placeholder / junk text that must be replaced before issue.
+PLACEHOLDER_WORDS = {
+    "tbd", "tbc", "tba", "xxx", "xxxx", "placeholder", "lorem", "ipsum",
+    "asdf", "qwerty", "dummy", "fixme",
+}
+PLACEHOLDER_PHRASE_RE = re.compile(
+    r"\?{3,}|\bto be (confirmed|advised|determined)\b|\bdo not use\b"
+    r"|\bcopy of\b|\blorem ipsum\b",
+    re.I,
+)
+
 
 def load_glossary(path: Path | None) -> set[str]:
     words: set[str] = set()
@@ -107,7 +119,7 @@ def is_domain_ok(word: str, glossary: set[str]) -> bool:
     return False
 
 
-def check_texts(texts, glossary, use_dict: bool) -> list[dict]:
+def check_texts(texts, glossary, use_dict: bool, find_placeholder: bool = True) -> list[dict]:
     findings: list[dict] = []
     spell = None
     if use_dict:
@@ -133,11 +145,22 @@ def check_texts(texts, glossary, use_dict: bool) -> list[dict]:
             if a == b and a.isalpha() and len(a) > 1:
                 findings.append({"type": "REPEATED", "loc": loc,
                                  "word": a, "suggest": f"bỏ 1 '{a}'"})
-        # 3) từ lạ (chỉ khi --dict)
+        # 3) chữ giữ chỗ / nội dung nháp
+        if find_placeholder:
+            for t in tokens:
+                if t.lower() in PLACEHOLDER_WORDS:
+                    findings.append({"type": "PLACEHOLDER", "loc": loc, "word": t,
+                                     "suggest": "thay nội dung thật / replace placeholder"})
+            for m in PLACEHOLDER_PHRASE_RE.finditer(text):
+                findings.append({"type": "PLACEHOLDER", "loc": loc,
+                                 "word": m.group(0).strip(),
+                                 "suggest": "thay nội dung thật / replace placeholder"})
+        # 4) từ lạ (chỉ khi --dict)
         if spell is not None:
             candidates = [t for t in tokens
                           if not is_domain_ok(t, glossary)
-                          and t.lower() not in COMMON_MISSPELLINGS]
+                          and t.lower() not in COMMON_MISSPELLINGS
+                          and t.lower() not in PLACEHOLDER_WORDS]
             unknown = spell.unknown([c.lower() for c in candidates])
             for t in candidates:
                 if t.lower() in unknown:
@@ -153,6 +176,8 @@ def main(argv: list[str]) -> int:
     ap.add_argument("--col", help="Cột text nếu đầu vào là CSV")
     ap.add_argument("--dict", action="store_true", help="Bật dò từ lạ (cần pyspellchecker)")
     ap.add_argument("--glossary", help="File glossary allowlist (mặc định references/aec-glossary.txt)")
+    ap.add_argument("--no-placeholder", action="store_true",
+                    help="Tắt phát hiện chữ giữ chỗ (TBD/TBC/XXX/???/DO NOT USE…)")
     args = ap.parse_args(argv)
 
     path = Path(args.input)
@@ -165,13 +190,13 @@ def main(argv: list[str]) -> int:
     glossary = load_glossary(gloss_path if gloss_path.is_file() else None)
 
     texts = read_texts(path, args.col)
-    findings = check_texts(texts, glossary, args.dict)
+    findings = check_texts(texts, glossary, args.dict, not args.no_placeholder)
 
     if not findings:
-        print("PASS: không phát hiện lỗi chính tả / từ lặp.")
+        print("PASS: không phát hiện lỗi chính tả / từ lặp / chữ giữ chỗ.")
         return 0
 
-    order = {"MISSPELLING": 0, "REPEATED": 1, "UNKNOWN": 2}
+    order = {"PLACEHOLDER": 0, "MISSPELLING": 1, "REPEATED": 2, "UNKNOWN": 3}
     findings.sort(key=lambda f: (order[f["type"]], f["loc"]))
     for f in findings:
         print(f"  [{f['type']:11}] {f['loc']:8} '{f['word']}' → {f['suggest']}")

@@ -46,7 +46,7 @@ KNOWN_KEYS = {
 ALLOWED_EXT = {
     ".md", ".py", ".txt", ".json", ".yaml", ".yml", ".csv", ".tsv",
     ".xml", ".html", ".htm", ".pdf", ".png", ".jpg", ".jpeg", ".svg",
-    ".xlsx", ".dyn", ".rvt", ".nwd", ".nwc", ".ifc", ".dwg", ".dwf",
+    ".xlsx", ".dyn", ".rvt", ".nwd", ".nwc", ".ifc", ".dwg", ".dwf", ".dxf",
     ".cfg", ".ini", ".toml",
 }
 # File thực thi / nhị phân đáng ngờ — chặn ngay / suspicious executables.
