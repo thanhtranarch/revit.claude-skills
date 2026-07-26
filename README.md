@@ -28,7 +28,7 @@ Skill chia thư mục **theo phần mềm** (`skills/<software>/`), và gắn **
 | `navisworks` (2) | Navisworks | `clash-report-analysis`, `model-federation` |
 | `acc-bim360` (2) | Autodesk Construction Cloud / BIM 360 | `acc-issue-register`, `coordination-issue-log` |
 | `bluebeam-pdf` (2) | Bluebeam / PDF | `pdf-markup-compare`, `comment-aggregation` |
-| `office-data` (12) | Excel / CSV (agnostic) | `rfi-tracker`, `risk-register`, `action-item-tracker`, `change-order-log`, `weekly-report`, `submittal-log`, `drawing-register-qa`, `iso19650-naming-check`, `cobie-validation`, `spellcheck-review`, `boq-compare`, `quantity-takeoff` |
+| `office-data` (13) | Excel / CSV (agnostic) | `rfi-tracker`, `risk-register`, `action-item-tracker`, `change-order-log`, `weekly-report`, `submittal-log`, `drawing-register-qa`, `iso19650-naming-check`, `iso19650-project-audit`, `cobie-validation`, `spellcheck-review`, `boq-compare`, `quantity-takeoff` |
 
 **3 bảng tra cứu** (theo phần mềm / bộ môn / tính chất) sinh tự động:
 [`docs/skill-taxonomy.md`](docs/skill-taxonomy.md) · lộ trình:
