@@ -1,0 +1,8 @@
+Sheet Number,Sheet Name,Titleblock,Discipline
+A-101,Ground Floor Plan,A1 metric,Architecture
+A-102,First Floor Plan,A1 metric,Architecture
+A-103,Roof Plan,A1 metric,Architecture
+S-201,Foundation Plan,A1 metric,Structural
+S-202,Framing Plan Level 1,A1 metric,Structural
+M-301,HVAC Layout Level 1,A1 metric,MEP
+E-401,Power Layout Level 1,A1 metric,Electrical

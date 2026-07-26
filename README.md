@@ -9,7 +9,7 @@ layer** to audit community-contributed skills.
 
 ## Có gì / What's inside
 ```
-skills/            5 nhóm phần mềm · 31 skill (xem docs/skill-taxonomy.md)
+skills/            5 nhóm phần mềm · 32 skill (xem docs/skill-taxonomy.md)
 scripts/           validate_skill.py + audit_skill.py + build_taxonomy.py
 .claude/agents/    skill-auditor — agent review bảo mật skill
 .github/           CI (skill-validation), CODEOWNERS, PR template
@@ -24,7 +24,7 @@ Skill chia thư mục **theo phần mềm** (`skills/<software>/`), và gắn **
 
 | Nhóm / group | Phần mềm | Skill |
 |--------------|----------|-------|
-| `revit` (12) | Revit / Dynamo / pyRevit | `family-parameter-management`, `schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `family-naming-audit`, `model-compare`, `dynamo-pyrevit-helper`, `revit-batch-export`, `sheet-naming-check`, `shared-coordinates`, `duct-velocity-check`, `comment-to-update-locations` |
+| `revit` (14) | Revit / Dynamo / pyRevit | `family-parameter-management`, `schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `family-naming-audit`, `model-compare`, `dynamo-pyrevit-helper`, `revit-batch-export`, `sheet-naming-check`, `shared-coordinates`, `duct-velocity-check`, `model-from-cad`, `image-to-drafting-view`, `sheets-from-list` |
 | `navisworks` (2) | Navisworks | `clash-report-analysis`, `model-federation` |
 | `acc-bim360` (2) | Autodesk Construction Cloud / BIM 360 | `acc-issue-register`, `coordination-issue-log` |
 | `bluebeam-pdf` (2) | Bluebeam / PDF | `pdf-markup-compare`, `comment-aggregation` |
