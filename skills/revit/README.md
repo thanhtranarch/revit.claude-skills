@@ -10,6 +10,7 @@ Skills for Revit and Dynamo/pyRevit — model/data QA, standards, automation.
 - **Tiêu chuẩn:** `family-naming-audit`, `family-parameter-management`,
   `sheet-naming-check`, `shared-coordinates`
 - **Tự động hoá:** `dynamo-pyrevit-helper`, `revit-batch-export`
+- **Điều phối:** `comment-to-update-locations` (comment/markup → punch list vị trí sửa)
 
 Chi tiết + metadata + 3 bảng tra cứu: [`docs/skill-taxonomy.md`](../../docs/skill-taxonomy.md).
 Lộ trình phát triển skill Revit: [`docs/roadmap.md`](../../docs/roadmap.md).

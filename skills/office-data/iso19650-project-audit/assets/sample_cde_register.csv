@@ -1,0 +1,11 @@
+File Name,Title,Originator,Suitability,Revision,State,Date
+PRJ-XYZ-XX-00-DR-A-0001,GA Plan Level 00,XYZ,A1,C01,Published,2026-03-01
+PRJ-XYZ-XX-01-DR-A-0002,GA Plan Level 01,XYZ,S2,P03,Shared,2026-04-10
+PRJ-XYZ-XX-02-M3-M-0003,MEP Coordination Model,XYZ,S0,P01,WIP,2026-05-01
+PRJ-XYZ-0004,Uncoded Sketch,XYZ,S2,P01,Shared,2026-05-02
+PRJ-XYZ-XX-00-DR-A-0005,Building Section,XYZ,X9,P02,Shared,2026-05-03
+PRJ-XYZ-XX-00-DR-A-0006,Wall Detail,XYZ,S2,3,Shared,2026-05-04
+PRJ-XYZ-XX-00-DR-A-0007,,XYZ,S2,P01,Shared,
+PRJ-XYZ-XX-00-DR-A-0008,North Elevation,XYZ,S2,P01,Published,2026-05-05
+PRJ-XYZ-XX-03-DR-S-0009,Foundation Plan,XYZ,A2,C02,Published,2026-05-06
+PRJ-XYZ-XX-XX-SH-A-0010,Door Schedule,XYZ,S4,P05,Shared,2026-06-01

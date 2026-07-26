@@ -16,18 +16,19 @@ Trạng thái: 🟡 *planned* · 🟠 *scaffold* · 🟢 *runnable*
 
 ---
 
-## 1. 🟡 `comment-to-update-locations` — Comment → vị trí cần update
-**Nhóm:** `revit` · **category:** documentation · **cần Revit MCP:** một phần
-(đọc model để map).
+## 1. 🟢 `comment-to-update-locations` — Comment → vị trí cần update ✅ *đã build*
+**Nhóm:** `revit` · **category:** coordination ·
+**skill:** [`skills/revit/comment-to-update-locations`](../skills/revit/comment-to-update-locations/SKILL.md).
 
-Từ comment/markup review (Bluebeam CSV, ACC issues, RFI) → trích **vị trí/phần tử
-cần cập nhật** trong model: map comment về Element ID / grid / toạ độ / sheet,
-sinh **punch list** "ở đâu, sửa gì, ai làm".
+Từ comment/markup review (Bluebeam CSV, ACC issues, RFI) → trích **vị trí cần cập
+nhật** trong model (sheet / level / grid / room / Element ID) từ cột chuyên dụng
+hoặc **parse text song ngữ EN/VI**, sinh **punch list** "ở đâu, sửa gì, ai làm".
 
-- **In:** comment/markup export (dựa trên `bluebeam-pdf/comment-aggregation`,
-  `acc-bim360/acc-issue-register`) + tuỳ chọn export phần tử từ Revit.
-- **Out:** bảng `element_id | grid | level | sheet | comment | action | owner`.
-- **Kế thừa:** `comment-aggregation` (gộp) → thêm lớp *định vị trong model*.
+- **Đã có (offline):** trích vị trí 2 lớp (cột + text), punch list theo ưu tiên,
+  `--open-only`, CSV/JSON, cảnh báo comment chưa xác định được vị trí.
+- **Còn để mở rộng (cần Revit MCP):** chọn/zoom đúng element theo ID, đổi
+  grid/level → toạ độ thực trong model (nối với pyRevit `SelectElementsByIds`).
+- **Kế thừa:** `bluebeam-pdf/comment-aggregation` (gộp nguồn) → thêm lớp *định vị*.
 
 ## 2. 🟡 `image-to-family` — Dựng Revit Family từ hình ảnh
 **Nhóm:** `revit` · **category:** automation · **cần Revit MCP:** ✅ (JSONtoFamily).
@@ -53,18 +54,19 @@ grid) theo layer/nét: đọc CAD → nhận diện đối tượng → đặt p
 - **Kế thừa:** tooling sẵn có `revit-beam-from-cad`, `revit-column-tools` (T3Lab)
   → repo-hoá thành skill có quy trình + kiểm tra (pairing nét, z-offset, rotation…).
 
-## 4. 🟡 `iso19650-project-audit` — Kiểm tra ISO 19650 toàn dự án
-**Nhóm:** `office-data` (mở rộng sang `revit` nếu đọc model) · **category:** standards.
+## 4. 🟢 `iso19650-project-audit` — Kiểm tra ISO 19650 toàn dự án ✅ *đã build*
+**Nhóm:** `office-data` · **category:** standards ·
+**skill:** [`skills/office-data/iso19650-project-audit`](../skills/office-data/iso19650-project-audit/SKILL.md).
 
 Vượt khỏi *đặt tên file* (`iso19650-naming-check`): kiểm tra **mức độ tuân thủ
-ISO 19650 của cả dự án** so với chuẩn BIM đã cam kết (BEP/EIR): cấu trúc CDE,
-mã suitability/status theo giai đoạn, metadata container, LOIN/LOD, ma trận trách
-nhiệm (TIDP/MIDP), tính đầy đủ thông tin bàn giao.
+ISO 19650 của cả dự án** từ CDE register — metadata đầy đủ, mã suitability/revision
+hợp lệ, ngày ISO 8601, **nhất quán trạng thái CDE ↔ suitability ↔ revision**, và
+đối chiếu độ phủ **MIDP** — kèm scorecard %.
 
-- **In:** file register/CDE export + checklist chuẩn dự án (BEP/EIR).
-- **Out:** báo cáo *đạt/chưa đạt* theo từng yêu cầu ISO 19650, %, danh sách thiếu.
-- **Kế thừa:** `iso19650-naming-check` (naming) + `cobie-validation` (handover data)
-  → nâng thành **audit toàn diện** cấp dự án.
+- **Đã có (offline):** 6 hạng mục kiểm + scorecard + `--expected` (MIDP) + `--rules`.
+- **Còn để mở rộng:** LOIN/LOD, TIDP/MIDP đầy đủ, cấu trúc CDE thực tế vẫn cần
+  người/BEP review (xem `references/iso19650-checklist.md`).
+- **Kế thừa:** `iso19650-naming-check` (naming) + `cobie-validation` (handover data).
 
 ---
 

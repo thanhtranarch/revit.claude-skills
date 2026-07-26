@@ -3,7 +3,7 @@
 > ⚙️ **Auto-generated** bởi `scripts/build_taxonomy.py` từ metadata của từng skill. Đừng sửa tay — chạy lại script sau khi thêm/sửa skill.
 > Auto-generated from each skill's `metadata`. Do not edit by hand.
 
-Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/`) và gắn **metadata** (`software`, `discipline`, `category`) để tra cứu chéo. **29 skill · 5 nhóm phần mềm.**
+Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/`) và gắn **metadata** (`software`, `discipline`, `category`) để tra cứu chéo. **31 skill · 5 nhóm phần mềm.**
 
 - 🧭 [Theo phần mềm / By software](#-theo-phần-mềm--by-software)
 - 🏗️ [Theo bộ môn / By discipline](#-theo-bộ-môn--by-discipline)
@@ -13,10 +13,11 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 
 *Đây cũng là cấu trúc thư mục / this is also the folder layout.*
 
-### Revit — `skills/revit/` (11)
+### Revit — `skills/revit/` (12)
 
 | Skill | Bộ môn | Tính chất | Tóm tắt / What it does |
 |-------|--------|-----------|------------------------|
+| [`comment-to-update-locations`](../skills/revit/comment-to-update-locations/SKILL.md) | Đa bộ môn / Multi | Coordination — Điều phối | Turns review comments, markups, and RFIs (Bluebeam / ACC / BIM360 / RFI CSV exports) into a prioritized model-update punch list — pulling the location to fix (sheet, level, grid, room, Revit element ID) from dedicated columns or by parsing the comment text in English or Vietnamese, and flagging comments whose location cannot be resolved |
 | [`shared-coordinates`](../skills/revit/shared-coordinates/SKILL.md) | Đa bộ môn / Multi | Coordination — Điều phối | Provides guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models |
 | [`duct-velocity-check`](../skills/revit/duct-velocity-check/SKILL.md) | MEP | QA / QC — Kiểm tra | Checks HVAC duct air velocity and aspect ratio from a duct schedule export — computing velocity from airflow and cross-section (rectangular W×H or round Ø), flagging over-velocity (noise/pressure) and high aspect ratios, with configurable limits and airflow units (l/s, CFM, m3/h) |
 | [`model-compare`](../skills/revit/model-compare/SKILL.md) | Đa bộ môn / Multi | QA / QC — Kiểm tra | Compares two Revit element exports (old vs new snapshot) keyed by Element ID or GUID and reports what was added, deleted, or changed — including which fields changed from what to what — with an optional diff CSV |
@@ -50,12 +51,13 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 | [`comment-aggregation`](../skills/bluebeam-pdf/comment-aggregation/SKILL.md) | Đa bộ môn / Multi | Documentation — Tài liệu | Aggregates review comments / RFIs / markups from multiple CSV exports (Bluebeam markup summary, ACC/BIM360 issues, reviewer spreadsheets) into one consolidated, de-duplicated Excel register with status and discipline breakdowns |
 | [`pdf-markup-compare`](../skills/bluebeam-pdf/pdf-markup-compare/SKILL.md) | Đa bộ môn / Multi | Documentation — Tài liệu | Compares two revisions of a PDF drawing/document and reports what changed — added, removed, and moved annotations/markups (text notes, clouds, comments), plus per-page text differences |
 
-### Office / CSV (agnostic) — `skills/office-data/` (12)
+### Office / CSV (agnostic) — `skills/office-data/` (13)
 
 | Skill | Bộ môn | Tính chất | Tóm tắt / What it does |
 |-------|--------|-----------|------------------------|
 | [`cobie-validation`](../skills/office-data/cobie-validation/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Validates a COBie sheet export (CSV) for completeness — required columns present, required cells non-empty, unique Name, CreatedBy is an email, and CreatedOn is a valid ISO 8601 date — for Facility, Floor, Space, Zone, Type, Component, and System sheets |
 | [`iso19650-naming-check`](../skills/office-data/iso19650-naming-check/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Validates information-container (file) names against the ISO 19650 / UK BIM Framework naming convention — the field-based code Project-Originator-Volume-Location-Type-Role-Number, plus optional suitability/status (S0, S2, A1…) and revision (P01, C01…) codes. Checks field count, field patterns, and known Type/Role code sets, reporting each bad name with the exact field that failed |
+| [`iso19650-project-audit`](../skills/office-data/iso19650-project-audit/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Audits a whole ISO 19650 CDE / container register (CSV) for project-level information-management conformance — metadata completeness, valid suitability and revision codes, ISO 8601 dates, and consistency between CDE state and suitability/revision — then scores overall conformance and can check delivered containers against an expected MIDP list |
 | [`spellcheck-review`](../skills/office-data/spellcheck-review/SKILL.md) | Đa bộ môn / Multi | Standards — Tiêu chuẩn | Spell-checks English text pulled from AEC documents and registers — sheet names, drawing notes, RFI/comment logs, specifications, schedule text — flagging common misspellings and repeated words, with an optional dictionary mode that also finds unknown words while ignoring AEC jargon via a glossary allowlist |
 | [`drawing-register-qa`](../skills/office-data/drawing-register-qa/SKILL.md) | Đa bộ môn / Multi | Documentation — Tài liệu | Runs QA on a drawing issue register / transmittal before issue — flagging missing or badly-formatted revisions, invalid ISO 19650 suitability codes, missing issue dates, and duplicate sheet numbers from a CSV export |
 | [`submittal-log`](../skills/office-data/submittal-log/SKILL.md) | Đa bộ môn / Multi | Documentation — Tài liệu | Builds and tracks a submittal log from a submittal register — lifecycle status (pending/under review/approved/revise and resubmit/rejected), ball-in-court, overdue flags, spec-section grouping, and review-cycle stats |
@@ -69,10 +71,11 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 
 ## 🏗️ Theo bộ môn / By discipline
 
-### Đa bộ môn / Multi (28)
+### Đa bộ môn / Multi (30)
 
 | Skill | Phần mềm | Tính chất | Tóm tắt / What it does |
 |-------|----------|-----------|------------------------|
+| [`comment-to-update-locations`](../skills/revit/comment-to-update-locations/SKILL.md) | Revit | Coordination — Điều phối | Turns review comments, markups, and RFIs (Bluebeam / ACC / BIM360 / RFI CSV exports) into a prioritized model-update punch list — pulling the location to fix (sheet, level, grid, room, Revit element ID) from dedicated columns or by parsing the comment text in English or Vietnamese, and flagging comments whose location cannot be resolved |
 | [`dynamo-pyrevit-helper`](../skills/revit/dynamo-pyrevit-helper/SKILL.md) | Revit | Automation — Tự động hoá | Helps write, review, and troubleshoot Revit automation scripts using pyRevit (IronPython/CPython) or Dynamo Python nodes — common tasks like setting parameters in bulk, renaming views/sheets, exporting, and collecting elements by category |
 | [`family-naming-audit`](../skills/revit/family-naming-audit/SKILL.md) | Revit | Standards — Tiêu chuẩn | Audits Revit family and type names from an exported family list against a company naming standard — discipline prefix, allowed pattern, no spaces or double underscores — and flags names reused across categories and duplicate (family, type) pairs |
 | [`family-parameter-management`](../skills/revit/family-parameter-management/SKILL.md) | Revit | Standards — Tiêu chuẩn | Audits and standardizes Revit shared parameters and family/project parameters. Analyzes a Revit shared parameter file (the tab-delimited .txt exported from Manage > Shared Parameters) to find duplicate GUIDs, duplicate names, missing descriptions, and group/data-type breakdowns; also gives guidance on type-vs-instance and naming standards |
@@ -95,6 +98,7 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 | [`cobie-validation`](../skills/office-data/cobie-validation/SKILL.md) | Office / CSV (agnostic) | Standards — Tiêu chuẩn | Validates a COBie sheet export (CSV) for completeness — required columns present, required cells non-empty, unique Name, CreatedBy is an email, and CreatedOn is a valid ISO 8601 date — for Facility, Floor, Space, Zone, Type, Component, and System sheets |
 | [`drawing-register-qa`](../skills/office-data/drawing-register-qa/SKILL.md) | Office / CSV (agnostic) | Documentation — Tài liệu | Runs QA on a drawing issue register / transmittal before issue — flagging missing or badly-formatted revisions, invalid ISO 19650 suitability codes, missing issue dates, and duplicate sheet numbers from a CSV export |
 | [`iso19650-naming-check`](../skills/office-data/iso19650-naming-check/SKILL.md) | Office / CSV (agnostic) | Standards — Tiêu chuẩn | Validates information-container (file) names against the ISO 19650 / UK BIM Framework naming convention — the field-based code Project-Originator-Volume-Location-Type-Role-Number, plus optional suitability/status (S0, S2, A1…) and revision (P01, C01…) codes. Checks field count, field patterns, and known Type/Role code sets, reporting each bad name with the exact field that failed |
+| [`iso19650-project-audit`](../skills/office-data/iso19650-project-audit/SKILL.md) | Office / CSV (agnostic) | Standards — Tiêu chuẩn | Audits a whole ISO 19650 CDE / container register (CSV) for project-level information-management conformance — metadata completeness, valid suitability and revision codes, ISO 8601 dates, and consistency between CDE state and suitability/revision — then scores overall conformance and can check delivered containers against an expected MIDP list |
 | [`quantity-takeoff`](../skills/office-data/quantity-takeoff/SKILL.md) | Office / CSV (agnostic) | Cost / QS — Khối lượng & chi phí | Aggregates a quantity takeoff (QTO) from a Revit or Excel schedule export — grouping by category/family/type and summing count, area, volume, length, and weight columns, stripping units and thousands separators |
 | [`rfi-tracker`](../skills/office-data/rfi-tracker/SKILL.md) | Office / CSV (agnostic) | Project Management — Quản lý dự án | Tracks Requests for Information (RFIs) from a register — status, days open, ball-in-court, response due dates, aging buckets, and cost/schedule impact flags |
 | [`risk-register`](../skills/office-data/risk-register/SKILL.md) | Office / CSV (agnostic) | Project Management — Quản lý dự án | Scores and rates a project risk register from a CSV — converting probability and impact (1-5 or Low/Medium/High) into a P×I score, assigning RAG (red/amber/green), rolling up by RAG, owner, and category, flagging overdue reviews, and listing the top open risks |
@@ -110,10 +114,11 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 
 ## 🧩 Theo tính chất công việc / By category
 
-### Coordination — Điều phối (5)
+### Coordination — Điều phối (6)
 
 | Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
 |-------|----------|--------|------------------------|
+| [`comment-to-update-locations`](../skills/revit/comment-to-update-locations/SKILL.md) | Revit | Đa bộ môn / Multi | Turns review comments, markups, and RFIs (Bluebeam / ACC / BIM360 / RFI CSV exports) into a prioritized model-update punch list — pulling the location to fix (sheet, level, grid, room, Revit element ID) from dedicated columns or by parsing the comment text in English or Vietnamese, and flagging comments whose location cannot be resolved |
 | [`shared-coordinates`](../skills/revit/shared-coordinates/SKILL.md) | Revit | Đa bộ môn / Multi | Provides guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models |
 | [`clash-report-analysis`](../skills/navisworks/clash-report-analysis/SKILL.md) | Navisworks | Đa bộ môn / Multi | Analyzes and summarizes Navisworks clash detection reports (XML export from Clash Detective) |
 | [`model-federation`](../skills/navisworks/model-federation/SKILL.md) | Navisworks | Đa bộ môn / Multi | Federates multiple discipline models into a single coordination model (Navisworks NWF/NWD or ACC Model Coordination) — append order, file naming, refresh workflow, and a clash-readiness check of units, coordinates, and model freshness before running clash |
@@ -130,7 +135,7 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 | [`revit-warnings-audit`](../skills/revit/revit-warnings-audit/SKILL.md) | Revit | Đa bộ môn / Multi | Parses a Revit warnings export (the HTML file from Manage > Warnings > Export) and turns hundreds of raw warnings into a prioritized, grouped summary — counts by warning type, most frequent messages, and a severity bucket (high/medium/low) so the team knows what to fix first |
 | [`schedule-qa`](../skills/revit/schedule-qa/SKILL.md) | Revit | Đa bộ môn / Multi | Validates the data behind Revit schedules by checking a schedule exported to CSV/TSV against a rules file — required fields that must not be blank, allowed-value lists, and columns that must be unique (e.g. Mark). Reports each violation with its row so the model can be fixed before issue |
 
-### Standards — Tiêu chuẩn (6)
+### Standards — Tiêu chuẩn (7)
 
 | Skill | Phần mềm | Bộ môn | Tóm tắt / What it does |
 |-------|----------|--------|------------------------|
@@ -139,6 +144,7 @@ Skill được tổ chức **theo phần mềm** (thư mục `skills/<software>/
 | [`sheet-naming-check`](../skills/revit/sheet-naming-check/SKILL.md) | Revit | Đa bộ môn / Multi | Validates Revit/CAD sheet numbers and sheet names against a company standard (discipline-prefix number pattern, allowed disciplines, forbidden placeholder terms) and reports non-conforming and duplicate sheet numbers from an exported sheet list |
 | [`cobie-validation`](../skills/office-data/cobie-validation/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Validates a COBie sheet export (CSV) for completeness — required columns present, required cells non-empty, unique Name, CreatedBy is an email, and CreatedOn is a valid ISO 8601 date — for Facility, Floor, Space, Zone, Type, Component, and System sheets |
 | [`iso19650-naming-check`](../skills/office-data/iso19650-naming-check/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Validates information-container (file) names against the ISO 19650 / UK BIM Framework naming convention — the field-based code Project-Originator-Volume-Location-Type-Role-Number, plus optional suitability/status (S0, S2, A1…) and revision (P01, C01…) codes. Checks field count, field patterns, and known Type/Role code sets, reporting each bad name with the exact field that failed |
+| [`iso19650-project-audit`](../skills/office-data/iso19650-project-audit/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Audits a whole ISO 19650 CDE / container register (CSV) for project-level information-management conformance — metadata completeness, valid suitability and revision codes, ISO 8601 dates, and consistency between CDE state and suitability/revision — then scores overall conformance and can check delivered containers against an expected MIDP list |
 | [`spellcheck-review`](../skills/office-data/spellcheck-review/SKILL.md) | Office / CSV (agnostic) | Đa bộ môn / Multi | Spell-checks English text pulled from AEC documents and registers — sheet names, drawing notes, RFI/comment logs, specifications, schedule text — flagging common misspellings and repeated words, with an optional dictionary mode that also finds unknown words while ignoring AEC jargon via a glossary allowlist |
 
 ### Documentation — Tài liệu (4)
