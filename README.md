@@ -10,7 +10,7 @@ community-contributed skills.
 
 ## Có gì / What's inside
 ```
-skills/            5 nhóm phần mềm · 32 skill (xem docs/skill-taxonomy.md)
+skills/            5 nhóm phần mềm · 36 skill (xem docs/skill-taxonomy.md)
 scripts/           validate_skill.py + audit_skill.py + build_taxonomy.py
 .claude/agents/    skill-auditor — agent review bảo mật skill
 .github/           CI (skill-validation), CODEOWNERS, PR template
@@ -25,7 +25,7 @@ Skill chia thư mục **theo phần mềm** (`skills/<software>/`), và gắn **
 
 | Nhóm / group | Phần mềm | Skill |
 |--------------|----------|-------|
-| `revit` (14) | Revit / Dynamo / pyRevit | `revit-shared-parameters`, `revit-schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `revit-family-naming`, `revit-model-compare`, `revit-script-helper`, `revit-batch-export`, `revit-sheet-naming`, `revit-shared-coordinates`, `revit-duct-velocity`, `revit-cad-import`, `revit-image-drafting`, `revit-create-sheets` |
+| `revit` (16) | Revit / Dynamo / pyRevit | `revit-shared-parameters`, `revit-schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `revit-family-naming`, `revit-model-compare`, `revit-script-helper`, `revit-batch-export`, `revit-sheet-naming`, `revit-shared-coordinates`, `revit-duct-velocity`, `revit-cad-import`, `revit-image-drafting`, `revit-create-sheets`, `revit-spellcheck-review`, `revit-create-family` |
 | `navisworks` (2) | Navisworks | `clash-report-analysis`, `model-federation` |
 | `acc-bim360` (2) | Autodesk Construction Cloud / BIM 360 | `acc-issue-register`, `coordination-issue-log` |
 | `bluebeam-pdf` (2) | Bluebeam / PDF | `pdf-markup-compare`, `comment-aggregation` |
