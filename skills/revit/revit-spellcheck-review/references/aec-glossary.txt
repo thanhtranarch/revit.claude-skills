@@ -1,0 +1,78 @@
+# AEC glossary allowlist — từ chuyên ngành không tính là lỗi (chế độ --dict).
+# Mỗi dòng một từ (thường), không phân biệt hoa/thường. Dòng # là chú thích.
+# Bổ sung thuật ngữ/tên riêng của dự án bạn vào đây để giảm báo nhầm.
+
+# BIM / phần mềm
+revit
+navisworks
+dynamo
+pyrevit
+autodesk
+bimlink
+bluebeam
+ifc
+cobie
+worksharing
+workset
+worksets
+levelset
+
+# Bộ môn / thành phần
+mep
+hvac
+rebar
+formwork
+soffit
+plinth
+mullion
+transom
+parapet
+fascia
+cladding
+glazing
+curtainwall
+screed
+casework
+millwork
+ductwork
+pipework
+chiller
+ahu
+fcu
+vav
+busbar
+switchgear
+luminaire
+sprinkler
+standpipe
+downpipe
+plenum
+riser
+corbel
+
+# Tài liệu / quản lý
+rfi
+rfis
+submittal
+submittals
+punchlist
+snagging
+addendum
+addenda
+lod
+loi
+cde
+eir
+bep
+milestone
+deliverable
+deliverables
+buildability
+
+# Tên/viết tắt phổ biến
+arch
+struct
+elec
+mech
+plumb
+coord
