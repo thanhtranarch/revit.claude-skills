@@ -18,7 +18,7 @@ Kết quả cho: kích thước px, DPI, và **Width/Height** cần đặt (mm) 
 
 ## Bước 3 — trace
 - Vẽ **detail line / filled region** đè lên ảnh (drafting view là 2D, không phải model).
-- Nếu cần thành **model**: đo từ ảnh rồi dựng bằng skill `revit-model-from-cad` hoặc mô
+- Nếu cần thành **model**: đo từ ảnh rồi dựng bằng skill `revit-cad-import` hoặc mô
   hình hoá trực tiếp — ảnh drafting view không tạo hình học model.
 - Xong thì có thể **xoá ảnh** (giữ file nhẹ) — nét trace vẫn còn.
 

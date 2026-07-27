@@ -46,4 +46,4 @@ Xem thêm `references/rules-reference.md`.
 
 ## Ghi chú / Notes
 - Cần `pyyaml` (đã có trong `requirements.txt`). CSV đọc bằng thư viện chuẩn.
-- Chỉ kiểm dữ liệu đã export; để *sửa* trong model, dùng `revit-dynamo-pyrevit-helper`.
+- Chỉ kiểm dữ liệu đã export; để *sửa* trong model, dùng `revit-script-helper`.

@@ -1,5 +1,5 @@
 ---
-name: revit-comment-to-update-locations
+name: revit-comment-locations
 description: Turns review comments, markups, and RFIs (Bluebeam / ACC / BIM360 / RFI CSV exports) into a prioritized model-update punch list — pulling the location to fix (sheet, level, grid, room, Revit element ID) from dedicated columns or by parsing the comment text in English or Vietnamese, and flagging comments whose location cannot be resolved. Use when converting a review / markup / issue export into an actionable list of where to update the Revit model, or triaging comments by location and priority before a fixing session. Triggers on "comment to locations", "markup punch list", "where to update model", "review comments to actions", "punch list", "vị trí cần update", "comment thành việc cần sửa", "xuất vị trí sửa model".
 license: MIT
 metadata:

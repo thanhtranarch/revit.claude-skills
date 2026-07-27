@@ -1,5 +1,5 @@
 ---
-name: revit-sheet-naming-check
+name: revit-sheet-naming
 description: Validates Revit/CAD sheet numbers and sheet names against a company standard (discipline-prefix number pattern, allowed disciplines, forbidden placeholder terms) and reports non-conforming and duplicate sheet numbers from an exported sheet list. Use when enforcing a titleblock/sheet-numbering standard or auditing a sheet list before issue. Triggers on "sheet naming", "sheet number standard", "drawing register check", "duplicate sheet number", "chuẩn đặt tên sheet", "kiểm tra số bản vẽ".
 license: MIT
 metadata:

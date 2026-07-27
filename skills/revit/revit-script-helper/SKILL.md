@@ -1,6 +1,11 @@
 ---
-name: revit-dynamo-pyrevit-helper
-description: Help write, review, and troubleshoot Revit automation scripts using pyRevit (IronPython/CPython) or Dynamo Python nodes — common tasks like setting parameters in bulk, renaming views/sheets, exporting, and collecting elements by category. Use when the user is scripting Revit, mentions pyRevit, Dynamo, RevitAPI, FilteredElementCollector, Transaction, or wants to automate a repetitive Revit task. Triggers on "pyRevit", "Dynamo script", "Revit API", "automate Revit", "script Revit", "set parameter Revit", "viết script Revit".
+name: revit-script-helper
+description: Helps write, review, and troubleshoot Revit automation scripts using pyRevit (IronPython/CPython) or Dynamo Python nodes — common tasks like setting parameters in bulk, renaming views/sheets, exporting, and collecting elements by category. Use when the user is scripting Revit, mentions pyRevit, Dynamo, RevitAPI, FilteredElementCollector, Transaction, or wants to automate a repetitive Revit task. Triggers on "pyRevit", "Dynamo script", "Revit API", "automate Revit", "script Revit", "set parameter Revit", "viết script Revit".
+license: MIT
+metadata:
+  software: revit
+  discipline: multi
+  category: automation
 ---
 
 # Dynamo / pyRevit Helper — Trợ giúp script Revit

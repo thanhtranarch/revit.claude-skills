@@ -42,4 +42,4 @@ Mẫu mặc định: `{SheetNumber}-{SheetName}-{Revision}` (bỏ ký tự khôn
 
 ## Ghi chú / Notes
 - Đây là skill sinh-script (chạy trong Revit), không phải CLI của repo. Kết hợp
-  `revit-dynamo-pyrevit-helper` cho các tuỳ biến sâu hơn.
+  `revit-script-helper` cho các tuỳ biến sâu hơn.

@@ -8,12 +8,12 @@ chạy trong Revit hoặc là **checklist hướng dẫn**.
 ## Skills
 | Skill (gọi `/revit-authoring:<skill>`) | Loại | Làm gì |
 |-------|------|--------|
-| `revit-family-parameter-management` | ✅ chạy được | Phân tích shared parameter file: GUID/tên trùng, thiếu mô tả |
+| `revit-shared-parameters` | ✅ chạy được | Phân tích shared parameter file: GUID/tên trùng, thiếu mô tả |
 | `revit-schedule-qa` | ✅ chạy được | Validate schedule CSV theo rules (required/unique/allowed) |
 | `revit-warnings-audit` | ✅ chạy được | Gom nhóm & ưu tiên warning từ HTML export |
 | `revit-model-audit` | hướng dẫn | Checklist sức khoẻ model (file size, purge, CAD, in-place…) |
 | `revit-batch-export` | sinh script | Export hàng loạt sheet ra PDF/DWG/NWC/IFC theo tên chuẩn |
-| `revit-dynamo-pyrevit-helper` | sinh script | Viết/rà soát script pyRevit & Dynamo (Transaction, collector, units) |
+| `revit-script-helper` | sinh script | Viết/rà soát script pyRevit & Dynamo (Transaction, collector, units) |
 
 ## Cài đặt / install
 ```
@@ -32,8 +32,8 @@ pip install pyyaml   # cho revit-schedule-qa; các skill khác dùng thư viện
 
 ## Dùng thử các skill chạy được / try the runnable ones
 ```bash
-python skills/revit-family-parameter-management/scripts/analyze_shared_params.py \
-       skills/revit-family-parameter-management/assets/sample_shared_params.txt
+python skills/revit-shared-parameters/scripts/analyze_shared_params.py \
+       skills/revit-shared-parameters/assets/sample_shared_params.txt
 
 python skills/revit-schedule-qa/scripts/check_schedule.py \
        skills/revit-schedule-qa/assets/sample_schedule.csv --rules skills/revit-schedule-qa/assets/sample_rules.yaml

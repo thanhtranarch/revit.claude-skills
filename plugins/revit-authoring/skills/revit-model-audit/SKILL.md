@@ -20,7 +20,7 @@ Với từng mục: lệnh kiểm tra trong Revit, ngưỡng "đỏ", và cách 
 
 Kết hợp / combine with:
 - `revit-warnings-audit` — định lượng & ưu tiên warning từ file export.
-- `revit-dynamo-pyrevit-helper` — sinh script dọn dẹp hàng loạt (khi cần chạy trong Revit).
+- `revit-script-helper` — sinh script dọn dẹp hàng loạt (khi cần chạy trong Revit).
 
 ## Các trục kiểm chính / main axes
 1. **File size & performance** — dung lượng, thời gian mở/đồng bộ.

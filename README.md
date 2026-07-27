@@ -25,7 +25,7 @@ Skill chia thư mục **theo phần mềm** (`skills/<software>/`), và gắn **
 
 | Nhóm / group | Phần mềm | Skill |
 |--------------|----------|-------|
-| `revit` (14) | Revit / Dynamo / pyRevit | `revit-family-parameter-management`, `revit-schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `revit-family-naming-audit`, `revit-model-compare`, `revit-dynamo-pyrevit-helper`, `revit-batch-export`, `revit-sheet-naming-check`, `revit-shared-coordinates`, `revit-duct-velocity-check`, `revit-model-from-cad`, `revit-image-to-drafting-view`, `revit-sheets-from-list` |
+| `revit` (14) | Revit / Dynamo / pyRevit | `revit-shared-parameters`, `revit-schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `revit-family-naming`, `revit-model-compare`, `revit-script-helper`, `revit-batch-export`, `revit-sheet-naming`, `revit-shared-coordinates`, `revit-duct-velocity`, `revit-cad-import`, `revit-image-drafting`, `revit-create-sheets` |
 | `navisworks` (2) | Navisworks | `clash-report-analysis`, `model-federation` |
 | `acc-bim360` (2) | Autodesk Construction Cloud / BIM 360 | `acc-issue-register`, `coordination-issue-log` |
 | `bluebeam-pdf` (2) | Bluebeam / PDF | `pdf-markup-compare`, `comment-aggregation` |
