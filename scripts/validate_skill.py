@@ -55,6 +55,21 @@ BLOCKED_EXT = {
     ".scr", ".com", ".jar", ".msi", ".apk", ".bin", ".vbs", ".wsf",
 }
 
+# --- Quy ước đặt tên skill Revit / Revit skill naming convention -----------
+# Skill Revit (metadata.software == "revit") phải mang prefix theo BỘ MÔN, và
+# sau prefix đúng 2 đoạn: <prefix>-<a>-<b>. Prefix phải khớp discipline.
+#   rv-    ↔ multi (đa bộ môn / general)   ·  rvarc- ↔ architecture
+#   rvstr- ↔ structural                    ·  rvmep- ↔ mep
+REVIT_PREFIXES = ("rv", "rvarc", "rvstr", "rvmep")
+REVIT_PREFIX_BY_DISCIPLINE = {
+    "multi": "rv",
+    "architecture": "rvarc",
+    "structural": "rvstr",
+    "mep": "rvmep",
+}
+# <prefix>-<đoạn1>-<đoạn2> : prefix + đúng 2 đoạn kebab (không thừa, không thiếu).
+REVIT_NAME_RE = re.compile(r"^(rvarc|rvstr|rvmep|rv)-[a-z0-9]+-[a-z0-9]+$")
+
 
 class Finding:
     __slots__ = ("level", "skill", "path", "message")
@@ -162,6 +177,22 @@ def validate_skill(skill_dir: Path) -> list[Finding]:
                 if not isinstance(k, str) or not isinstance(v, str):
                     err(f"'metadata' phải toàn chuỗi→chuỗi (lỗi ở {k!r})", str(skill_md))
                     break
+
+    # --- Quy ước đặt tên Revit (chỉ áp cho skill software=revit) -----------
+    md_map = md if isinstance(md, dict) else {}
+    if md_map.get("software") == "revit" and isinstance(fm_name, str):
+        prefix = fm_name.split("-", 1)[0]
+        if prefix not in REVIT_PREFIXES:
+            err(f"Skill Revit phải dùng prefix theo bộ môn "
+                f"(rv-/rvarc-/rvstr-/rvmep-), không phải {prefix!r}-", str(skill_md))
+        elif not REVIT_NAME_RE.match(fm_name):
+            err(f"Tên skill Revit phải là <prefix>-<a>-<b> (đúng 2 đoạn sau "
+                f"prefix): {fm_name!r}", str(skill_md))
+        else:
+            want = REVIT_PREFIX_BY_DISCIPLINE.get(md_map.get("discipline"))
+            if want and prefix != want:
+                err(f"Prefix {prefix!r}- không khớp discipline "
+                    f"{md_map.get('discipline')!r} (cần {want!r}-)", str(skill_md))
 
     # --- allowed-tools (tuỳ chọn / optional) -------------------------------
     # Spec: chuỗi tách bằng dấu cách (thử nghiệm). Chấp nhận list cho tương thích.

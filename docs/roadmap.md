@@ -16,9 +16,9 @@ Trạng thái: 🟡 *planned* · 🟠 *scaffold* · 🟢 *runnable*
 
 ---
 
-## 1. 🟢 `revit-comment-locations` — Comment → vị trí cần update ✅ *đã build*
+## 1. 🟢 `rv-comment-locations` — Comment → vị trí cần update ✅ *đã build*
 **Nhóm:** `revit` · **category:** coordination ·
-**skill:** [`skills/revit/revit-comment-locations`](../skills/revit/revit-comment-locations/SKILL.md).
+**skill:** [`skills/revit/rv-comment-locations`](../skills/revit/rv-comment-locations/SKILL.md).
 
 Từ comment/markup review (Bluebeam CSV, ACC issues, RFI) → trích **vị trí cần cập
 nhật** trong model (sheet / level / grid / room / Element ID) từ cột chuyên dụng
@@ -30,29 +30,31 @@ hoặc **parse text song ngữ EN/VI**, sinh **punch list** "ở đâu, sửa g�
   grid/level → toạ độ thực trong model (nối với pyRevit `SelectElementsByIds`).
 - **Kế thừa:** `bluebeam-pdf/comment-aggregation` (gộp nguồn) → thêm lớp *định vị*.
 
-## 2. 🟡 `image-to-family` — Dựng Revit Family từ hình ảnh
-**Nhóm:** `revit` · **category:** automation · **cần Revit MCP:** ✅ (JSONtoFamily).
+## 2. 🟢 `rv-family-image` — Dựng Revit Family từ hình ảnh ✅ *đã thêm*
+**Nhóm:** `revit` · **discipline:** multi · **category:** automation ·
+**skill:** [`skills/revit/rv-family-image`](../skills/revit/rv-family-image/SKILL.md) ·
+**cần Revit MCP:** ✅ (T3Lab_Lite JSONtoFamily).
 
 Từ **ảnh tham chiếu** (đồ nội thất, thiết bị, cấu kiện) → sinh **Revit Family
 (.rfa)**: phân tích ảnh → JSON mô tả hình học/param → tạo family qua MCP.
 
-- **In:** 1 ảnh (+ kích thước/loại nếu có).
-- **Out:** `.rfa` + JSON mô tả.
-- **Kế thừa:** đã có tooling **T3Lab JSONtoFamily** qua MCP Revit (skill cá nhân
-  `revit-family-from-image`) → mục tiêu là bản **repo-hoá** có script/spec rõ,
-  test được, kèm quy tắc an toàn.
-- ⚠️ *Cần ảnh đầu vào cụ thể để chạy thật; hiện chưa có ảnh nào được cung cấp.*
+- **In:** 1 ảnh (+ kích thước/loại nếu có). **Out:** `.rfa` + JSON mô tả.
+- **Đã có:** repo-hoá từ tooling **T3Lab JSONtoFamily**, khai báo `compatibility` rõ.
+- **Còn để mở rộng:** spec/kiểm hình học, test tự động.
+- ⚠️ *Cần ảnh đầu vào cụ thể để chạy thật.*
 
-## 3. 🟡 `cad-to-model` — Ảnh / CAD → dựng lại công trình
-**Nhóm:** `revit` · **category:** automation · **cần Revit MCP:** ✅.
+## 3. 🟢 `rvstr-beam-cad` · `rvstr-column-tools` — CAD → cấu kiện Kết cấu ✅ *đã thêm*
+**Nhóm:** `revit` · **discipline:** structural · **category:** automation ·
+**skills:** [`rvstr-beam-cad`](../skills/revit/rvstr-beam-cad/SKILL.md),
+[`rvstr-column-tools`](../skills/revit/rvstr-column-tools/SKILL.md) · **cần Revit MCP:** ✅.
 
-Từ **DWG/CAD hoặc ảnh mặt bằng** → dựng lại cấu kiện Revit (wall, column, beam,
-grid) theo layer/nét: đọc CAD → nhận diện đối tượng → đặt phần tử qua MCP.
+Từ **DWG/CAD đã import** → dựng/hiệu chỉnh cấu kiện Revit kết cấu (beam, column,
+grid) theo layer/nét: đọc CAD → ghép nét → đặt phần tử qua MCP (trong `Transaction`).
 
-- **In:** DWG đã import (layer beam/column/wall) hoặc ảnh mặt bằng có tỉ lệ.
-- **Out:** phần tử Revit (structural/architectural) + log đối chiếu.
-- **Kế thừa:** tooling sẵn có `revit-beam-from-cad`, `revit-column-tools` (T3Lab)
-  → repo-hoá thành skill có quy trình + kiểm tra (pairing nét, z-offset, rotation…).
+- `rvstr-beam-cad`: ghép cặp nét song song → centerline → tạo Structural Beam + type, z-offset.
+- `rvstr-column-tools`: replace wall→column, extract toạ độ (snap grid), dim-to-grid.
+- **Còn để mở rộng:** nhận diện từ **ảnh mặt bằng**; kiểm rotation/độ phủ; mở rộng
+  sang Kiến trúc (prefix `rvarc-`).
 
 ## 4. 🟢 `iso19650-project-audit` — Kiểm tra ISO 19650 toàn dự án ✅ *đã build*
 **Nhóm:** `office-data` · **category:** standards ·

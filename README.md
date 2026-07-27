@@ -10,7 +10,7 @@ community-contributed skills.
 
 ## Có gì / What's inside
 ```
-skills/            5 nhóm phần mềm · 36 skill (xem docs/skill-taxonomy.md)
+skills/            5 nhóm phần mềm · 39 skill (xem docs/skill-taxonomy.md)
 scripts/           validate_skill.py + audit_skill.py + build_taxonomy.py
 .claude/agents/    skill-auditor — agent review bảo mật skill
 .github/           CI (skill-validation), CODEOWNERS, PR template
@@ -25,11 +25,15 @@ Skill chia thư mục **theo phần mềm** (`skills/<software>/`), và gắn **
 
 | Nhóm / group | Phần mềm | Skill |
 |--------------|----------|-------|
-| `revit` (16) | Revit / Dynamo / pyRevit | `revit-shared-parameters`, `revit-schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `revit-family-naming`, `revit-model-compare`, `revit-script-helper`, `revit-batch-export`, `revit-sheet-naming`, `revit-shared-coordinates`, `revit-duct-velocity`, `revit-cad-import`, `revit-image-drafting`, `revit-create-sheets`, `revit-spellcheck-review`, `revit-create-family` |
+| `revit` (20) | Revit / Dynamo / pyRevit | `rv-shared-parameters`, `rv-schedule-qa`, `rv-warnings-audit`, `rv-model-audit`, `rv-family-naming`, `rv-model-compare`, `rv-script-helper`, `rv-batch-export`, `rv-sheet-naming`, `rv-shared-coordinates`, `rv-comment-locations`, `rv-cad-import`, `rv-image-drafting`, `rv-create-sheets`, `rv-spellcheck-review`, `rv-create-family`, `rv-family-image`, `rvstr-beam-cad`, `rvstr-column-tools`, `rvmep-duct-velocity` |
 | `navisworks` (2) | Navisworks | `clash-report-analysis`, `model-federation` |
 | `acc-bim360` (2) | Autodesk Construction Cloud / BIM 360 | `acc-issue-register`, `coordination-issue-log` |
 | `bluebeam-pdf` (2) | Bluebeam / PDF | `pdf-markup-compare`, `comment-aggregation` |
 | `office-data` (13) | Excel / CSV (agnostic) | `rfi-tracker`, `risk-register`, `action-item-tracker`, `change-order-log`, `weekly-report`, `submittal-log`, `drawing-register-qa`, `iso19650-naming-check`, `iso19650-project-audit`, `cobie-validation`, `spellcheck-review`, `boq-compare`, `quantity-takeoff` |
+
+> **Skill Revit đặt tên theo bộ môn** — `rv-` (chung/đa bộ môn), `rvarc-` (Kiến
+> trúc), `rvstr-` (Kết cấu), `rvmep-` (MEP) — dạng `<prefix>-<a>-<b>` (đúng 2
+> đoạn), enforce bởi `validate_skill.py`. Luật: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 **3 bảng tra cứu** (theo phần mềm / bộ môn / tính chất) sinh tự động:
 [`docs/skill-taxonomy.md`](docs/skill-taxonomy.md) · lộ trình:
@@ -45,7 +49,7 @@ Thêm marketplace một lần, rồi cài từng plugin bạn cần:
 ```
 Hoặc nhờ Claude qua chat: *"Thêm marketplace t3lab-claude-skills rồi cài plugin
 revit-authoring."* Sau khi cài, Claude tự chọn skill theo `description`; gọi tay
-bằng `/<plugin>:<skill>` (vd `/revit-authoring:revit-schedule-qa`).
+bằng `/<plugin>:<skill>` (vd `/revit-authoring:rv-schedule-qa`).
 
 Thử/dev cục bộ không cần cài: `claude --plugin-dir ./plugins/revit-authoring`.
 
@@ -68,9 +72,9 @@ python skills/office-data/rfi-tracker/scripts/track_rfis.py \
        skills/office-data/rfi-tracker/assets/sample_rfis.csv --as-of 2026-07-24
 
 # So sánh 2 phiên bản model Revit (added/deleted/changed)
-python skills/revit/revit-model-compare/scripts/compare_models.py \
-       skills/revit/revit-model-compare/assets/sample_model_v1.csv \
-       skills/revit/revit-model-compare/assets/sample_model_v2.csv
+python skills/revit/rv-model-compare/scripts/compare_models.py \
+       skills/revit/rv-model-compare/assets/sample_model_v1.csv \
+       skills/revit/rv-model-compare/assets/sample_model_v2.csv
 ```
 
 ## Bảo mật / security (điểm nhấn)

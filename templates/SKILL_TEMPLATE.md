@@ -37,6 +37,9 @@ A short paragraph on what this skill helps with.
 
 ## Ghi chú / Notes
 - Chỉ có `name` + `description` là bắt buộc; các trường còn lại tuỳ chọn.
+- **Skill Revit** (`metadata.software: revit`): đặt tên `rv-/rvarc-/rvstr-/rvmep-`
+  + **đúng 2 đoạn** (`<prefix>-<a>-<b>`), prefix khớp `metadata.discipline` —
+  xem *Quy ước đặt tên skill Revit* trong `CONTRIBUTING.md`.
 - Giữ `SKILL.md` gọn (< 500 dòng) — tách chi tiết dài sang `references/`.
 - Không đưa lệnh nguy hiểm, gọi mạng ngoài, hay đọc secret vào skill.
 - Chạy `python scripts/validate_skill.py` và `python scripts/audit_skill.py`

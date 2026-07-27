@@ -35,7 +35,7 @@ checker for units, coordinates, and freshness.
 
 ## Nguyên tắc cốt lõi / core principles
 - **Một nguồn toạ độ**: mọi model dùng chung shared coordinates (xem skill
-  `revit-shared-coordinates`). Đơn vị thống nhất (thường mm).
+  `rv-shared-coordinates`). Đơn vị thống nhất (thường mm).
 - **Host federation**: NWF (Navisworks) *tham chiếu* file bộ môn → refresh được;
   NWD là ảnh chụp *đóng băng* để phát hành/lưu vết.
 - **Thứ tự append** theo bộ môn, tên file nhất quán, selection sets/search sets
@@ -48,5 +48,5 @@ checker for units, coordinates, and freshness.
 
 ## Ghi chú / Notes
 - Chỉ dùng thư viện chuẩn (`csv`, `datetime`).
-- Kết hợp: `revit-shared-coordinates` (toạ độ khớp) → `model-federation` (gộp) →
+- Kết hợp: `rv-shared-coordinates` (toạ độ khớp) → `model-federation` (gộp) →
   `clash-report-analysis` (đọc kết quả clash) → `coordination-issue-log` (giao việc).

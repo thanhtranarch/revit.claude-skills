@@ -8,12 +8,12 @@ chạy trong Revit hoặc là **checklist hướng dẫn**.
 ## Skills
 | Skill (gọi `/revit-authoring:<skill>`) | Loại | Làm gì |
 |-------|------|--------|
-| `revit-shared-parameters` | ✅ chạy được | Phân tích shared parameter file: GUID/tên trùng, thiếu mô tả |
-| `revit-schedule-qa` | ✅ chạy được | Validate schedule CSV theo rules (required/unique/allowed) |
-| `revit-warnings-audit` | ✅ chạy được | Gom nhóm & ưu tiên warning từ HTML export |
-| `revit-model-audit` | hướng dẫn | Checklist sức khoẻ model (file size, purge, CAD, in-place…) |
-| `revit-batch-export` | sinh script | Export hàng loạt sheet ra PDF/DWG/NWC/IFC theo tên chuẩn |
-| `revit-script-helper` | sinh script | Viết/rà soát script pyRevit & Dynamo (Transaction, collector, units) |
+| `rv-shared-parameters` | ✅ chạy được | Phân tích shared parameter file: GUID/tên trùng, thiếu mô tả |
+| `rv-schedule-qa` | ✅ chạy được | Validate schedule CSV theo rules (required/unique/allowed) |
+| `rv-warnings-audit` | ✅ chạy được | Gom nhóm & ưu tiên warning từ HTML export |
+| `rv-model-audit` | hướng dẫn | Checklist sức khoẻ model (file size, purge, CAD, in-place…) |
+| `rv-batch-export` | sinh script | Export hàng loạt sheet ra PDF/DWG/NWC/IFC theo tên chuẩn |
+| `rv-script-helper` | sinh script | Viết/rà soát script pyRevit & Dynamo (Transaction, collector, units) |
 
 ## Cài đặt / install
 ```
@@ -27,19 +27,19 @@ bằng `/revit-authoring:<skill>`.
 
 ## Python deps
 ```bash
-pip install pyyaml   # cho revit-schedule-qa; các skill khác dùng thư viện chuẩn
+pip install pyyaml   # cho rv-schedule-qa; các skill khác dùng thư viện chuẩn
 ```
 
 ## Dùng thử các skill chạy được / try the runnable ones
 ```bash
-python skills/revit-shared-parameters/scripts/analyze_shared_params.py \
-       skills/revit-shared-parameters/assets/sample_shared_params.txt
+python skills/rv-shared-parameters/scripts/analyze_shared_params.py \
+       skills/rv-shared-parameters/assets/sample_shared_params.txt
 
-python skills/revit-schedule-qa/scripts/check_schedule.py \
-       skills/revit-schedule-qa/assets/sample_schedule.csv --rules skills/revit-schedule-qa/assets/sample_rules.yaml
+python skills/rv-schedule-qa/scripts/check_schedule.py \
+       skills/rv-schedule-qa/assets/sample_schedule.csv --rules skills/rv-schedule-qa/assets/sample_rules.yaml
 
-python skills/revit-warnings-audit/scripts/parse_warnings.py \
-       skills/revit-warnings-audit/assets/sample_warnings.html
+python skills/rv-warnings-audit/scripts/parse_warnings.py \
+       skills/rv-warnings-audit/assets/sample_warnings.html
 ```
 
 ## Bảo mật / security
