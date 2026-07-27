@@ -67,8 +67,10 @@ class Skill:
 
 
 def short_summary(description: str) -> str:
-    """Lấy phần 'làm gì' (trước 'Use when') / the 'what' before 'Use when'."""
-    s = description.split(" Use when", 1)[0].strip()
+    """Lấy phần 'làm gì' (trước 'Use when') / the 'what' before 'Use when'.
+    Gộp mọi khoảng trắng/xuống dòng để không vỡ ô bảng Markdown."""
+    s = " ".join(description.split())
+    s = s.split(" Use when", 1)[0].strip()
     return s.rstrip(".").strip()
 
 
