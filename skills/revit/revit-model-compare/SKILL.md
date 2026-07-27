@@ -1,5 +1,5 @@
 ---
-name: model-compare
+name: revit-model-compare
 description: Compares two Revit element exports (old vs new snapshot) keyed by Element ID or GUID and reports what was added, deleted, or changed — including which fields changed from what to what — with an optional diff CSV. Use when QA-ing changes between two model versions or coordination rounds, or reviewing what moved between issues. Triggers on "model compare", "model diff", "what changed", "compare versions", "element diff", "so sánh model", "kiểm tra thay đổi model".
 license: MIT
 metadata:

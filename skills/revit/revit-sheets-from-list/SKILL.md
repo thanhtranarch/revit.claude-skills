@@ -1,5 +1,5 @@
 ---
-name: sheets-from-list
+name: revit-sheets-from-list
 description: Validates a sheet list from a CSV and generates a pyRevit script to batch-create Revit sheets — checks sheet numbers against a pattern, flags duplicates and missing names, groups counts by discipline, and emits a plan JSON that the bundled pyRevit template turns into ViewSheets (skipping numbers that already exist). Use when setting up many sheets at once from a drawing register or sheet schedule instead of creating them one by one. Triggers on "create sheets", "batch sheets", "sheets from list", "sheet register to Revit", "set up sheets", "tạo sheet hàng loạt", "dựng sheet từ danh sách".
 license: MIT
 metadata:
@@ -42,4 +42,4 @@ Rồi trong Revit chạy `templates/pyrevit_create_sheets.py` (đặt `PLAN=shee
 - Tự dò cột Sheet Number / Sheet Name / Titleblock / Discipline theo alias.
 - Template chạy **trong Revit** (pyRevit), dùng Transaction, **bỏ qua sheet trùng
   số** đã có; chọn đúng titleblock theo dự án trước khi chạy. Bổ trợ
-  `sheet-naming-check` (chuẩn số/tên) trước khi tạo.
+  `revit-sheet-naming-check` (chuẩn số/tên) trước khi tạo.

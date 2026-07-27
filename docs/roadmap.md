@@ -16,9 +16,9 @@ Trạng thái: 🟡 *planned* · 🟠 *scaffold* · 🟢 *runnable*
 
 ---
 
-## 1. 🟢 `comment-to-update-locations` — Comment → vị trí cần update ✅ *đã build*
+## 1. 🟢 `revit-comment-to-update-locations` — Comment → vị trí cần update ✅ *đã build*
 **Nhóm:** `revit` · **category:** coordination ·
-**skill:** [`skills/revit/comment-to-update-locations`](../skills/revit/comment-to-update-locations/SKILL.md).
+**skill:** [`skills/revit/revit-comment-to-update-locations`](../skills/revit/revit-comment-to-update-locations/SKILL.md).
 
 Từ comment/markup review (Bluebeam CSV, ACC issues, RFI) → trích **vị trí cần cập
 nhật** trong model (sheet / level / grid / room / Element ID) từ cột chuyên dụng
