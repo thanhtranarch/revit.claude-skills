@@ -1,112 +1,117 @@
 # t3lab-claude-skills
 
-Bộ **skill cho Claude** dùng trong ngành ACE/AEC — coordination, clash, Revit,
-so sánh markup PDF, tổng hợp comment, quản lý issue/RFI — kèm **lớp kiểm định
-bảo mật** để duyệt skill do người khác đóng góp (chống mã độc & prompt-injection).
+A library of **Claude Skills** for the ACE/AEC industry — coordination, clash
+detection, Revit, PDF markup comparison, comment aggregation, and issue/RFI
+management — plus a **security vetting layer** that audits community-contributed
+skills against malware and prompt-injection.
 
-A Claude Code **plugin marketplace** for the AEC industry: 5 plugins (one per
-domain) bundling Claude Skills, plus a **security vetting layer** to audit
-community-contributed skills.
+Packaged as a Claude Code **plugin marketplace**: 5 plugins (one per domain)
+that bundle these Claude Skills.
 
-## Có gì / What's inside
+## What's inside
 ```
-skills/            5 nhóm phần mềm · 39 skill (xem docs/skill-taxonomy.md)
-scripts/           validate_skill.py + audit_skill.py + build_taxonomy.py
-.claude/agents/    skill-auditor — agent review bảo mật skill
+skills/            5 software groups · 39 skills (see docs/skill-taxonomy.md)
+plugins/           5 marketplace plugins bundling a curated subset of the skills
+scripts/           validate_skill.py · audit_skill.py · build_taxonomy.py · validate_marketplace.py
+.claude/agents/    skill-auditor — security-review agent for skills
 .github/           CI (skill-validation), CODEOWNERS, PR template
 docs/              skill-taxonomy.md, roadmap.md, security-model.md
 templates/         SKILL_TEMPLATE.md
-tests/fixtures/    malicious-skill — mẫu độc để test auditor
+tests/fixtures/    malicious-skill — a hostile sample used to test the auditor
 ```
 
-## Năm nhóm phần mềm / five software groups
-Skill chia thư mục **theo phần mềm** (`skills/<software>/`), và gắn **metadata**
-(`software`, `discipline`, `category`) để tra cứu chéo theo *bộ môn* và *tính chất*.
+## Five software groups
+Skills are grouped **by software** (`skills/<software>/`) and tagged with
+**metadata** (`software`, `discipline`, `category`) so they can be
+cross-referenced by *discipline* and by *category*.
 
-| Nhóm / group | Phần mềm | Skill |
-|--------------|----------|-------|
+| Group | Software | Skills |
+|-------|----------|--------|
 | `revit` (20) | Revit / Dynamo / pyRevit | `rv-shared-parameters`, `rv-schedule-qa`, `rv-warnings-audit`, `rv-model-audit`, `rv-family-naming`, `rv-model-compare`, `rv-script-helper`, `rv-batch-export`, `rv-sheet-naming`, `rv-shared-coordinates`, `rv-comment-locations`, `rv-cad-import`, `rv-image-drafting`, `rv-create-sheets`, `rv-spellcheck-review`, `rv-create-family`, `rv-family-image`, `rvstr-beam-cad`, `rvstr-column-tools`, `rvmep-duct-velocity` |
 | `navisworks` (2) | Navisworks | `clash-report-analysis`, `model-federation` |
 | `acc-bim360` (2) | Autodesk Construction Cloud / BIM 360 | `acc-issue-register`, `coordination-issue-log` |
 | `bluebeam-pdf` (2) | Bluebeam / PDF | `pdf-markup-compare`, `comment-aggregation` |
-| `office-data` (13) | Excel / CSV (agnostic) | `rfi-tracker`, `risk-register`, `action-item-tracker`, `change-order-log`, `weekly-report`, `submittal-log`, `drawing-register-qa`, `iso19650-naming-check`, `iso19650-project-audit`, `cobie-validation`, `spellcheck-review`, `boq-compare`, `quantity-takeoff` |
+| `office-data` (13) | Excel / CSV (software-agnostic) | `rfi-tracker`, `risk-register`, `action-item-tracker`, `change-order-log`, `weekly-report`, `submittal-log`, `drawing-register-qa`, `iso19650-naming-check`, `iso19650-project-audit`, `cobie-validation`, `spellcheck-review`, `boq-compare`, `quantity-takeoff` |
 
-> **Skill Revit đặt tên theo bộ môn** — `rv-` (chung/đa bộ môn), `rvarc-` (Kiến
-> trúc), `rvstr-` (Kết cấu), `rvmep-` (MEP) — dạng `<prefix>-<a>-<b>` (đúng 2
-> đoạn), enforce bởi `validate_skill.py`. Luật: [`CONTRIBUTING.md`](CONTRIBUTING.md).
+> **Revit skills are named by discipline** — `rv-` (general / multi-discipline),
+> `rvarc-` (Architecture), `rvstr-` (Structural), `rvmep-` (MEP) — in the form
+> `<prefix>-<a>-<b>` (exactly two segments), enforced by `validate_skill.py`.
+> Rules: [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-**3 bảng tra cứu** (theo phần mềm / bộ môn / tính chất) sinh tự động:
-[`docs/skill-taxonomy.md`](docs/skill-taxonomy.md) · lộ trình:
+**Three lookup tables** (by software / discipline / category) are generated
+automatically: [`docs/skill-taxonomy.md`](docs/skill-taxonomy.md). Roadmap:
 [`docs/roadmap.md`](docs/roadmap.md).
 
-## Cài đặt / install (Claude Code plugin)
-Thêm marketplace một lần, rồi cài từng plugin bạn cần:
+## Install (Claude Code plugin)
+Add the marketplace once, then install the plugins you need:
 ```
-/plugin marketplace add thanhtranarch/t3lab-claude-skills
+/plugin marketplace add thanhtranarch/t3lab-claude.skills-revit
 /plugin install revit-authoring@t3lab-ace-skills
 /plugin install standards-qa@t3lab-ace-skills
 /reload-plugins
 ```
-Hoặc nhờ Claude qua chat: *"Thêm marketplace t3lab-claude-skills rồi cài plugin
-revit-authoring."* Sau khi cài, Claude tự chọn skill theo `description`; gọi tay
-bằng `/<plugin>:<skill>` (vd `/revit-authoring:rv-schedule-qa`).
+Or just ask Claude in chat: *"Add the t3lab-ace-skills marketplace and install
+the revit-authoring plugin."* Once installed, Claude selects skills automatically
+from their `description`; invoke one by hand with `/<plugin>:<skill>`
+(e.g. `/revit-authoring:rv-schedule-qa`).
 
-Thử/dev cục bộ không cần cài: `claude --plugin-dir ./plugins/revit-authoring`.
+To try or develop locally without installing:
+`claude --plugin-dir ./plugins/revit-authoring`.
 
-## Dùng nhanh (chạy script trực tiếp) / quick start
-Nhiều skill kèm script chạy được ngay trên dữ liệu mẫu:
+## Quick start (run the scripts directly)
+Many skills ship with scripts that run immediately on the bundled sample data:
 ```bash
 pip install -r requirements.txt
 
-# Ví dụ: phân tích report clash Navisworks
+# Example: analyze a Navisworks clash report
 python skills/navisworks/clash-report-analysis/scripts/parse_clash.py \
        skills/navisworks/clash-report-analysis/assets/sample_clash.xml
 
-# So sánh markup 2 bản PDF
+# Compare markups between two PDF revisions
 python skills/bluebeam-pdf/pdf-markup-compare/scripts/compare_markup.py \
        skills/bluebeam-pdf/pdf-markup-compare/assets/rev_a.pdf \
        skills/bluebeam-pdf/pdf-markup-compare/assets/rev_b.pdf
 
-# Theo dõi RFI: aging, quá hạn, ball-in-court
+# Track RFIs: aging, overdue, ball-in-court
 python skills/office-data/rfi-tracker/scripts/track_rfis.py \
        skills/office-data/rfi-tracker/assets/sample_rfis.csv --as-of 2026-07-24
 
-# So sánh 2 phiên bản model Revit (added/deleted/changed)
+# Compare two Revit model versions (added / deleted / changed)
 python skills/revit/rv-model-compare/scripts/compare_models.py \
        skills/revit/rv-model-compare/assets/sample_model_v1.csv \
        skills/revit/rv-model-compare/assets/sample_model_v2.csv
 ```
 
-## Bảo mật / security (điểm nhấn)
-Vì repo nhận skill từ nhiều người, mọi skill được kiểm định nhiều tầng trước
-khi merge — xem [`docs/security-model.md`](docs/security-model.md):
+## Security (the highlight)
+Because the repo accepts skills from many contributors, every skill is vetted in
+several layers before merge — see [`docs/security-model.md`](docs/security-model.md):
 
-1. `scripts/validate_skill.py` — cấu trúc & metadata SKILL.md.
-2. `scripts/audit_skill.py` — quét tĩnh mã độc / lệnh nguy hiểm / rò rỉ dữ liệu /
-   prompt-injection (regex + AST, chỉ stdlib + pyyaml).
-3. Agent `@skill-auditor` — review có ngữ cảnh, verdict PASS/FAIL.
-4. CI `.github/workflows/skill-validation.yml` — chạy tầng 1–2 trên mọi PR.
-5. `CODEOWNERS` — maintainer duyệt lần cuối.
+1. `scripts/validate_skill.py` — SKILL.md structure & metadata.
+2. `scripts/audit_skill.py` — static scan for malware / dangerous commands /
+   data exfiltration / prompt-injection (regex + AST, stdlib + pyyaml only).
+3. `@skill-auditor` agent — context-aware review with a PASS/FAIL verdict.
+4. CI `.github/workflows/skill-validation.yml` — runs layers 1–2 on every PR.
+5. `CODEOWNERS` — final maintainer sign-off.
 
 ```bash
-# Kiểm định manifest + toàn bộ skill:
+# Validate the manifest + every skill:
 python scripts/validate_marketplace.py
 python scripts/validate_skill.py plugins
 python scripts/audit_skill.py    plugins
 
-# Chứng minh auditor bắt được mã độc:
+# Prove the auditor catches malware:
 python scripts/audit_skill.py tests/fixtures/malicious-skill   # exit != 0
 ```
 
-## Đóng góp / contributing
-Xem [`CONTRIBUTING.md`](CONTRIBUTING.md). Tóm tắt: copy `templates/SKILL_TEMPLATE.md`,
-viết skill, chạy validate + audit, mở PR (CI + review sẽ kiểm định).
+## Contributing
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). In short: copy
+`templates/SKILL_TEMPLATE.md`, write your skill, run validate + audit, and open a
+PR (CI + review will vet it).
 
-## Yêu cầu / requirements
-Python 3.11+. Cài deps: `pip install -r requirements.txt`. Lớp kiểm định chỉ
-cần `pyyaml` + thư viện chuẩn.
+## Requirements
+Python 3.11+. Install dependencies with `pip install -r requirements.txt`. The
+vetting layer needs only `pyyaml` plus the standard library.
 
 ## License
-Phát hành theo giấy phép **MIT** — xem [`LICENSE`](LICENSE). Bạn được tự do
-dùng, sửa và chia sẻ; giữ lại dòng bản quyền & giấy phép.
-Released under the **MIT License** — see [`LICENSE`](LICENSE).
+Released under the **MIT License** — see [`LICENSE`](LICENSE). You are free to
+use, modify, and share it; keep the copyright and license notice.
