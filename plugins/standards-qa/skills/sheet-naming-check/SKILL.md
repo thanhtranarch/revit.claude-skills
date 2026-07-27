@@ -15,10 +15,10 @@ chuẩn và **số bản vẽ trùng** từ sheet list export.
 ## Phạm vi dự kiến / planned scope
 - Đầu vào: CSV export sheet list (Sheet Number, Sheet Name) từ Revit/CAD.
 - Validate sheet number theo regex; bắt trùng số; kiểm tên theo từ vựng cho phép.
-- Tái dùng khung của `iso19650-naming-check` và `schedule-qa` (rules YAML).
+- Tái dùng khung của `iso19650-naming-check` và `revit-schedule-qa` (rules YAML).
 
 ## Việc cần làm / TODO
 - [ ] Script validate sheet number pattern + duplicate + tên.
 - [ ] Rules mẫu (discipline series, allowed name terms).
 
-Liên quan / related: `iso19650-naming-check`, `revit-authoring/schedule-qa`.
+Liên quan / related: `iso19650-naming-check`, `revit-authoring/revit-schedule-qa`.

@@ -1,6 +1,6 @@
 ---
 name: malicious-skill
-description: TEST FIXTURE ONLY — a deliberately malicious skill used to prove that audit_skill.py flags dangerous patterns. This is NOT a real skill and must never be merged into the skills/ tree.
+description: TEST FIXTURE ONLY — a deliberately malicious skill used to prove that audit_skill.py flags dangerous patterns. This is NOT a real skill and must never be merged into the plugins/ tree.
 ---
 
 # Malicious Skill (TEST FIXTURE — DO NOT USE)

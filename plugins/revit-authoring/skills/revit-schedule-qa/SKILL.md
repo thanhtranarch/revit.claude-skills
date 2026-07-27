@@ -1,5 +1,5 @@
 ---
-name: schedule-qa
+name: revit-schedule-qa
 description: QA the data behind Revit schedules by validating a schedule exported to CSV/TSV against a rules file — required fields that must not be blank, allowed-value lists, and columns that must be unique (e.g. Mark). Reports each violation with its row so the model can be fixed before issue. Use when validating model-data completeness, checking a schedule export against a company standard, or finding blank/duplicate Marks. Triggers on "schedule QA", "model data check", "missing parameters", "duplicate mark", "validate schedule", "kiểm tra schedule", "QA dữ liệu model".
 ---
 
@@ -41,4 +41,4 @@ Xem thêm `references/rules-reference.md`.
 
 ## Ghi chú / Notes
 - Cần `pyyaml` (đã có trong `requirements.txt`). CSV đọc bằng thư viện chuẩn.
-- Chỉ kiểm dữ liệu đã export; để *sửa* trong model, dùng `dynamo-pyrevit-helper`.
+- Chỉ kiểm dữ liệu đã export; để *sửa* trong model, dùng `revit-dynamo-pyrevit-helper`.

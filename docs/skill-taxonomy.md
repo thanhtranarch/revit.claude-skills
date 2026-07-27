@@ -1,10 +1,12 @@
 # Skill Taxonomy — Bản đồ các bộ skill / Skill set map
 
-Tất cả skill nằm trong `skills/<bộ>/<tên-skill>/SKILL.md`. Mỗi **bộ (set)** gom
-skill theo lĩnh vực công việc trong ngành ACE/AEC.
+Repo là một **plugin marketplace** của Claude Code. Mỗi **bộ (set)** = một
+**plugin** trong `plugins/<bộ>/`; skill nằm trong `plugins/<bộ>/skills/<tên-skill>/SKILL.md`.
+Marketplace liệt kê ở `.claude-plugin/marketplace.json`; mỗi plugin có
+`.claude-plugin/plugin.json`. Skill được gọi dạng `/<bộ>:<tên-skill>`.
 
 ## Quy ước đặt tên / naming conventions
-- Thư mục skill = **kebab-case**, duy nhất trong repo (vd `clash-report-analysis`).
+- Thư mục skill = **kebab-case**, duy nhất trong plugin (vd `clash-report-analysis`).
 - `name` trong frontmatter **phải khớp** tên thư mục.
 - `description` nêu rõ *skill làm gì* + *khi nào dùng* + *từ khoá kích hoạt*
   (song ngữ nếu có thể) để Claude chọn đúng skill.
@@ -12,7 +14,7 @@ skill theo lĩnh vực công việc trong ngành ACE/AEC.
   `templates/`.
 - Skill chưa hoàn thiện đặt `status: scaffold` trong frontmatter.
 
-## Bốn bộ hiện có / four sets
+## Năm plugin hiện có / five plugins
 
 ### 1. `bim-coordination` — Coordination & Clash
 | Skill | Trạng thái | Mô tả ngắn |
@@ -23,14 +25,14 @@ skill theo lĩnh vực công việc trong ngành ACE/AEC.
 | `coordination-issue-log` | 🚧 scaffold | Biến clash thành issue log giao việc |
 
 ### 2. `revit-authoring` — Revit / Dynamo / pyRevit
-Bộ đầy đủ — xem [`skills/revit-authoring/README.md`](../skills/revit-authoring/README.md)
+Bộ đầy đủ — xem [`plugins/revit-authoring/README.md`](../plugins/revit-authoring/README.md)
 để biết cách cài đặt.
 
 | Skill | Trạng thái | Mô tả ngắn |
 |-------|-----------|------------|
-| `dynamo-pyrevit-helper` | ✅ mẫu+ref | Viết/rà soát script pyRevit & Dynamo |
-| `family-parameter-management` | ✅ chạy được | Phân tích shared parameter file (GUID/tên trùng, thiếu mô tả) |
-| `schedule-qa` | ✅ chạy được | Validate schedule CSV theo rules (required/unique/allowed) |
+| `revit-dynamo-pyrevit-helper` | ✅ mẫu+ref | Viết/rà soát script pyRevit & Dynamo |
+| `revit-family-parameter-management` | ✅ chạy được | Phân tích shared parameter file (GUID/tên trùng, thiếu mô tả) |
+| `revit-schedule-qa` | ✅ chạy được | Validate schedule CSV theo rules (required/unique/allowed) |
 | `revit-warnings-audit` | ✅ chạy được | Gom nhóm & ưu tiên warning từ HTML export |
 | `revit-model-audit` | ✅ hướng dẫn | Checklist sức khoẻ model (file size, purge, CAD…) |
 | `revit-batch-export` | ✅ mẫu+ref | Export hàng loạt sheet ra PDF/DWG/NWC/IFC theo tên chuẩn |
@@ -50,7 +52,7 @@ Bộ đầy đủ — xem [`skills/revit-authoring/README.md`](../skills/revit-a
 | `weekly-report` | 🚧 scaffold | Báo cáo trạng thái tuần đa nguồn |
 
 ### 5. `standards-qa` — Chuẩn & QA tài liệu/dữ liệu
-Bộ đầy đủ — xem [`skills/standards-qa/README.md`](../skills/standards-qa/README.md).
+Bộ đầy đủ — xem [`plugins/standards-qa/README.md`](../plugins/standards-qa/README.md).
 
 | Skill | Trạng thái | Mô tả ngắn |
 |-------|-----------|------------|
@@ -59,7 +61,9 @@ Bộ đầy đủ — xem [`skills/standards-qa/README.md`](../skills/standards-
 | `sheet-naming-check` | 🚧 scaffold | Kiểm chuẩn số/tên sheet & view, bắt trùng số |
 
 ## Mở rộng / how to grow
-1. Thêm bộ mới = thư mục con của `skills/` (vd `mep-systems`, `cost-qs`, `gis-civil`).
+1. Thêm bộ mới = plugin mới trong `plugins/` (vd `mep-systems`, `cost-qs`,
+   `gis-civil`): tạo `plugins/<bộ>/.claude-plugin/plugin.json` + `skills/`, rồi
+   thêm mục vào `.claude-plugin/marketplace.json`.
 2. Thêm skill = tạo thư mục + `SKILL.md` (copy `templates/SKILL_TEMPLATE.md`).
 3. Ưu tiên skill **có script chạy được** khi có thể; nếu không, làm skill hướng
    dẫn/checklist rõ ràng.

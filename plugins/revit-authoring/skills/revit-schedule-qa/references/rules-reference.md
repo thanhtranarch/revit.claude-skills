@@ -1,4 +1,4 @@
-# Rules file reference — schedule-qa
+# Rules file reference — revit-schedule-qa
 
 Rules là file YAML mô tả ràng buộc cho một schedule đã export ra CSV/TSV.
 

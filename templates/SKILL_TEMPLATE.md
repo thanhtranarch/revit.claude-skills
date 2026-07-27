@@ -31,6 +31,8 @@ A short paragraph on what this skill helps with.
 - `templates/` — mẫu file để người dùng chỉnh.
 
 ## Ghi chú / Notes
+- Đặt skill trong `plugins/<bộ>/skills/<tên-skill>/` (mỗi bộ = 1 plugin). Nếu là
+  bộ mới, thêm plugin vào `.claude-plugin/marketplace.json`.
 - Không đưa lệnh nguy hiểm, gọi mạng ngoài, hay đọc secret vào skill.
 - Chạy `python scripts/validate_skill.py` và `python scripts/audit_skill.py`
-  trỏ vào thư mục skill trước khi mở PR.
+  trỏ vào thư mục skill (+ `validate_marketplace.py`) trước khi mở PR.

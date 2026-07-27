@@ -1,0 +1,10 @@
+{
+  "name": "bim-coordination",
+  "description": "Coordination & clash cho BIM: phân tích report clash Navisworks (XML), thiết lập/QA shared coordinates, model federation, coordination issue log.",
+  "version": "1.0.0",
+  "author": {
+    "name": "thanhtranarch"
+  },
+  "license": "MIT",
+  "keywords": ["bim", "coordination", "clash", "navisworks", "aec"]
+}

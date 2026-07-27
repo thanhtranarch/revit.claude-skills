@@ -1,0 +1,10 @@
+{
+  "name": "standards-qa",
+  "description": "Chuẩn & QA tài liệu/dữ liệu: kiểm tên file theo ISO 19650, soát chính tả text AEC, kiểm chuẩn số/tên sheet.",
+  "version": "1.0.0",
+  "author": {
+    "name": "thanhtranarch"
+  },
+  "license": "MIT",
+  "keywords": ["iso19650", "standards", "qa", "spellcheck", "naming", "aec"]
+}

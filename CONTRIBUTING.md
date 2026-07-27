@@ -7,13 +7,15 @@ khi merge. Đọc `docs/security-model.md` để hiểu vì sao.
 
 ## Quy trình nhanh / quick flow
 1. Tạo branch từ `main`.
-2. Copy `templates/SKILL_TEMPLATE.md` vào `skills/<bộ>/<tên-skill>/SKILL.md`.
+2. Copy `templates/SKILL_TEMPLATE.md` vào `plugins/<plugin>/skills/<tên-skill>/SKILL.md`
+   (mỗi bộ = 1 plugin trong `plugins/`; skill mới thêm vào `skills/` của plugin đó).
 3. Viết skill (song ngữ Việt–Anh nếu được). Kèm `scripts/`, `references/`,
    `assets/` khi cần. Ưu tiên skill **có script chạy được**.
 4. Chạy kiểm định cục bộ:
    ```bash
-   python scripts/validate_skill.py skills/<bộ>/<tên-skill>
-   python scripts/audit_skill.py    skills/<bộ>/<tên-skill>
+   python scripts/validate_marketplace.py
+   python scripts/validate_skill.py plugins/<plugin>/skills/<tên-skill>
+   python scripts/audit_skill.py    plugins/<plugin>/skills/<tên-skill>
    ```
 5. Mở PR, điền checklist trong PR template.
 
@@ -44,8 +46,8 @@ PR  →  CI (validate + audit)  →  @skill-auditor (tác giả ngoài team)  �
 ## Chạy thử skill mẫu / try the sample skills
 ```bash
 pip install -r requirements.txt
-python skills/bim-coordination/clash-report-analysis/scripts/parse_clash.py \
-       skills/bim-coordination/clash-report-analysis/assets/sample_clash.xml
+python plugins/bim-coordination/skills/clash-report-analysis/scripts/parse_clash.py \
+       plugins/bim-coordination/skills/clash-report-analysis/assets/sample_clash.xml
 ```
 
 ## License của phần đóng góp / contribution license

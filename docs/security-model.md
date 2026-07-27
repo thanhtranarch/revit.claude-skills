@@ -30,8 +30,9 @@ Một Claude Skill có thể chứa **script chạy được** và **chỉ dẫn
    với mức HIGH/MEDIUM/LOW. Exit ≠ 0 khi vượt ngưỡng (mặc định: có HIGH).
 3. **Agent `skill-auditor`** (`.claude/agents/skill-auditor.md`) — rà soát thủ
    công có ngữ cảnh (nhóm 6–7 và mã tinh vi mà regex bỏ sót). Verdict PASS/FAIL.
-4. **CI `.github/workflows/skill-validation.yml`** — chạy tầng 1–2 tự động trên
-   mọi PR đụng `skills/**`; PR đỏ nếu vi phạm.
+4. **CI `.github/workflows/skill-validation.yml`** — chạy tầng 1–2 + kiểm
+   manifest (`validate_marketplace.py`) tự động trên mọi PR đụng `plugins/**`
+   hoặc `.claude-plugin/**`; PR đỏ nếu vi phạm.
 5. **`CODEOWNERS` + review người thật** — maintainer duyệt lần cuối trước merge.
 
 Không tầng nào là tuyệt đối — chúng bổ trợ nhau (defense in depth). Tầng tự
@@ -45,11 +46,12 @@ PR mở  ──►  CI: validate + audit  ──►  skill-auditor (tác giả l
 
 ## Chạy cục bộ / Run locally
 ```bash
-python scripts/validate_skill.py skills/<set>/<skill>
-python scripts/audit_skill.py    skills/<set>/<skill>
+python scripts/validate_skill.py plugins/<plugin>/skills/<skill>
+python scripts/audit_skill.py    plugins/<plugin>/skills/<skill>
 # hoặc quét toàn bộ / or scan everything:
-python scripts/validate_skill.py skills
-python scripts/audit_skill.py    skills
+python scripts/validate_marketplace.py
+python scripts/validate_skill.py plugins
+python scripts/audit_skill.py    plugins
 ```
 Trong Claude Code, gọi agent: `@skill-auditor` trỏ vào thư mục skill cần duyệt.
 
