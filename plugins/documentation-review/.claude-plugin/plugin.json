@@ -1,0 +1,10 @@
+{
+  "name": "documentation-review",
+  "description": "Tài liệu & markup: so sánh markup/annotation giữa 2 revision PDF, tổng hợp comment/RFI nhiều nguồn thành register Excel, submittal log.",
+  "version": "1.0.0",
+  "author": {
+    "name": "thanhtranarch"
+  },
+  "license": "MIT",
+  "keywords": ["pdf", "markup", "bluebeam", "comment", "rfi", "aec"]
+}

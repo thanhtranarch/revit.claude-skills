@@ -15,7 +15,9 @@ khi merge. Đọc `docs/security-model.md` để hiểu vì sao.
 4. Gắn `metadata` (`software`, `discipline`, `category`) — xem giá trị hợp lệ ở
    đầu `scripts/build_taxonomy.py` — rồi sinh lại bảng tra cứu:
    ```bash
-   python scripts/build_taxonomy.py            # cập nhật docs/skill-taxonomy.md
+   python scripts/validate_marketplace.py
+   python scripts/validate_skill.py plugins/<plugin>/skills/<tên-skill>
+   python scripts/audit_skill.py    plugins/<plugin>/skills/<tên-skill>
    ```
 5. Chạy kiểm định cục bộ:
    ```bash
@@ -55,8 +57,8 @@ PR  →  CI (validate + audit)  →  @skill-auditor (tác giả ngoài team)  �
 ## Chạy thử skill mẫu / try the sample skills
 ```bash
 pip install -r requirements.txt
-python skills/navisworks/clash-report-analysis/scripts/parse_clash.py \
-       skills/navisworks/clash-report-analysis/assets/sample_clash.xml
+python plugins/bim-coordination/skills/clash-report-analysis/scripts/parse_clash.py \
+       plugins/bim-coordination/skills/clash-report-analysis/assets/sample_clash.xml
 ```
 
 ## License của phần đóng góp / contribution license

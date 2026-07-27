@@ -4,8 +4,9 @@ Bộ **skill cho Claude** dùng trong ngành ACE/AEC — coordination, clash, Re
 so sánh markup PDF, tổng hợp comment, quản lý issue/RFI — kèm **lớp kiểm định
 bảo mật** để duyệt skill do người khác đóng góp (chống mã độc & prompt-injection).
 
-A library of **Claude Skills** for the AEC industry, plus a **security vetting
-layer** to audit community-contributed skills.
+A Claude Code **plugin marketplace** for the AEC industry: 5 plugins (one per
+domain) bundling Claude Skills, plus a **security vetting layer** to audit
+community-contributed skills.
 
 ## Có gì / What's inside
 ```
@@ -34,7 +35,22 @@ Skill chia thư mục **theo phần mềm** (`skills/<software>/`), và gắn **
 [`docs/skill-taxonomy.md`](docs/skill-taxonomy.md) · lộ trình:
 [`docs/roadmap.md`](docs/roadmap.md).
 
-## Dùng nhanh / quick start
+## Cài đặt / install (Claude Code plugin)
+Thêm marketplace một lần, rồi cài từng plugin bạn cần:
+```
+/plugin marketplace add thanhtranarch/t3lab-claude-skills
+/plugin install revit-authoring@t3lab-ace-skills
+/plugin install standards-qa@t3lab-ace-skills
+/reload-plugins
+```
+Hoặc nhờ Claude qua chat: *"Thêm marketplace t3lab-claude-skills rồi cài plugin
+revit-authoring."* Sau khi cài, Claude tự chọn skill theo `description`; gọi tay
+bằng `/<plugin>:<skill>` (vd `/revit-authoring:revit-schedule-qa`).
+
+Thử/dev cục bộ không cần cài: `claude --plugin-dir ./plugins/revit-authoring`.
+
+## Dùng nhanh (chạy script trực tiếp) / quick start
+Nhiều skill kèm script chạy được ngay trên dữ liệu mẫu:
 ```bash
 pip install -r requirements.txt
 
@@ -57,11 +73,6 @@ python skills/revit/model-compare/scripts/compare_models.py \
        skills/revit/model-compare/assets/sample_model_v2.csv
 ```
 
-### Dùng như Claude Skills
-Trong Claude Code, các skill trong `skills/` được Claude tự chọn theo
-`description`. Bạn cũng có thể chép một bộ vào `~/.claude/skills/` hoặc
-`.claude/skills/` của dự án khác để tái sử dụng.
-
 ## Bảo mật / security (điểm nhấn)
 Vì repo nhận skill từ nhiều người, mọi skill được kiểm định nhiều tầng trước
 khi merge — xem [`docs/security-model.md`](docs/security-model.md):
@@ -74,9 +85,10 @@ khi merge — xem [`docs/security-model.md`](docs/security-model.md):
 5. `CODEOWNERS` — maintainer duyệt lần cuối.
 
 ```bash
-# Kiểm định toàn bộ skill:
-python scripts/validate_skill.py skills
-python scripts/audit_skill.py    skills
+# Kiểm định manifest + toàn bộ skill:
+python scripts/validate_marketplace.py
+python scripts/validate_skill.py plugins
+python scripts/audit_skill.py    plugins
 
 # Chứng minh auditor bắt được mã độc:
 python scripts/audit_skill.py tests/fixtures/malicious-skill   # exit != 0

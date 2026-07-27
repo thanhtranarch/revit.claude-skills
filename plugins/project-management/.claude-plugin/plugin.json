@@ -1,0 +1,10 @@
+{
+  "name": "project-management",
+  "description": "Quản lý dự án AEC: chuẩn hoá export issue ACC/BIM360 + đánh dấu quá hạn, theo dõi RFI, báo cáo trạng thái tuần.",
+  "version": "1.0.0",
+  "author": {
+    "name": "thanhtranarch"
+  },
+  "license": "MIT",
+  "keywords": ["acc", "bim360", "issues", "rfi", "project-management", "aec"]
+}

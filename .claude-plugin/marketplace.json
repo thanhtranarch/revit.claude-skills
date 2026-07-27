@@ -1,0 +1,37 @@
+{
+  "name": "t3lab-ace-skills",
+  "owner": {
+    "name": "thanhtranarch"
+  },
+  "metadata": {
+    "description": "Claude Skills cho ngành ACE/AEC — coordination, Revit, tài liệu/markup, quản lý, chuẩn & QA. Claude Skills for the AEC industry.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "bim-coordination",
+      "source": "./plugins/bim-coordination",
+      "description": "Coordination & clash: phân tích report clash Navisworks, shared coordinates, model federation, coordination issue log."
+    },
+    {
+      "name": "revit-authoring",
+      "source": "./plugins/revit-authoring",
+      "description": "Revit / Dynamo / pyRevit: shared parameter audit, schedule QA, warnings audit, model health, batch export, script helper."
+    },
+    {
+      "name": "documentation-review",
+      "source": "./plugins/documentation-review",
+      "description": "Tài liệu & markup: so sánh markup 2 bản PDF, tổng hợp comment/RFI, submittal log."
+    },
+    {
+      "name": "project-management",
+      "source": "./plugins/project-management",
+      "description": "Quản lý dự án: chuẩn hoá issue ACC/BIM360 + overdue, RFI tracker, báo cáo tuần."
+    },
+    {
+      "name": "standards-qa",
+      "source": "./plugins/standards-qa",
+      "description": "Chuẩn & QA: kiểm tên file ISO 19650, soát chính tả tài liệu AEC, kiểm chuẩn số/tên sheet."
+    }
+  ]
+}

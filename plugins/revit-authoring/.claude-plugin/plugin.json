@@ -1,0 +1,10 @@
+{
+  "name": "revit-authoring",
+  "description": "Revit / Dynamo / pyRevit: phân tích shared parameter file, QA schedule, tổng hợp warnings, checklist model health, batch export sheet, và helper viết script.",
+  "version": "1.0.0",
+  "author": {
+    "name": "thanhtranarch"
+  },
+  "license": "MIT",
+  "keywords": ["revit", "dynamo", "pyrevit", "bim", "aec"]
+}

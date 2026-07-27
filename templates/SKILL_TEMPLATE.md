@@ -40,4 +40,4 @@ A short paragraph on what this skill helps with.
 - Giữ `SKILL.md` gọn (< 500 dòng) — tách chi tiết dài sang `references/`.
 - Không đưa lệnh nguy hiểm, gọi mạng ngoài, hay đọc secret vào skill.
 - Chạy `python scripts/validate_skill.py` và `python scripts/audit_skill.py`
-  trỏ vào thư mục skill trước khi mở PR.
+  trỏ vào thư mục skill (+ `validate_marketplace.py`) trước khi mở PR.

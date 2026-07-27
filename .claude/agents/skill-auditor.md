@@ -1,6 +1,6 @@
 ---
 name: skill-auditor
-description: Security review of a contributed Claude Skill before it is merged. Use when a new or modified skill is submitted (a PR touching skills/**), when the user asks to "audit", "review for malware", or "vet" a skill, or before trusting a skill from an unknown author. Read-only — it never executes skill code.
+description: Security review of a contributed Claude Skill before it is merged. Use when a new or modified skill is submitted (a PR touching plugins/**), when the user asks to "audit", "review for malware", or "vet" a skill, or before trusting a skill from an unknown author. Read-only — it never executes skill code.
 tools: Glob, Grep, Read, Bash
 model: sonnet
 ---
