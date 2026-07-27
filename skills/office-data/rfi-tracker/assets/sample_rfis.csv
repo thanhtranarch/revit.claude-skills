@@ -1,0 +1,11 @@
+RFI Number,Subject,Status,Ball in Court,Discipline,Submitted Date,Response Due,Closed Date,Cost Impact,Schedule Impact
+RFI-001,Beam-duct clash at Grid C,Open,Architect,Structural,2026-06-20,2026-06-30,,No,No
+RFI-002,Curtain wall anchor detail,Open,Engineer,Architecture,2026-07-01,2026-07-10,,Yes,No
+RFI-003,Slab edge dimension conflict,Answered,Contractor,Structural,2026-05-15,2026-05-25,2026-05-22,No,No
+RFI-004,Fire rating at stair core,Open,Architect,MEP,2026-07-05,2026-07-15,,No,Yes
+RFI-005,Electrical room clearance,Open,Engineer,MEP,2026-07-18,2026-07-28,,No,No
+RFI-006,Door hardware set mismatch,Closed,Contractor,Architecture,2026-06-01,2026-06-11,2026-06-09,No,No
+RFI-007,Underground utility conflict,Open,Owner,Civil,2026-06-10,2026-06-20,,Yes,Yes
+RFI-008,Ceiling height at lobby,Answered,Architect,Architecture,2026-07-02,2026-07-12,2026-07-14,No,No
+RFI-009,Rebar congestion at pile cap,Open,Engineer,Structural,2026-07-20,2026-07-30,,No,No
+RFI-010,Mechanical shaft size,Open,Architect,MEP,2026-05-28,2026-06-08,,Yes,Yes

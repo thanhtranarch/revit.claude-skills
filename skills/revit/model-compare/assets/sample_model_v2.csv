@@ -1,0 +1,6 @@
+Element ID,Category,Family,Type,Level,Comments
+100,Doors,AR_Door_Single,800x2100,Level 1,
+101,Doors,AR_Door_Single,900x2100,Level 1,
+102,Walls,Basic Wall,Generic 250,Level 1,Revised thickness
+104,Structural Columns,ST_Column_Rect,300x600,Level 2,
+105,Doors,AR_Door_Double,1600x2100,Level 1,

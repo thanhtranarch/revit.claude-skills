@@ -1,0 +1,4 @@
+Number,Subject,Comments,Author,Page,Status
+BB-1,Beam depth,Verify beam depth against structural,J. Tran,A-101,Open
+BB-2,Door clearance,Door swing conflicts with wall,J. Tran,A-102,Open
+BB-3,Coordinate MEP,Coordinate duct with structure,M. Le,A-101,Closed

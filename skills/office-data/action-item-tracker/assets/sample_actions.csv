@@ -1,0 +1,10 @@
+Item,Action,Owner,Status,Meeting,Priority,Raised Date,Due Date,Closed Date
+A-01,Confirm structural grid with client,K. Pham,Open,Coord #12,High,2026-07-01,2026-07-08,
+A-02,Issue revised MEP layout,M. Le,In Progress,Coord #12,High,2026-07-01,2026-07-15,
+A-03,Update door schedule,J. Tran,Closed,Coord #11,Medium,2026-06-15,2026-06-22,2026-06-20
+A-04,Resolve fire-rating query,M. Le,Open,Coord #12,High,2026-06-20,2026-06-30,
+A-05,Coordinate ceiling void,J. Tran,Open,Coord #13,Medium,2026-07-18,2026-07-28,
+A-06,Send RFI on slab edge,K. Pham,Open,Coord #11,Low,2026-06-10,2026-06-24,
+A-07,Approve shop drawings,Owner,In Progress,Coord #13,Medium,2026-07-20,2026-08-01,
+A-08,Verify survey benchmark,K. Pham,Closed,Coord #10,High,2026-05-28,2026-06-05,2026-06-04
+A-09,Update clash matrix,M. Le,Open,Coord #13,Low,2026-07-19,2026-07-30,

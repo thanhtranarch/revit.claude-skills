@@ -10,26 +10,30 @@ community-contributed skills.
 
 ## Có gì / What's inside
 ```
-.claude-plugin/marketplace.json   catalog liệt kê 5 plugin
-plugins/<bộ>/                     mỗi bộ = 1 plugin (.claude-plugin/plugin.json + skills/)
-scripts/                          validate_skill.py, audit_skill.py, validate_marketplace.py
-.claude/agents/                   skill-auditor — agent review bảo mật skill (dev-tooling)
-.github/                          CI (skill-validation), CODEOWNERS, PR template
-docs/                             skill-taxonomy.md, security-model.md
-templates/                        SKILL_TEMPLATE.md
-tests/fixtures/                   malicious-skill — mẫu độc để test auditor
+skills/            5 nhóm phần mềm · 32 skill (xem docs/skill-taxonomy.md)
+scripts/           validate_skill.py + audit_skill.py + build_taxonomy.py
+.claude/agents/    skill-auditor — agent review bảo mật skill
+.github/           CI (skill-validation), CODEOWNERS, PR template
+docs/              skill-taxonomy.md, roadmap.md, security-model.md
+templates/         SKILL_TEMPLATE.md
+tests/fixtures/    malicious-skill — mẫu độc để test auditor
 ```
 
-## Năm plugin / five plugins
-| Plugin | Nội dung | Skill chạy được |
-|--------|----------|-----------------|
-| `bim-coordination` | Clash & coordination | `clash-report-analysis`, `shared-coordinates` |
-| `revit-authoring` | Revit / Dynamo / pyRevit | `revit-family-parameter-management`, `revit-schedule-qa`, `revit-warnings-audit`, `revit-dynamo-pyrevit-helper`, `revit-batch-export` |
-| `documentation-review` | Markup & comment | `pdf-markup-compare`, `comment-aggregation` |
-| `project-management` | ACC/BIM360 & Excel | `acc-issue-register` |
-| `standards-qa` | Chuẩn & QA tài liệu | `iso19650-naming-check`, `spellcheck-review` |
+## Năm nhóm phần mềm / five software groups
+Skill chia thư mục **theo phần mềm** (`skills/<software>/`), và gắn **metadata**
+(`software`, `discipline`, `category`) để tra cứu chéo theo *bộ môn* và *tính chất*.
 
-Bản đồ đầy đủ + skill scaffold: [`docs/skill-taxonomy.md`](docs/skill-taxonomy.md).
+| Nhóm / group | Phần mềm | Skill |
+|--------------|----------|-------|
+| `revit` (14) | Revit / Dynamo / pyRevit | `family-parameter-management`, `schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `family-naming-audit`, `model-compare`, `dynamo-pyrevit-helper`, `revit-batch-export`, `sheet-naming-check`, `shared-coordinates`, `duct-velocity-check`, `model-from-cad`, `image-to-drafting-view`, `sheets-from-list` |
+| `navisworks` (2) | Navisworks | `clash-report-analysis`, `model-federation` |
+| `acc-bim360` (2) | Autodesk Construction Cloud / BIM 360 | `acc-issue-register`, `coordination-issue-log` |
+| `bluebeam-pdf` (2) | Bluebeam / PDF | `pdf-markup-compare`, `comment-aggregation` |
+| `office-data` (13) | Excel / CSV (agnostic) | `rfi-tracker`, `risk-register`, `action-item-tracker`, `change-order-log`, `weekly-report`, `submittal-log`, `drawing-register-qa`, `iso19650-naming-check`, `iso19650-project-audit`, `cobie-validation`, `spellcheck-review`, `boq-compare`, `quantity-takeoff` |
+
+**3 bảng tra cứu** (theo phần mềm / bộ môn / tính chất) sinh tự động:
+[`docs/skill-taxonomy.md`](docs/skill-taxonomy.md) · lộ trình:
+[`docs/roadmap.md`](docs/roadmap.md).
 
 ## Cài đặt / install (Claude Code plugin)
 Thêm marketplace một lần, rồi cài từng plugin bạn cần:
@@ -50,12 +54,23 @@ Nhiều skill kèm script chạy được ngay trên dữ liệu mẫu:
 ```bash
 pip install -r requirements.txt
 
-python plugins/bim-coordination/skills/clash-report-analysis/scripts/parse_clash.py \
-       plugins/bim-coordination/skills/clash-report-analysis/assets/sample_clash.xml
+# Ví dụ: phân tích report clash Navisworks
+python skills/navisworks/clash-report-analysis/scripts/parse_clash.py \
+       skills/navisworks/clash-report-analysis/assets/sample_clash.xml
 
-python plugins/documentation-review/skills/pdf-markup-compare/scripts/compare_markup.py \
-       plugins/documentation-review/skills/pdf-markup-compare/assets/rev_a.pdf \
-       plugins/documentation-review/skills/pdf-markup-compare/assets/rev_b.pdf
+# So sánh markup 2 bản PDF
+python skills/bluebeam-pdf/pdf-markup-compare/scripts/compare_markup.py \
+       skills/bluebeam-pdf/pdf-markup-compare/assets/rev_a.pdf \
+       skills/bluebeam-pdf/pdf-markup-compare/assets/rev_b.pdf
+
+# Theo dõi RFI: aging, quá hạn, ball-in-court
+python skills/office-data/rfi-tracker/scripts/track_rfis.py \
+       skills/office-data/rfi-tracker/assets/sample_rfis.csv --as-of 2026-07-24
+
+# So sánh 2 phiên bản model Revit (added/deleted/changed)
+python skills/revit/model-compare/scripts/compare_models.py \
+       skills/revit/model-compare/assets/sample_model_v1.csv \
+       skills/revit/model-compare/assets/sample_model_v2.csv
 ```
 
 ## Bảo mật / security (điểm nhấn)

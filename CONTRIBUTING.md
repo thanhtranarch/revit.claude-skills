@@ -7,25 +7,36 @@ khi merge. Đọc `docs/security-model.md` để hiểu vì sao.
 
 ## Quy trình nhanh / quick flow
 1. Tạo branch từ `main`.
-2. Copy `templates/SKILL_TEMPLATE.md` vào `plugins/<plugin>/skills/<tên-skill>/SKILL.md`
-   (mỗi bộ = 1 plugin trong `plugins/`; skill mới thêm vào `skills/` của plugin đó).
+2. Copy `templates/SKILL_TEMPLATE.md` vào `skills/<software>/<tên-skill>/SKILL.md`
+   (nhóm theo **phần mềm**: `revit`, `navisworks`, `acc-bim360`, `bluebeam-pdf`,
+   `office-data`).
 3. Viết skill (song ngữ Việt–Anh nếu được). Kèm `scripts/`, `references/`,
    `assets/` khi cần. Ưu tiên skill **có script chạy được**.
-4. Chạy kiểm định cục bộ:
+4. Gắn `metadata` (`software`, `discipline`, `category`) — xem giá trị hợp lệ ở
+   đầu `scripts/build_taxonomy.py` — rồi sinh lại bảng tra cứu:
    ```bash
    python scripts/validate_marketplace.py
    python scripts/validate_skill.py plugins/<plugin>/skills/<tên-skill>
    python scripts/audit_skill.py    plugins/<plugin>/skills/<tên-skill>
    ```
-5. Mở PR, điền checklist trong PR template.
+5. Chạy kiểm định cục bộ:
+   ```bash
+   python scripts/validate_skill.py skills/<software>/<tên-skill>
+   python scripts/audit_skill.py    skills/<software>/<tên-skill>
+   ```
+6. Mở PR, điền checklist trong PR template.
 
 ## Quy tắc viết skill / skill rules
-- Thư mục kebab-case, duy nhất; `name` trong frontmatter khớp thư mục.
-- `description` nêu rõ *làm gì + khi nào dùng + từ khoá kích hoạt*.
+- Thư mục kebab-case, duy nhất; `name` trong frontmatter khớp thư mục (≤64 ký tự).
+- `description` (≤1024 ký tự) viết **ngôi thứ ba**, nêu rõ *làm gì* + *khi nào
+  dùng* (`Use when …`) + *từ khoá kích hoạt*. VD: `Analyzes …. Use when …. Triggers on …`.
+- Trường tuỳ chọn theo spec: `license`, `compatibility` (≤500 ký tự),
+  `metadata` (map chuỗi→chuỗi), `allowed-tools`. **Không** thêm key top-level
+  ngoài spec (validator sẽ cảnh báo).
 - Script **chỉ dùng thư viện đã khai báo** trong `requirements.txt`. Ưu tiên
   thư viện chuẩn.
 - Kèm dữ liệu mẫu nhỏ trong `assets/` để test được ngay.
-- Skill chưa hoàn thiện: đặt `status: scaffold`.
+- Skill chưa hoàn thiện: đặt `status: scaffold` **trong `metadata`**.
 
 ## Điều TUYỆT ĐỐI KHÔNG / hard NO
 - Lệnh tải & chạy từ mạng (`curl … | bash`), thực thi động (`eval`/`exec`).
