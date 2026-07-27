@@ -25,7 +25,7 @@ Skill chia thư mục **theo phần mềm** (`skills/<software>/`), và gắn **
 
 | Nhóm / group | Phần mềm | Skill |
 |--------------|----------|-------|
-| `revit` (14) | Revit / Dynamo / pyRevit | `family-parameter-management`, `schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `family-naming-audit`, `model-compare`, `dynamo-pyrevit-helper`, `revit-batch-export`, `sheet-naming-check`, `shared-coordinates`, `duct-velocity-check`, `model-from-cad`, `image-to-drafting-view`, `sheets-from-list` |
+| `revit` (14) | Revit / Dynamo / pyRevit | `revit-shared-parameters`, `revit-schedule-qa`, `revit-warnings-audit`, `revit-model-audit`, `revit-family-naming`, `revit-model-compare`, `revit-script-helper`, `revit-batch-export`, `revit-sheet-naming`, `revit-shared-coordinates`, `revit-duct-velocity`, `revit-cad-import`, `revit-image-drafting`, `revit-create-sheets` |
 | `navisworks` (2) | Navisworks | `clash-report-analysis`, `model-federation` |
 | `acc-bim360` (2) | Autodesk Construction Cloud / BIM 360 | `acc-issue-register`, `coordination-issue-log` |
 | `bluebeam-pdf` (2) | Bluebeam / PDF | `pdf-markup-compare`, `comment-aggregation` |
@@ -68,9 +68,9 @@ python skills/office-data/rfi-tracker/scripts/track_rfis.py \
        skills/office-data/rfi-tracker/assets/sample_rfis.csv --as-of 2026-07-24
 
 # So sánh 2 phiên bản model Revit (added/deleted/changed)
-python skills/revit/model-compare/scripts/compare_models.py \
-       skills/revit/model-compare/assets/sample_model_v1.csv \
-       skills/revit/model-compare/assets/sample_model_v2.csv
+python skills/revit/revit-model-compare/scripts/compare_models.py \
+       skills/revit/revit-model-compare/assets/sample_model_v1.csv \
+       skills/revit/revit-model-compare/assets/sample_model_v2.csv
 ```
 
 ## Bảo mật / security (điểm nhấn)

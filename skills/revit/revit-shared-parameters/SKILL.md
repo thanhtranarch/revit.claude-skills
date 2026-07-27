@@ -1,5 +1,5 @@
 ---
-name: family-parameter-management
+name: revit-shared-parameters
 description: Audits and standardizes Revit shared parameters and family/project parameters. Analyzes a Revit shared parameter file (the tab-delimited .txt exported from Manage > Shared Parameters) to find duplicate GUIDs, duplicate names, missing descriptions, and group/data-type breakdowns; also gives guidance on type-vs-instance and naming standards. Use when cleaning up parameters, enforcing a company standard, or debugging shared-parameter issues. Triggers on "shared parameters", "family parameters", "parameter standard", "shared parameter file", "duplicate GUID", "chuẩn hoá parameter", "quản lý parameter Revit".
 license: MIT
 metadata:
@@ -51,4 +51,4 @@ Audit & standardize Revit shared/family parameters.
 ## Ghi chú / Notes
 - Chỉ dùng thư viện chuẩn. Xem `references/shared-parameter-format.md` để hiểu
   định dạng file. Việc *sửa* param trong model cần chạy trong Revit — dùng
-  skill `dynamo-pyrevit-helper` để sinh script.
+  skill `revit-script-helper` để sinh script.

@@ -4,7 +4,7 @@ Theo thứ tự. Mỗi mục: **việc làm** · **vì sao** · **ngưỡng/quy 
 
 ## 1. Chuẩn bị toạ độ & đơn vị / coordinates & units
 - Mọi model **Acquire Coordinates** từ một model chủ (site/kiến trúc) — xem skill
-  `shared-coordinates`.
+  `revit-shared-coordinates`.
 - Đơn vị dự án thống nhất (thường **mm**); tránh model mét lẫn milimét.
 - Chạy `check_model_list.py` để bắt lệch đơn vị/toạ độ trước khi append.
 
@@ -36,5 +36,5 @@ Theo thứ tự. Mỗi mục: **việc làm** · **vì sao** · **ngưỡng/quy 
 - Kết quả clash → gán thành **Issues** (xem `coordination-issue-log`).
 
 ---
-Kết hợp: `shared-coordinates` → `model-federation` → `clash-report-analysis` →
+Kết hợp: `revit-shared-coordinates` → `model-federation` → `clash-report-analysis` →
 `coordination-issue-log`.

@@ -1,5 +1,5 @@
 ---
-name: image-to-drafting-view
+name: revit-image-drafting
 description: Computes the placement size to bring a raster image (sketch, scan, reference photo) into a Revit drafting view for tracing — reads PNG/JPEG/GIF/BMP pixel dimensions and DPI with the standard library (no Pillow) and returns the Width/Height to set so the image represents a chosen real-world size, plus how big it prints on a sheet at a given scale; ships a pyRevit template that creates the drafting view and places the image. Use when converting an image or sketch into a drafting view, setting up an underlay to trace, or scaling a scanned drawing. Triggers on "image to drafting view", "convert image to draftingview", "place image in Revit", "trace image", "scale scanned drawing", "underlay", "convert ảnh thành drafting view", "chèn ảnh vào Revit".
 license: MIT
 metadata:

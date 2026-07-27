@@ -1,5 +1,5 @@
 ---
-name: shared-coordinates
+name: revit-shared-coordinates
 description: Provides guidance and a verification checklist for setting up and QA-ing shared coordinates across a multi-model BIM project — survey point, project base point, true north vs project north, and acquire/publish coordinates between host and linked models. Use when the user is setting up coordinates, links do not line up, models appear offset or rotated, or they ask how to acquire/publish coordinates. Triggers on "shared coordinates", "survey point", "project base point", "acquire coordinates", "models not aligned", "toạ độ chung", "coordinate setup".
 license: MIT
 metadata:
@@ -56,5 +56,5 @@ lệch (dùng làm gate trước federate/clash).
 
 ## Ghi chú / Notes
 - Script chỉ dùng thư viện chuẩn (`csv`); dung sai theo đơn vị dữ liệu (thường mm).
-- Kết hợp: `shared-coordinates` (toạ độ khớp) → `model-federation` (gộp) →
+- Kết hợp: `revit-shared-coordinates` (toạ độ khớp) → `model-federation` (gộp) →
   `clash-report-analysis` (check clash có nghĩa).

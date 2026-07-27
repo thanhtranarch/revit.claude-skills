@@ -1,5 +1,5 @@
 ---
-name: model-from-cad
+name: revit-cad-import
 description: Kick-starts building a Revit model from an imported CAD drawing — parses an ASCII DXF to inventory layers and entities (lines, polylines, blocks, text), total lengths, and a bounding box, then emits a build-plan JSON (line segments and block insertion points per layer) that the bundled pyRevit and Dynamo templates consume to create walls from lines and columns from blocks. Use when converting a 2D CAD plan into model elements or auditing a CAD import before modelling. Triggers on "model from CAD", "walls from CAD", "columns from CAD", "DXF to Revit", "build model from drawing", "dựng model từ CAD", "tạo tường từ CAD", "dựng model từ hình vẽ".
 license: MIT
 metadata:

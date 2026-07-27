@@ -1,5 +1,5 @@
 ---
-name: duct-velocity-check
+name: revit-duct-velocity
 description: Checks HVAC duct air velocity and aspect ratio from a duct schedule export — computing velocity from airflow and cross-section (rectangular W×H or round Ø), flagging over-velocity (noise/pressure) and high aspect ratios, with configurable limits and airflow units (l/s, CFM, m3/h). Use when QA-ing duct sizing or reviewing an MEP duct schedule. Triggers on "duct velocity", "duct sizing", "aspect ratio", "air velocity check", "duct schedule QA", "kiểm tra vận tốc ống gió", "size ống gió".
 license: MIT
 metadata:

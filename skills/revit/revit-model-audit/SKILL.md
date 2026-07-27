@@ -37,7 +37,7 @@ A structured Revit model-health checklist with the commands and thresholds.
 
 Kết hợp / combine with:
 - `revit-warnings-audit` — định lượng & ưu tiên warning từ file export.
-- `dynamo-pyrevit-helper` — sinh script thu thập số liệu / dọn dẹp trong Revit.
+- `revit-script-helper` — sinh script thu thập số liệu / dọn dẹp trong Revit.
 
 ## Các trục kiểm chính / main axes
 1. **File size & performance** — dung lượng, thời gian mở/đồng bộ.
