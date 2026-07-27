@@ -1,6 +1,6 @@
 # t3lab-claude-skills
 
-A library of **Claude Skills** for the ACE/AEC industry — coordination, clash
+A library of **Claude Skills** for the AEC industry — coordination, clash
 detection, Revit, PDF markup comparison, comment aggregation, and issue/RFI
 management — plus a **security vetting layer** that audits community-contributed
 skills against malware and prompt-injection.
